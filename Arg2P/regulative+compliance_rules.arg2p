@@ -1,0 +1,67 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Article 1. The Licensor grants the Licensee a licence to evaluate the Product.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+art1a: evaluate(Ev), hasAgent(Ev,X), licensee(X), hasTheme(Ev,P), product(P) => o(-evaluate(Ev)).
+
+art1b: evaluate(Ev), hasAgent(Ev,X), licensee(X), hasTheme(Ev,P), product(P), isLicenceOf(L,P), licence(L), hasTheme(Eg,L), hasAgent(Eg,Y), licensor(Y), grant(Eg), rexist(Eg), hasReceiver(Eg,X) => p(evaluate(Ev)).
+sup(art1b, art1a).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Article 2. The Licensee must not publish the results of the evaluation of the Product without the approval of the Licensor.
+%           If the Licensee publishes results of the evaluation of the Product without approval from the Licensor, 
+%           the material must be removed.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+art2aPart1: evaluate(Ev), rexist(Ev), hasResult(Ev,R), result(R), publish(Ep), hasAgent(Ep,X), licensee(X), hasTheme(Ep,R) => condition_2(Ep,X,R).
+art2aPart2: condition_2(Ep,X,R) => o(-publish(Ep)).
+
+art2b: approve(Ea), rexist(Ea), hasTheme(Ea,Ep), hasAgent(Ea,Y), licensor(Y), publish(Ep), hasAgent(Ep,X), licensee(X), hasTheme(Ep,R), result(R), hasResult(Ev,R), evaluate(Ev), rexist(Ev) => p(publish(Ep)).
+sup(art2b, art2aPart2).
+
+art2cPart1: condition_2(Ep,X,R), o(-publish(Ep)), rexist(Ep) => o(remove(ca(Ep,X,R))).
+art2cPart2: condition_2(Ep,X,R), o(-publish(Ep)), rexist(Ep) => remove(ca(Ep,X,R)).
+art2cPart3: condition_2(Ep,X,R), o(-publish(Ep)), rexist(Ep) => hasTheme(ca(Ep,X,R),R).
+art2cPart4: condition_2(Ep,X,R), o(-publish(Ep)), rexist(Ep) => hasAgent(ca(Ep,X,R),X).
+art2e: condition_2(Ep,X,R), o(-publish(Ep)), rexist(Ep) => compensate(ca(Ep,X,R),Ep).
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Article 3. The Licensee must not publish comments on the evaluation of the Product,
+%            unless the Licensee is permitted to publish the results of the evaluation.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+art3a: publish(Ep), hasAgent(Ep,X), licensee(X), hasTheme(Ep,C), comment(C), isCommentOf(C,Ev), evaluate(Ev), rexist(Ev) => o(-publish(Ep)).
+art3b: publish(Ep), hasAgent(Ep,X), licensee(X), hasTheme(Ep,C), comment(C), isCommentOf(C,Ev), evaluate(Ev), rexist(Ev), hasResult(Ev,R), hasTheme(Epr,R), hasAgent(Epr,X), publish(Epr), p(publish(Epr)) => p(publish(Ep)).
+sup(art3b, art3a).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Article 4. If the Licensee is commissioned to perform an independent evaluation of the Product,then the Licensee has the obligation to publish the evaluation results.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+art4a: publish(Ep), hasAgent(Ep,X), licensee(X), hasTheme(Ep,R), result(R), hasResult(Ev,R), evaluate(Ev), rexist(Ev), hasTheme(Ec,Ev), commission(Ec), rexist(Ec) => o(publish(Ep)).
+sup(art4a, art2aPart2).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COMPLIANCE CHECKING RULES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%(1) if there is some action x obligatory at time t and, at the same time, x does not really exist => violation; 
+%(2) if there is some action x prohibited at time t and, at the same time, x really exists => violation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ccRuleComp1: remove(ca(Ep,X,R)), hasTheme(ca(Ep,X,R),R), hasAgent(ca(Ep,X,R),X), rexist(Er), remove(Er), hasTheme(Er,R), hasAgent(Er,X) => rexist(ca(Ep,X,R)).
+
+ccRuleComp2: compensate(Y,X), rexist(Y) => compensated(X).
+ccRuleEv: o(-evaluate(Ev)), rexist(Ev), ~(compensated(Ev)) => violation(viol(Ev)).
+ccRuleEp1: o(-publish(Ep)), rexist(Ep), ~(compensated(Ep)) => violation(viol(Ep)).
+ccRuleEp2: o(publish(Ep)), ~(rexist(Ep)), ~(compensated(Ep)) => violation(viol(Ep)).
+ccRuleEr: o(remove(Er)), ~(rexist(Er)), ~(compensated(Er)) => violation(viol(Er)).
+
+ruleViolation: violation(viol(X)) => referTo(viol(X),X).
