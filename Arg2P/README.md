@@ -1,32 +1,25 @@
-# Legal reasoners
-
 <p align="justify">
-This GitHub repository contains implementations of a selected use case of legal norms in different automatic reasoners.
+This folder contains the implementation of the use case as <a href="http://spindle.data61.csiro.au/spindle/download.html">SPINdle rules</a>. The use case has been implemented within the file <b>regulative+compliance_rules.dfl</b>. This file must be included within the folder "<a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/DatasetGenerator/CORPUS/SPINdle">CORPUS/SPINdle</a>" (<u>you can find it <a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/DatasetGenerator/CORPUS/SPINdle">there</a>) because the dataset generator will (externally) ground the rules before invoking the reasoner. This is a mandatory step because SPINdle's input format is propositional.
 </p>
 
 <p align="justify">
-The use case includes the following four articles:
+The file <b>regulative+compliance_rules.dfl</b> contains both the regulative rules, able to infer which actions of the state of affairs are prohibited, obligatory, or permitted, and the rules for checking compliance of the derived prohibitions and obligations.
+</p>
 
-<ul>
-  <li><b>Article 1</b>. The Licensor grants the Licensee a licence to evaluate the Product.</li>
-  <li><b>Article 2</b>. The Licensee must not publish the results of the evaluation of the Product without the approval of the Licensor. If the Licensee publishes results of the evaluation of the Product without approval from the Licensor, the material must be removed.</li>
-  <li><b>Article 3</b>. The Licensee must not publish comments about the evaluation of the Product, unless the Licensee is permitted to publish the results of the evaluation.</li>
-  <li><b>Article 4</b>. If the Licensee is commissioned to perform an independent evaluation of the Product, then the Licensee has the obligation to publish the evaluation results.</li>
-</ul>
+<p align="justify">The file <b>regulative+compliance_rules.dfl</b> derives a violation for either all prohibitions that took place in the state of affairs and were not compensated <i>and</i> for all obligations that did not take place in the state of affairs and were not compensated.</p>
+
+<p align="justify">
+The state of affairs is described in one of the synthetic datasets (ABox) created by the <a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/DatasetGenerator">dataset generator available on this GitHub</a>. Each ABox contains both the (indexed) SPINdle rules and the (indexed) input propositional symbols.
 </p>
 
 <p align="justify">
-The norms in the use case has been implemented as:
+In order to execute SPINdle rules, you need the file <b>spindle_2.2.4.jar</b> that you may download from <a href="https://sourceforge.net/projects/spindlereasoner/">this link</a>. Then, on Windows you just write the following instruction on a shell:
+</p>
 
-<ul>
-  <li><a href="https://www.w3.org/TR/shacl-af/#rules">Shapes Constraint Language (SHACL)</a> rules. Source code and instructions are available <a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/SHACL">here</a>.</li>
-  <li><a href="https://potassco.org/">Answer Set Programming (ASP)</a> rules via <a href="https://github.com/potassco/clingo/releases">Clingo v5.5.1</a> or <a href="https://www.dlvsystem.it/dlvsite/dlv/">DLV v2</a>. Source code and instructions are available <a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/ASP">here</a>.</li>
-  <li><a href="https://dl.acm.org/doi/10.1145/1149114.1149117">DLV system</a> rules. Source code and instructions are available <a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/DLV">here</a>.</li>
-  <li><a href="http://spindle.data61.csiro.au/">SPINdle</a> rules. Source code and instructions are available <a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/SPINdle">here</a>.</li>
-</ul>
-
+<p align="center">
+<i>java -cp .;./* -Dfile.encoding=utf-8 DetectViolationsOnCorpus .\CORPUS\SPINdle >> .\CORPUS\evaluationSPIndle.txt</i>
 </p>
 
 <p align="justify">
-The implementations can be tested on the synthetic (Abox) datasets created via the dataset generator <a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/DatasetGenerator">at this link</a>.
+The execution of the above instruction will <i>append</i> (>>) the evaluation of each ABox in the CORPUS folder within the file <b>evaluationSPINdle.txt</b>. If this file does not yet exist, it will be created. Similar scripts can be used to compile and run the files on other operating systems. 
 </p>
