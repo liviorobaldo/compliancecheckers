@@ -9,7 +9,7 @@ The state of affairs is described in one of the synthetic datasets (ABox) create
 </p>
 
 <p align="justify">
-We invite you to visit <a href="https://apice.unibo.it/xwiki/bin/view/Arg2p/WebHome">the official website of Arg2P</a>, from which you may download the sources of the reasoner and find detailed instructions for using and configuring it. The files available on this GitHub have been prepared only to quickly run the use case considered here. To execute Arg2P on the use case, on Windows you just write the following instruction on a shell:
+We invite you to visit <a href="https://apice.unibo.it/xwiki/bin/view/Arg2p/WebHome">the official website of Arg2P</a>, from which you may download the sources of the reasoner and find detailed instructions for using and configuring it. The files available on this GitHub have been prepared only to quickly run the use case considered here. To execute the Arg2P rules modelling the use case, on Windows you just write the following instruction on a shell:
 </p>
 
 <p align="center">
