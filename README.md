@@ -22,7 +22,7 @@ The norms in the use case has been implemented as:
   <li><a href="https://www.w3.org/TR/shacl-af/#rules">Shapes Constraint Language (SHACL)</a> rules. Source code and instructions are available <a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/SHACL">here</a>.</li>
   <li><a href="https://potassco.org/">Answer Set Programming (ASP)</a> rules via <a href="https://github.com/potassco/clingo/releases">Clingo v5.5.1</a> or <a href="https://www.dlvsystem.it/dlvsite/dlv/">DLV v2</a>. Source code and instructions are available <a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/ASP">here</a>.</li>
   <li><a href="https://dl.acm.org/doi/10.1145/1149114.1149117">DLV system</a> rules. Source code and instructions are available <a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/DLV">here</a>.</li>
-  <li><a href="http://spindle.data61.csiro.au/">Arg2P</a> rules. Source code and instructions are available <a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/Arg2P">here</a>.</li>
+  <li><a href="https://apice.unibo.it/xwiki/bin/view/Arg2p/WebHome">Arg2P</a> rules. Source code and instructions are available <a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/Arg2P">here</a>.</li>
   <li><a href="http://spindle.data61.csiro.au/">SPINdle</a> rules. Source code and instructions are available <a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/SPINdle">here</a>.</li>
 </ul>
 
