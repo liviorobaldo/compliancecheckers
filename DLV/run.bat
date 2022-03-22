@@ -1,0 +1,1 @@
+python .\dlv.py .\regulative+compliance_rules.dlv -f .\CORPUS\ASP -o .\CORPUS\evaluationDLV.txt

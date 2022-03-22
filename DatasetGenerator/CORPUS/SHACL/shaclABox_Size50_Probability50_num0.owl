@@ -1,0 +1,4390 @@
+@prefix : <http://www.licenceusecaseonto.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.licenceusecaseonto.org/> .
+
+<http://www.licenceusecaseonto.org/> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.licenceusecaseonto.org/has-agent
+:has-agent rdf:type owl:ObjectProperty .
+
+
+###  http://www.licenceusecaseonto.org/has-receiver
+:has-receiver rdf:type owl:ObjectProperty .
+
+
+###  http://www.licenceusecaseonto.org/has-result
+:has-result rdf:type owl:ObjectProperty .
+
+
+###  http://www.licenceusecaseonto.org/has-theme
+:has-theme rdf:type owl:ObjectProperty .
+
+
+###  http://www.licenceusecaseonto.org/is-comment-of
+:is-comment-of rdf:type owl:ObjectProperty .
+
+
+###  http://www.licenceusecaseonto.org/is-licence-of
+:is-licence-of rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.licenceusecaseonto.org/Approve
+:Approve rdf:type owl:Class .
+
+
+###  http://www.licenceusecaseonto.org/Comment
+:Comment rdf:type owl:Class .
+
+
+###  http://www.licenceusecaseonto.org/Commission
+:Commission rdf:type owl:Class .
+
+
+###  http://www.licenceusecaseonto.org/Evaluate
+:Evaluate rdf:type owl:Class .
+
+
+###  http://www.licenceusecaseonto.org/Grant
+:Grant rdf:type owl:Class .
+
+
+###  http://www.licenceusecaseonto.org/Licence
+:Licence rdf:type owl:Class .
+
+
+###  http://www.licenceusecaseonto.org/Licensee
+:Licensee rdf:type owl:Class .
+
+
+###  http://www.licenceusecaseonto.org/Licensor
+:Licensor rdf:type owl:Class .
+
+
+###  http://www.licenceusecaseonto.org/Product
+:Product rdf:type owl:Class .
+
+
+###  http://www.licenceusecaseonto.org/Publish
+:Publish rdf:type owl:Class .
+
+
+###  http://www.licenceusecaseonto.org/Remove
+:Remove rdf:type owl:Class .
+
+
+###  http://www.licenceusecaseonto.org/Result
+:Result rdf:type owl:Class .
+
+
+###  https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist
+<https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.licenceusecaseonto.org/c_0
+:c_0 rdf:type owl:NamedIndividual ,
+              :Comment ;
+     :is-comment-of :ev_0 .
+
+
+###  http://www.licenceusecaseonto.org/c_1
+:c_1 rdf:type owl:NamedIndividual ,
+              :Comment ;
+     :is-comment-of :ev_1 .
+
+
+###  http://www.licenceusecaseonto.org/c_10
+:c_10 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_10 .
+
+
+###  http://www.licenceusecaseonto.org/c_11
+:c_11 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_11 .
+
+
+###  http://www.licenceusecaseonto.org/c_12
+:c_12 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_12 .
+
+
+###  http://www.licenceusecaseonto.org/c_13
+:c_13 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_13 .
+
+
+###  http://www.licenceusecaseonto.org/c_14
+:c_14 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_14 .
+
+
+###  http://www.licenceusecaseonto.org/c_15
+:c_15 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_15 .
+
+
+###  http://www.licenceusecaseonto.org/c_16
+:c_16 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_16 .
+
+
+###  http://www.licenceusecaseonto.org/c_17
+:c_17 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_17 .
+
+
+###  http://www.licenceusecaseonto.org/c_18
+:c_18 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_18 .
+
+
+###  http://www.licenceusecaseonto.org/c_19
+:c_19 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_19 .
+
+
+###  http://www.licenceusecaseonto.org/c_2
+:c_2 rdf:type owl:NamedIndividual ,
+              :Comment ;
+     :is-comment-of :ev_2 .
+
+
+###  http://www.licenceusecaseonto.org/c_20
+:c_20 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_20 .
+
+
+###  http://www.licenceusecaseonto.org/c_21
+:c_21 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_21 .
+
+
+###  http://www.licenceusecaseonto.org/c_22
+:c_22 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_22 .
+
+
+###  http://www.licenceusecaseonto.org/c_23
+:c_23 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_23 .
+
+
+###  http://www.licenceusecaseonto.org/c_24
+:c_24 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_24 .
+
+
+###  http://www.licenceusecaseonto.org/c_25
+:c_25 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_25 .
+
+
+###  http://www.licenceusecaseonto.org/c_26
+:c_26 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_26 .
+
+
+###  http://www.licenceusecaseonto.org/c_27
+:c_27 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_27 .
+
+
+###  http://www.licenceusecaseonto.org/c_28
+:c_28 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_28 .
+
+
+###  http://www.licenceusecaseonto.org/c_29
+:c_29 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_29 .
+
+
+###  http://www.licenceusecaseonto.org/c_3
+:c_3 rdf:type owl:NamedIndividual ,
+              :Comment ;
+     :is-comment-of :ev_3 .
+
+
+###  http://www.licenceusecaseonto.org/c_30
+:c_30 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_30 .
+
+
+###  http://www.licenceusecaseonto.org/c_31
+:c_31 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_31 .
+
+
+###  http://www.licenceusecaseonto.org/c_32
+:c_32 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_32 .
+
+
+###  http://www.licenceusecaseonto.org/c_33
+:c_33 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_33 .
+
+
+###  http://www.licenceusecaseonto.org/c_34
+:c_34 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_34 .
+
+
+###  http://www.licenceusecaseonto.org/c_35
+:c_35 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_35 .
+
+
+###  http://www.licenceusecaseonto.org/c_36
+:c_36 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_36 .
+
+
+###  http://www.licenceusecaseonto.org/c_37
+:c_37 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_37 .
+
+
+###  http://www.licenceusecaseonto.org/c_38
+:c_38 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_38 .
+
+
+###  http://www.licenceusecaseonto.org/c_39
+:c_39 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_39 .
+
+
+###  http://www.licenceusecaseonto.org/c_4
+:c_4 rdf:type owl:NamedIndividual ,
+              :Comment ;
+     :is-comment-of :ev_4 .
+
+
+###  http://www.licenceusecaseonto.org/c_40
+:c_40 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_40 .
+
+
+###  http://www.licenceusecaseonto.org/c_41
+:c_41 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_41 .
+
+
+###  http://www.licenceusecaseonto.org/c_42
+:c_42 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_42 .
+
+
+###  http://www.licenceusecaseonto.org/c_43
+:c_43 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_43 .
+
+
+###  http://www.licenceusecaseonto.org/c_44
+:c_44 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_44 .
+
+
+###  http://www.licenceusecaseonto.org/c_45
+:c_45 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_45 .
+
+
+###  http://www.licenceusecaseonto.org/c_46
+:c_46 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_46 .
+
+
+###  http://www.licenceusecaseonto.org/c_47
+:c_47 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_47 .
+
+
+###  http://www.licenceusecaseonto.org/c_48
+:c_48 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_48 .
+
+
+###  http://www.licenceusecaseonto.org/c_49
+:c_49 rdf:type owl:NamedIndividual ,
+               :Comment ;
+      :is-comment-of :ev_49 .
+
+
+###  http://www.licenceusecaseonto.org/c_5
+:c_5 rdf:type owl:NamedIndividual ,
+              :Comment ;
+     :is-comment-of :ev_5 .
+
+
+###  http://www.licenceusecaseonto.org/c_6
+:c_6 rdf:type owl:NamedIndividual ,
+              :Comment ;
+     :is-comment-of :ev_6 .
+
+
+###  http://www.licenceusecaseonto.org/c_7
+:c_7 rdf:type owl:NamedIndividual ,
+              :Comment ;
+     :is-comment-of :ev_7 .
+
+
+###  http://www.licenceusecaseonto.org/c_8
+:c_8 rdf:type owl:NamedIndividual ,
+              :Comment ;
+     :is-comment-of :ev_8 .
+
+
+###  http://www.licenceusecaseonto.org/c_9
+:c_9 rdf:type owl:NamedIndividual ,
+              :Comment ;
+     :is-comment-of :ev_9 .
+
+
+###  http://www.licenceusecaseonto.org/ea_0
+:ea_0 rdf:type owl:NamedIndividual ,
+               :Approve ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :y_0 ;
+      :has-theme :epr_0 .
+
+
+###  http://www.licenceusecaseonto.org/ea_1
+:ea_1 rdf:type owl:NamedIndividual ,
+               :Approve ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :y_1 ;
+      :has-theme :epr_1 .
+
+
+###  http://www.licenceusecaseonto.org/ea_10
+:ea_10 rdf:type owl:NamedIndividual ,
+                :Approve ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_10 ;
+       :has-theme :epr_10 .
+
+
+###  http://www.licenceusecaseonto.org/ea_11
+:ea_11 rdf:type owl:NamedIndividual ,
+                :Approve ;
+       :has-agent :y_11 ;
+       :has-theme :epr_11 .
+
+
+###  http://www.licenceusecaseonto.org/ea_12
+:ea_12 rdf:type owl:NamedIndividual ,
+                :Approve ;
+       :has-agent :y_12 ;
+       :has-theme :epr_12 .
+
+
+###  http://www.licenceusecaseonto.org/ea_13
+:ea_13 rdf:type owl:NamedIndividual ,
+                :Approve ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_13 ;
+       :has-theme :epr_13 .
+
+
+###  http://www.licenceusecaseonto.org/ea_14
+:ea_14 rdf:type owl:NamedIndividual ,
+                :Approve ;
+       :has-agent :y_14 ;
+       :has-theme :epr_14 .
+
+
+###  http://www.licenceusecaseonto.org/ea_15
+:ea_15 rdf:type owl:NamedIndividual ,
+                :Approve ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_15 ;
+       :has-theme :epr_15 .
+
+
+###  http://www.licenceusecaseonto.org/ea_16
+:ea_16 rdf:type owl:NamedIndividual ,
+                :Approve ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_16 ;
+       :has-theme :epr_16 .
+
+
+###  http://www.licenceusecaseonto.org/ea_17
+:ea_17 rdf:type owl:NamedIndividual ,
+                :Approve ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_17 ;
+       :has-theme :epr_17 .
+
+
+###  http://www.licenceusecaseonto.org/ea_18
+:ea_18 rdf:type owl:NamedIndividual ,
+                :Approve ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_18 ;
+       :has-theme :epr_18 .
+
+
+###  http://www.licenceusecaseonto.org/ea_19
+:ea_19 rdf:type owl:NamedIndividual ,
+                :Approve ;
+       :has-agent :y_19 ;
+       :has-theme :epr_19 .
+
+
+###  http://www.licenceusecaseonto.org/ea_2
+:ea_2 rdf:type owl:NamedIndividual ,
+               :Approve ;
+      :has-agent :y_2 ;
+      :has-theme :epr_2 .
+
+
+###  http://www.licenceusecaseonto.org/ea_20
+:ea_20 rdf:type owl:NamedIndividual ,
+                :Approve ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_20 ;
+       :has-theme :epr_20 .
+
+
+###  http://www.licenceusecaseonto.org/ea_21
+:ea_21 rdf:type owl:NamedIndividual ,
+                :Approve ;
+       :has-agent :y_21 ;
+       :has-theme :epr_21 .
+
+
+###  http://www.licenceusecaseonto.org/ea_22
+:ea_22 rdf:type owl:NamedIndividual ,
+                :Approve ;
+       :has-agent :y_22 ;
+       :has-theme :epr_22 .
+
+
+###  http://www.licenceusecaseonto.org/ea_23
+:ea_23 rdf:type owl:NamedIndividual ,
+                :Approve ;
+       :has-agent :y_23 ;
+       :has-theme :epr_23 .
+
+
+###  http://www.licenceusecaseonto.org/ea_24
+:ea_24 rdf:type owl:NamedIndividual ,
+                :Approve ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_24 ;
+       :has-theme :epr_24 .
+
+
+###  http://www.licenceusecaseonto.org/ea_25
+:ea_25 rdf:type owl:NamedIndividual ,
+                :Approve ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_25 ;
+       :has-theme :epr_25 .
+
+
+###  http://www.licenceusecaseonto.org/ea_26
+:ea_26 rdf:type owl:NamedIndividual ,
+                :Approve ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_26 ;
+       :has-theme :epr_26 .
+
+
+###  http://www.licenceusecaseonto.org/ea_27
+:ea_27 rdf:type owl:NamedIndividual ,
+                :Approve ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_27 ;
+       :has-theme :epr_27 .
+
+
+###  http://www.licenceusecaseonto.org/ea_28
+:ea_28 rdf:type owl:NamedIndividual ,
+                :Approve ;
+       :has-agent :y_28 ;
+       :has-theme :epr_28 .
+
+
+###  http://www.licenceusecaseonto.org/ea_29
+:ea_29 rdf:type owl:NamedIndividual ,
+                :Approve ;
+       :has-agent :y_29 ;
+       :has-theme :epr_29 .
+
+
+###  http://www.licenceusecaseonto.org/ea_3
+:ea_3 rdf:type owl:NamedIndividual ,
+               :Approve ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :y_3 ;
+      :has-theme :epr_3 .
+
+
+###  http://www.licenceusecaseonto.org/ea_30
+:ea_30 rdf:type owl:NamedIndividual ,
+                :Approve ;
+       :has-agent :y_30 ;
+       :has-theme :epr_30 .
+
+
+###  http://www.licenceusecaseonto.org/ea_31
+:ea_31 rdf:type owl:NamedIndividual ,
+                :Approve ;
+       :has-agent :y_31 ;
+       :has-theme :epr_31 .
+
+
+###  http://www.licenceusecaseonto.org/ea_32
+:ea_32 rdf:type owl:NamedIndividual ,
+                :Approve ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_32 ;
+       :has-theme :epr_32 .
+
+
+###  http://www.licenceusecaseonto.org/ea_33
+:ea_33 rdf:type owl:NamedIndividual ,
+                :Approve ;
+       :has-agent :y_33 ;
+       :has-theme :epr_33 .
+
+
+###  http://www.licenceusecaseonto.org/ea_34
+:ea_34 rdf:type owl:NamedIndividual ,
+                :Approve ;
+       :has-agent :y_34 ;
+       :has-theme :epr_34 .
+
+
+###  http://www.licenceusecaseonto.org/ea_35
+:ea_35 rdf:type owl:NamedIndividual ,
+                :Approve ;
+       :has-agent :y_35 ;
+       :has-theme :epr_35 .
+
+
+###  http://www.licenceusecaseonto.org/ea_36
+:ea_36 rdf:type owl:NamedIndividual ,
+                :Approve ;
+       :has-agent :y_36 ;
+       :has-theme :epr_36 .
+
+
+###  http://www.licenceusecaseonto.org/ea_37
+:ea_37 rdf:type owl:NamedIndividual ,
+                :Approve ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_37 ;
+       :has-theme :epr_37 .
+
+
+###  http://www.licenceusecaseonto.org/ea_38
+:ea_38 rdf:type owl:NamedIndividual ,
+                :Approve ;
+       :has-agent :y_38 ;
+       :has-theme :epr_38 .
+
+
+###  http://www.licenceusecaseonto.org/ea_39
+:ea_39 rdf:type owl:NamedIndividual ,
+                :Approve ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_39 ;
+       :has-theme :epr_39 .
+
+
+###  http://www.licenceusecaseonto.org/ea_4
+:ea_4 rdf:type owl:NamedIndividual ,
+               :Approve ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :y_4 ;
+      :has-theme :epr_4 .
+
+
+###  http://www.licenceusecaseonto.org/ea_40
+:ea_40 rdf:type owl:NamedIndividual ,
+                :Approve ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_40 ;
+       :has-theme :epr_40 .
+
+
+###  http://www.licenceusecaseonto.org/ea_41
+:ea_41 rdf:type owl:NamedIndividual ,
+                :Approve ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_41 ;
+       :has-theme :epr_41 .
+
+
+###  http://www.licenceusecaseonto.org/ea_42
+:ea_42 rdf:type owl:NamedIndividual ,
+                :Approve ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_42 ;
+       :has-theme :epr_42 .
+
+
+###  http://www.licenceusecaseonto.org/ea_43
+:ea_43 rdf:type owl:NamedIndividual ,
+                :Approve ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_43 ;
+       :has-theme :epr_43 .
+
+
+###  http://www.licenceusecaseonto.org/ea_44
+:ea_44 rdf:type owl:NamedIndividual ,
+                :Approve ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_44 ;
+       :has-theme :epr_44 .
+
+
+###  http://www.licenceusecaseonto.org/ea_45
+:ea_45 rdf:type owl:NamedIndividual ,
+                :Approve ;
+       :has-agent :y_45 ;
+       :has-theme :epr_45 .
+
+
+###  http://www.licenceusecaseonto.org/ea_46
+:ea_46 rdf:type owl:NamedIndividual ,
+                :Approve ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_46 ;
+       :has-theme :epr_46 .
+
+
+###  http://www.licenceusecaseonto.org/ea_47
+:ea_47 rdf:type owl:NamedIndividual ,
+                :Approve ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_47 ;
+       :has-theme :epr_47 .
+
+
+###  http://www.licenceusecaseonto.org/ea_48
+:ea_48 rdf:type owl:NamedIndividual ,
+                :Approve ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_48 ;
+       :has-theme :epr_48 .
+
+
+###  http://www.licenceusecaseonto.org/ea_49
+:ea_49 rdf:type owl:NamedIndividual ,
+                :Approve ;
+       :has-agent :y_49 ;
+       :has-theme :epr_49 .
+
+
+###  http://www.licenceusecaseonto.org/ea_5
+:ea_5 rdf:type owl:NamedIndividual ,
+               :Approve ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :y_5 ;
+      :has-theme :epr_5 .
+
+
+###  http://www.licenceusecaseonto.org/ea_6
+:ea_6 rdf:type owl:NamedIndividual ,
+               :Approve ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :y_6 ;
+      :has-theme :epr_6 .
+
+
+###  http://www.licenceusecaseonto.org/ea_7
+:ea_7 rdf:type owl:NamedIndividual ,
+               :Approve ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :y_7 ;
+      :has-theme :epr_7 .
+
+
+###  http://www.licenceusecaseonto.org/ea_8
+:ea_8 rdf:type owl:NamedIndividual ,
+               :Approve ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :y_8 ;
+      :has-theme :epr_8 .
+
+
+###  http://www.licenceusecaseonto.org/ea_9
+:ea_9 rdf:type owl:NamedIndividual ,
+               :Approve ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :y_9 ;
+      :has-theme :epr_9 .
+
+
+###  http://www.licenceusecaseonto.org/ec_0
+:ec_0 rdf:type owl:NamedIndividual ,
+               :Commission ;
+      :has-theme :ev_0 .
+
+
+###  http://www.licenceusecaseonto.org/ec_1
+:ec_1 rdf:type owl:NamedIndividual ,
+               :Commission ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-theme :ev_1 .
+
+
+###  http://www.licenceusecaseonto.org/ec_10
+:ec_10 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_10 .
+
+
+###  http://www.licenceusecaseonto.org/ec_11
+:ec_11 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_11 .
+
+
+###  http://www.licenceusecaseonto.org/ec_12
+:ec_12 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_12 .
+
+
+###  http://www.licenceusecaseonto.org/ec_13
+:ec_13 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_13 .
+
+
+###  http://www.licenceusecaseonto.org/ec_14
+:ec_14 rdf:type owl:NamedIndividual ,
+                :Commission ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-theme :ev_14 .
+
+
+###  http://www.licenceusecaseonto.org/ec_15
+:ec_15 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_15 .
+
+
+###  http://www.licenceusecaseonto.org/ec_16
+:ec_16 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_16 .
+
+
+###  http://www.licenceusecaseonto.org/ec_17
+:ec_17 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_17 .
+
+
+###  http://www.licenceusecaseonto.org/ec_18
+:ec_18 rdf:type owl:NamedIndividual ,
+                :Commission ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-theme :ev_18 .
+
+
+###  http://www.licenceusecaseonto.org/ec_19
+:ec_19 rdf:type owl:NamedIndividual ,
+                :Commission ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-theme :ev_19 .
+
+
+###  http://www.licenceusecaseonto.org/ec_2
+:ec_2 rdf:type owl:NamedIndividual ,
+               :Commission ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-theme :ev_2 .
+
+
+###  http://www.licenceusecaseonto.org/ec_20
+:ec_20 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_20 .
+
+
+###  http://www.licenceusecaseonto.org/ec_21
+:ec_21 rdf:type owl:NamedIndividual ,
+                :Commission ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-theme :ev_21 .
+
+
+###  http://www.licenceusecaseonto.org/ec_22
+:ec_22 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_22 .
+
+
+###  http://www.licenceusecaseonto.org/ec_23
+:ec_23 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_23 .
+
+
+###  http://www.licenceusecaseonto.org/ec_24
+:ec_24 rdf:type owl:NamedIndividual ,
+                :Commission ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-theme :ev_24 .
+
+
+###  http://www.licenceusecaseonto.org/ec_25
+:ec_25 rdf:type owl:NamedIndividual ,
+                :Commission ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-theme :ev_25 .
+
+
+###  http://www.licenceusecaseonto.org/ec_26
+:ec_26 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_26 .
+
+
+###  http://www.licenceusecaseonto.org/ec_27
+:ec_27 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_27 .
+
+
+###  http://www.licenceusecaseonto.org/ec_28
+:ec_28 rdf:type owl:NamedIndividual ,
+                :Commission ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-theme :ev_28 .
+
+
+###  http://www.licenceusecaseonto.org/ec_29
+:ec_29 rdf:type owl:NamedIndividual ,
+                :Commission ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-theme :ev_29 .
+
+
+###  http://www.licenceusecaseonto.org/ec_3
+:ec_3 rdf:type owl:NamedIndividual ,
+               :Commission ;
+      :has-theme :ev_3 .
+
+
+###  http://www.licenceusecaseonto.org/ec_30
+:ec_30 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_30 .
+
+
+###  http://www.licenceusecaseonto.org/ec_31
+:ec_31 rdf:type owl:NamedIndividual ,
+                :Commission ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-theme :ev_31 .
+
+
+###  http://www.licenceusecaseonto.org/ec_32
+:ec_32 rdf:type owl:NamedIndividual ,
+                :Commission ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-theme :ev_32 .
+
+
+###  http://www.licenceusecaseonto.org/ec_33
+:ec_33 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_33 .
+
+
+###  http://www.licenceusecaseonto.org/ec_34
+:ec_34 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_34 .
+
+
+###  http://www.licenceusecaseonto.org/ec_35
+:ec_35 rdf:type owl:NamedIndividual ,
+                :Commission ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-theme :ev_35 .
+
+
+###  http://www.licenceusecaseonto.org/ec_36
+:ec_36 rdf:type owl:NamedIndividual ,
+                :Commission ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-theme :ev_36 .
+
+
+###  http://www.licenceusecaseonto.org/ec_37
+:ec_37 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_37 .
+
+
+###  http://www.licenceusecaseonto.org/ec_38
+:ec_38 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_38 .
+
+
+###  http://www.licenceusecaseonto.org/ec_39
+:ec_39 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_39 .
+
+
+###  http://www.licenceusecaseonto.org/ec_4
+:ec_4 rdf:type owl:NamedIndividual ,
+               :Commission ;
+      :has-theme :ev_4 .
+
+
+###  http://www.licenceusecaseonto.org/ec_40
+:ec_40 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_40 .
+
+
+###  http://www.licenceusecaseonto.org/ec_41
+:ec_41 rdf:type owl:NamedIndividual ,
+                :Commission ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-theme :ev_41 .
+
+
+###  http://www.licenceusecaseonto.org/ec_42
+:ec_42 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_42 .
+
+
+###  http://www.licenceusecaseonto.org/ec_43
+:ec_43 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_43 .
+
+
+###  http://www.licenceusecaseonto.org/ec_44
+:ec_44 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_44 .
+
+
+###  http://www.licenceusecaseonto.org/ec_45
+:ec_45 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_45 .
+
+
+###  http://www.licenceusecaseonto.org/ec_46
+:ec_46 rdf:type owl:NamedIndividual ,
+                :Commission ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-theme :ev_46 .
+
+
+###  http://www.licenceusecaseonto.org/ec_47
+:ec_47 rdf:type owl:NamedIndividual ,
+                :Commission ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-theme :ev_47 .
+
+
+###  http://www.licenceusecaseonto.org/ec_48
+:ec_48 rdf:type owl:NamedIndividual ,
+                :Commission ;
+       :has-theme :ev_48 .
+
+
+###  http://www.licenceusecaseonto.org/ec_49
+:ec_49 rdf:type owl:NamedIndividual ,
+                :Commission ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-theme :ev_49 .
+
+
+###  http://www.licenceusecaseonto.org/ec_5
+:ec_5 rdf:type owl:NamedIndividual ,
+               :Commission ;
+      :has-theme :ev_5 .
+
+
+###  http://www.licenceusecaseonto.org/ec_6
+:ec_6 rdf:type owl:NamedIndividual ,
+               :Commission ;
+      :has-theme :ev_6 .
+
+
+###  http://www.licenceusecaseonto.org/ec_7
+:ec_7 rdf:type owl:NamedIndividual ,
+               :Commission ;
+      :has-theme :ev_7 .
+
+
+###  http://www.licenceusecaseonto.org/ec_8
+:ec_8 rdf:type owl:NamedIndividual ,
+               :Commission ;
+      :has-theme :ev_8 .
+
+
+###  http://www.licenceusecaseonto.org/ec_9
+:ec_9 rdf:type owl:NamedIndividual ,
+               :Commission ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-theme :ev_9 .
+
+
+###  http://www.licenceusecaseonto.org/eg_0
+:eg_0 rdf:type owl:NamedIndividual ,
+               :Grant ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :y_0 ;
+      :has-receiver :x_0 ;
+      :has-theme :l_0 .
+
+
+###  http://www.licenceusecaseonto.org/eg_1
+:eg_1 rdf:type owl:NamedIndividual ,
+               :Grant ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :y_1 ;
+      :has-receiver :x_1 ;
+      :has-theme :l_1 .
+
+
+###  http://www.licenceusecaseonto.org/eg_10
+:eg_10 rdf:type owl:NamedIndividual ,
+                :Grant ;
+       :has-agent :y_10 ;
+       :has-receiver :x_10 ;
+       :has-theme :l_10 .
+
+
+###  http://www.licenceusecaseonto.org/eg_11
+:eg_11 rdf:type owl:NamedIndividual ,
+                :Grant ;
+       :has-agent :y_11 ;
+       :has-receiver :x_11 ;
+       :has-theme :l_11 .
+
+
+###  http://www.licenceusecaseonto.org/eg_12
+:eg_12 rdf:type owl:NamedIndividual ,
+                :Grant ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_12 ;
+       :has-receiver :x_12 ;
+       :has-theme :l_12 .
+
+
+###  http://www.licenceusecaseonto.org/eg_13
+:eg_13 rdf:type owl:NamedIndividual ,
+                :Grant ;
+       :has-agent :y_13 ;
+       :has-receiver :x_13 ;
+       :has-theme :l_13 .
+
+
+###  http://www.licenceusecaseonto.org/eg_14
+:eg_14 rdf:type owl:NamedIndividual ,
+                :Grant ;
+       :has-agent :y_14 ;
+       :has-receiver :x_14 ;
+       :has-theme :l_14 .
+
+
+###  http://www.licenceusecaseonto.org/eg_15
+:eg_15 rdf:type owl:NamedIndividual ,
+                :Grant ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_15 ;
+       :has-receiver :x_15 ;
+       :has-theme :l_15 .
+
+
+###  http://www.licenceusecaseonto.org/eg_16
+:eg_16 rdf:type owl:NamedIndividual ,
+                :Grant ;
+       :has-agent :y_16 ;
+       :has-receiver :x_16 ;
+       :has-theme :l_16 .
+
+
+###  http://www.licenceusecaseonto.org/eg_17
+:eg_17 rdf:type owl:NamedIndividual ,
+                :Grant ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_17 ;
+       :has-receiver :x_17 ;
+       :has-theme :l_17 .
+
+
+###  http://www.licenceusecaseonto.org/eg_18
+:eg_18 rdf:type owl:NamedIndividual ,
+                :Grant ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_18 ;
+       :has-receiver :x_18 ;
+       :has-theme :l_18 .
+
+
+###  http://www.licenceusecaseonto.org/eg_19
+:eg_19 rdf:type owl:NamedIndividual ,
+                :Grant ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_19 ;
+       :has-receiver :x_19 ;
+       :has-theme :l_19 .
+
+
+###  http://www.licenceusecaseonto.org/eg_2
+:eg_2 rdf:type owl:NamedIndividual ,
+               :Grant ;
+      :has-agent :y_2 ;
+      :has-receiver :x_2 ;
+      :has-theme :l_2 .
+
+
+###  http://www.licenceusecaseonto.org/eg_20
+:eg_20 rdf:type owl:NamedIndividual ,
+                :Grant ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_20 ;
+       :has-receiver :x_20 ;
+       :has-theme :l_20 .
+
+
+###  http://www.licenceusecaseonto.org/eg_21
+:eg_21 rdf:type owl:NamedIndividual ,
+                :Grant ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_21 ;
+       :has-receiver :x_21 ;
+       :has-theme :l_21 .
+
+
+###  http://www.licenceusecaseonto.org/eg_22
+:eg_22 rdf:type owl:NamedIndividual ,
+                :Grant ;
+       :has-agent :y_22 ;
+       :has-receiver :x_22 ;
+       :has-theme :l_22 .
+
+
+###  http://www.licenceusecaseonto.org/eg_23
+:eg_23 rdf:type owl:NamedIndividual ,
+                :Grant ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_23 ;
+       :has-receiver :x_23 ;
+       :has-theme :l_23 .
+
+
+###  http://www.licenceusecaseonto.org/eg_24
+:eg_24 rdf:type owl:NamedIndividual ,
+                :Grant ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_24 ;
+       :has-receiver :x_24 ;
+       :has-theme :l_24 .
+
+
+###  http://www.licenceusecaseonto.org/eg_25
+:eg_25 rdf:type owl:NamedIndividual ,
+                :Grant ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_25 ;
+       :has-receiver :x_25 ;
+       :has-theme :l_25 .
+
+
+###  http://www.licenceusecaseonto.org/eg_26
+:eg_26 rdf:type owl:NamedIndividual ,
+                :Grant ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_26 ;
+       :has-receiver :x_26 ;
+       :has-theme :l_26 .
+
+
+###  http://www.licenceusecaseonto.org/eg_27
+:eg_27 rdf:type owl:NamedIndividual ,
+                :Grant ;
+       :has-agent :y_27 ;
+       :has-receiver :x_27 ;
+       :has-theme :l_27 .
+
+
+###  http://www.licenceusecaseonto.org/eg_28
+:eg_28 rdf:type owl:NamedIndividual ,
+                :Grant ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_28 ;
+       :has-receiver :x_28 ;
+       :has-theme :l_28 .
+
+
+###  http://www.licenceusecaseonto.org/eg_29
+:eg_29 rdf:type owl:NamedIndividual ,
+                :Grant ;
+       :has-agent :y_29 ;
+       :has-receiver :x_29 ;
+       :has-theme :l_29 .
+
+
+###  http://www.licenceusecaseonto.org/eg_3
+:eg_3 rdf:type owl:NamedIndividual ,
+               :Grant ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :y_3 ;
+      :has-receiver :x_3 ;
+      :has-theme :l_3 .
+
+
+###  http://www.licenceusecaseonto.org/eg_30
+:eg_30 rdf:type owl:NamedIndividual ,
+                :Grant ;
+       :has-agent :y_30 ;
+       :has-receiver :x_30 ;
+       :has-theme :l_30 .
+
+
+###  http://www.licenceusecaseonto.org/eg_31
+:eg_31 rdf:type owl:NamedIndividual ,
+                :Grant ;
+       :has-agent :y_31 ;
+       :has-receiver :x_31 ;
+       :has-theme :l_31 .
+
+
+###  http://www.licenceusecaseonto.org/eg_32
+:eg_32 rdf:type owl:NamedIndividual ,
+                :Grant ;
+       :has-agent :y_32 ;
+       :has-receiver :x_32 ;
+       :has-theme :l_32 .
+
+
+###  http://www.licenceusecaseonto.org/eg_33
+:eg_33 rdf:type owl:NamedIndividual ,
+                :Grant ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_33 ;
+       :has-receiver :x_33 ;
+       :has-theme :l_33 .
+
+
+###  http://www.licenceusecaseonto.org/eg_34
+:eg_34 rdf:type owl:NamedIndividual ,
+                :Grant ;
+       :has-agent :y_34 ;
+       :has-receiver :x_34 ;
+       :has-theme :l_34 .
+
+
+###  http://www.licenceusecaseonto.org/eg_35
+:eg_35 rdf:type owl:NamedIndividual ,
+                :Grant ;
+       :has-agent :y_35 ;
+       :has-receiver :x_35 ;
+       :has-theme :l_35 .
+
+
+###  http://www.licenceusecaseonto.org/eg_36
+:eg_36 rdf:type owl:NamedIndividual ,
+                :Grant ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_36 ;
+       :has-receiver :x_36 ;
+       :has-theme :l_36 .
+
+
+###  http://www.licenceusecaseonto.org/eg_37
+:eg_37 rdf:type owl:NamedIndividual ,
+                :Grant ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_37 ;
+       :has-receiver :x_37 ;
+       :has-theme :l_37 .
+
+
+###  http://www.licenceusecaseonto.org/eg_38
+:eg_38 rdf:type owl:NamedIndividual ,
+                :Grant ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_38 ;
+       :has-receiver :x_38 ;
+       :has-theme :l_38 .
+
+
+###  http://www.licenceusecaseonto.org/eg_39
+:eg_39 rdf:type owl:NamedIndividual ,
+                :Grant ;
+       :has-agent :y_39 ;
+       :has-receiver :x_39 ;
+       :has-theme :l_39 .
+
+
+###  http://www.licenceusecaseonto.org/eg_4
+:eg_4 rdf:type owl:NamedIndividual ,
+               :Grant ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :y_4 ;
+      :has-receiver :x_4 ;
+      :has-theme :l_4 .
+
+
+###  http://www.licenceusecaseonto.org/eg_40
+:eg_40 rdf:type owl:NamedIndividual ,
+                :Grant ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_40 ;
+       :has-receiver :x_40 ;
+       :has-theme :l_40 .
+
+
+###  http://www.licenceusecaseonto.org/eg_41
+:eg_41 rdf:type owl:NamedIndividual ,
+                :Grant ;
+       :has-agent :y_41 ;
+       :has-receiver :x_41 ;
+       :has-theme :l_41 .
+
+
+###  http://www.licenceusecaseonto.org/eg_42
+:eg_42 rdf:type owl:NamedIndividual ,
+                :Grant ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_42 ;
+       :has-receiver :x_42 ;
+       :has-theme :l_42 .
+
+
+###  http://www.licenceusecaseonto.org/eg_43
+:eg_43 rdf:type owl:NamedIndividual ,
+                :Grant ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_43 ;
+       :has-receiver :x_43 ;
+       :has-theme :l_43 .
+
+
+###  http://www.licenceusecaseonto.org/eg_44
+:eg_44 rdf:type owl:NamedIndividual ,
+                :Grant ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_44 ;
+       :has-receiver :x_44 ;
+       :has-theme :l_44 .
+
+
+###  http://www.licenceusecaseonto.org/eg_45
+:eg_45 rdf:type owl:NamedIndividual ,
+                :Grant ;
+       :has-agent :y_45 ;
+       :has-receiver :x_45 ;
+       :has-theme :l_45 .
+
+
+###  http://www.licenceusecaseonto.org/eg_46
+:eg_46 rdf:type owl:NamedIndividual ,
+                :Grant ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_46 ;
+       :has-receiver :x_46 ;
+       :has-theme :l_46 .
+
+
+###  http://www.licenceusecaseonto.org/eg_47
+:eg_47 rdf:type owl:NamedIndividual ,
+                :Grant ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_47 ;
+       :has-receiver :x_47 ;
+       :has-theme :l_47 .
+
+
+###  http://www.licenceusecaseonto.org/eg_48
+:eg_48 rdf:type owl:NamedIndividual ,
+                :Grant ;
+       :has-agent :y_48 ;
+       :has-receiver :x_48 ;
+       :has-theme :l_48 .
+
+
+###  http://www.licenceusecaseonto.org/eg_49
+:eg_49 rdf:type owl:NamedIndividual ,
+                :Grant ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :y_49 ;
+       :has-receiver :x_49 ;
+       :has-theme :l_49 .
+
+
+###  http://www.licenceusecaseonto.org/eg_5
+:eg_5 rdf:type owl:NamedIndividual ,
+               :Grant ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :y_5 ;
+      :has-receiver :x_5 ;
+      :has-theme :l_5 .
+
+
+###  http://www.licenceusecaseonto.org/eg_6
+:eg_6 rdf:type owl:NamedIndividual ,
+               :Grant ;
+      :has-agent :y_6 ;
+      :has-receiver :x_6 ;
+      :has-theme :l_6 .
+
+
+###  http://www.licenceusecaseonto.org/eg_7
+:eg_7 rdf:type owl:NamedIndividual ,
+               :Grant ;
+      :has-agent :y_7 ;
+      :has-receiver :x_7 ;
+      :has-theme :l_7 .
+
+
+###  http://www.licenceusecaseonto.org/eg_8
+:eg_8 rdf:type owl:NamedIndividual ,
+               :Grant ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :y_8 ;
+      :has-receiver :x_8 ;
+      :has-theme :l_8 .
+
+
+###  http://www.licenceusecaseonto.org/eg_9
+:eg_9 rdf:type owl:NamedIndividual ,
+               :Grant ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :y_9 ;
+      :has-receiver :x_9 ;
+      :has-theme :l_9 .
+
+
+###  http://www.licenceusecaseonto.org/epc_0
+:epc_0 rdf:type owl:NamedIndividual ,
+                :Publish ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_0 ;
+       :has-theme :c_0 .
+
+
+###  http://www.licenceusecaseonto.org/epc_1
+:epc_1 rdf:type owl:NamedIndividual ,
+                :Publish ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_1 ;
+       :has-theme :c_1 .
+
+
+###  http://www.licenceusecaseonto.org/epc_10
+:epc_10 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_10 ;
+        :has-theme :c_10 .
+
+
+###  http://www.licenceusecaseonto.org/epc_11
+:epc_11 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_11 ;
+        :has-theme :c_11 .
+
+
+###  http://www.licenceusecaseonto.org/epc_12
+:epc_12 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_12 ;
+        :has-theme :c_12 .
+
+
+###  http://www.licenceusecaseonto.org/epc_13
+:epc_13 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_13 ;
+        :has-theme :c_13 .
+
+
+###  http://www.licenceusecaseonto.org/epc_14
+:epc_14 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_14 ;
+        :has-theme :c_14 .
+
+
+###  http://www.licenceusecaseonto.org/epc_15
+:epc_15 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_15 ;
+        :has-theme :c_15 .
+
+
+###  http://www.licenceusecaseonto.org/epc_16
+:epc_16 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_16 ;
+        :has-theme :c_16 .
+
+
+###  http://www.licenceusecaseonto.org/epc_17
+:epc_17 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_17 ;
+        :has-theme :c_17 .
+
+
+###  http://www.licenceusecaseonto.org/epc_18
+:epc_18 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_18 ;
+        :has-theme :c_18 .
+
+
+###  http://www.licenceusecaseonto.org/epc_19
+:epc_19 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_19 ;
+        :has-theme :c_19 .
+
+
+###  http://www.licenceusecaseonto.org/epc_2
+:epc_2 rdf:type owl:NamedIndividual ,
+                :Publish ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_2 ;
+       :has-theme :c_2 .
+
+
+###  http://www.licenceusecaseonto.org/epc_20
+:epc_20 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_20 ;
+        :has-theme :c_20 .
+
+
+###  http://www.licenceusecaseonto.org/epc_21
+:epc_21 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_21 ;
+        :has-theme :c_21 .
+
+
+###  http://www.licenceusecaseonto.org/epc_22
+:epc_22 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_22 ;
+        :has-theme :c_22 .
+
+
+###  http://www.licenceusecaseonto.org/epc_23
+:epc_23 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_23 ;
+        :has-theme :c_23 .
+
+
+###  http://www.licenceusecaseonto.org/epc_24
+:epc_24 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_24 ;
+        :has-theme :c_24 .
+
+
+###  http://www.licenceusecaseonto.org/epc_25
+:epc_25 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_25 ;
+        :has-theme :c_25 .
+
+
+###  http://www.licenceusecaseonto.org/epc_26
+:epc_26 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_26 ;
+        :has-theme :c_26 .
+
+
+###  http://www.licenceusecaseonto.org/epc_27
+:epc_27 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_27 ;
+        :has-theme :c_27 .
+
+
+###  http://www.licenceusecaseonto.org/epc_28
+:epc_28 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_28 ;
+        :has-theme :c_28 .
+
+
+###  http://www.licenceusecaseonto.org/epc_29
+:epc_29 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_29 ;
+        :has-theme :c_29 .
+
+
+###  http://www.licenceusecaseonto.org/epc_3
+:epc_3 rdf:type owl:NamedIndividual ,
+                :Publish ;
+       :has-agent :x_3 ;
+       :has-theme :c_3 .
+
+
+###  http://www.licenceusecaseonto.org/epc_30
+:epc_30 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_30 ;
+        :has-theme :c_30 .
+
+
+###  http://www.licenceusecaseonto.org/epc_31
+:epc_31 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_31 ;
+        :has-theme :c_31 .
+
+
+###  http://www.licenceusecaseonto.org/epc_32
+:epc_32 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_32 ;
+        :has-theme :c_32 .
+
+
+###  http://www.licenceusecaseonto.org/epc_33
+:epc_33 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_33 ;
+        :has-theme :c_33 .
+
+
+###  http://www.licenceusecaseonto.org/epc_34
+:epc_34 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_34 ;
+        :has-theme :c_34 .
+
+
+###  http://www.licenceusecaseonto.org/epc_35
+:epc_35 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_35 ;
+        :has-theme :c_35 .
+
+
+###  http://www.licenceusecaseonto.org/epc_36
+:epc_36 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_36 ;
+        :has-theme :c_36 .
+
+
+###  http://www.licenceusecaseonto.org/epc_37
+:epc_37 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_37 ;
+        :has-theme :c_37 .
+
+
+###  http://www.licenceusecaseonto.org/epc_38
+:epc_38 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_38 ;
+        :has-theme :c_38 .
+
+
+###  http://www.licenceusecaseonto.org/epc_39
+:epc_39 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_39 ;
+        :has-theme :c_39 .
+
+
+###  http://www.licenceusecaseonto.org/epc_4
+:epc_4 rdf:type owl:NamedIndividual ,
+                :Publish ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_4 ;
+       :has-theme :c_4 .
+
+
+###  http://www.licenceusecaseonto.org/epc_40
+:epc_40 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_40 ;
+        :has-theme :c_40 .
+
+
+###  http://www.licenceusecaseonto.org/epc_41
+:epc_41 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_41 ;
+        :has-theme :c_41 .
+
+
+###  http://www.licenceusecaseonto.org/epc_42
+:epc_42 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_42 ;
+        :has-theme :c_42 .
+
+
+###  http://www.licenceusecaseonto.org/epc_43
+:epc_43 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_43 ;
+        :has-theme :c_43 .
+
+
+###  http://www.licenceusecaseonto.org/epc_44
+:epc_44 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_44 ;
+        :has-theme :c_44 .
+
+
+###  http://www.licenceusecaseonto.org/epc_45
+:epc_45 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_45 ;
+        :has-theme :c_45 .
+
+
+###  http://www.licenceusecaseonto.org/epc_46
+:epc_46 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_46 ;
+        :has-theme :c_46 .
+
+
+###  http://www.licenceusecaseonto.org/epc_47
+:epc_47 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_47 ;
+        :has-theme :c_47 .
+
+
+###  http://www.licenceusecaseonto.org/epc_48
+:epc_48 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_48 ;
+        :has-theme :c_48 .
+
+
+###  http://www.licenceusecaseonto.org/epc_49
+:epc_49 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_49 ;
+        :has-theme :c_49 .
+
+
+###  http://www.licenceusecaseonto.org/epc_5
+:epc_5 rdf:type owl:NamedIndividual ,
+                :Publish ;
+       :has-agent :x_5 ;
+       :has-theme :c_5 .
+
+
+###  http://www.licenceusecaseonto.org/epc_6
+:epc_6 rdf:type owl:NamedIndividual ,
+                :Publish ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_6 ;
+       :has-theme :c_6 .
+
+
+###  http://www.licenceusecaseonto.org/epc_7
+:epc_7 rdf:type owl:NamedIndividual ,
+                :Publish ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_7 ;
+       :has-theme :c_7 .
+
+
+###  http://www.licenceusecaseonto.org/epc_8
+:epc_8 rdf:type owl:NamedIndividual ,
+                :Publish ;
+       :has-agent :x_8 ;
+       :has-theme :c_8 .
+
+
+###  http://www.licenceusecaseonto.org/epc_9
+:epc_9 rdf:type owl:NamedIndividual ,
+                :Publish ;
+       :has-agent :x_9 ;
+       :has-theme :c_9 .
+
+
+###  http://www.licenceusecaseonto.org/epr_0
+:epr_0 rdf:type owl:NamedIndividual ,
+                :Publish ;
+       :has-agent :x_0 ;
+       :has-theme :r_0 .
+
+
+###  http://www.licenceusecaseonto.org/epr_1
+:epr_1 rdf:type owl:NamedIndividual ,
+                :Publish ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_1 ;
+       :has-theme :r_1 .
+
+
+###  http://www.licenceusecaseonto.org/epr_10
+:epr_10 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_10 ;
+        :has-theme :r_10 .
+
+
+###  http://www.licenceusecaseonto.org/epr_11
+:epr_11 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_11 ;
+        :has-theme :r_11 .
+
+
+###  http://www.licenceusecaseonto.org/epr_12
+:epr_12 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_12 ;
+        :has-theme :r_12 .
+
+
+###  http://www.licenceusecaseonto.org/epr_13
+:epr_13 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_13 ;
+        :has-theme :r_13 .
+
+
+###  http://www.licenceusecaseonto.org/epr_14
+:epr_14 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_14 ;
+        :has-theme :r_14 .
+
+
+###  http://www.licenceusecaseonto.org/epr_15
+:epr_15 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_15 ;
+        :has-theme :r_15 .
+
+
+###  http://www.licenceusecaseonto.org/epr_16
+:epr_16 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_16 ;
+        :has-theme :r_16 .
+
+
+###  http://www.licenceusecaseonto.org/epr_17
+:epr_17 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_17 ;
+        :has-theme :r_17 .
+
+
+###  http://www.licenceusecaseonto.org/epr_18
+:epr_18 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_18 ;
+        :has-theme :r_18 .
+
+
+###  http://www.licenceusecaseonto.org/epr_19
+:epr_19 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_19 ;
+        :has-theme :r_19 .
+
+
+###  http://www.licenceusecaseonto.org/epr_2
+:epr_2 rdf:type owl:NamedIndividual ,
+                :Publish ;
+       :has-agent :x_2 ;
+       :has-theme :r_2 .
+
+
+###  http://www.licenceusecaseonto.org/epr_20
+:epr_20 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_20 ;
+        :has-theme :r_20 .
+
+
+###  http://www.licenceusecaseonto.org/epr_21
+:epr_21 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_21 ;
+        :has-theme :r_21 .
+
+
+###  http://www.licenceusecaseonto.org/epr_22
+:epr_22 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_22 ;
+        :has-theme :r_22 .
+
+
+###  http://www.licenceusecaseonto.org/epr_23
+:epr_23 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_23 ;
+        :has-theme :r_23 .
+
+
+###  http://www.licenceusecaseonto.org/epr_24
+:epr_24 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_24 ;
+        :has-theme :r_24 .
+
+
+###  http://www.licenceusecaseonto.org/epr_25
+:epr_25 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_25 ;
+        :has-theme :r_25 .
+
+
+###  http://www.licenceusecaseonto.org/epr_26
+:epr_26 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_26 ;
+        :has-theme :r_26 .
+
+
+###  http://www.licenceusecaseonto.org/epr_27
+:epr_27 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_27 ;
+        :has-theme :r_27 .
+
+
+###  http://www.licenceusecaseonto.org/epr_28
+:epr_28 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_28 ;
+        :has-theme :r_28 .
+
+
+###  http://www.licenceusecaseonto.org/epr_29
+:epr_29 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_29 ;
+        :has-theme :r_29 .
+
+
+###  http://www.licenceusecaseonto.org/epr_3
+:epr_3 rdf:type owl:NamedIndividual ,
+                :Publish ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_3 ;
+       :has-theme :r_3 .
+
+
+###  http://www.licenceusecaseonto.org/epr_30
+:epr_30 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_30 ;
+        :has-theme :r_30 .
+
+
+###  http://www.licenceusecaseonto.org/epr_31
+:epr_31 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_31 ;
+        :has-theme :r_31 .
+
+
+###  http://www.licenceusecaseonto.org/epr_32
+:epr_32 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_32 ;
+        :has-theme :r_32 .
+
+
+###  http://www.licenceusecaseonto.org/epr_33
+:epr_33 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_33 ;
+        :has-theme :r_33 .
+
+
+###  http://www.licenceusecaseonto.org/epr_34
+:epr_34 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_34 ;
+        :has-theme :r_34 .
+
+
+###  http://www.licenceusecaseonto.org/epr_35
+:epr_35 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_35 ;
+        :has-theme :r_35 .
+
+
+###  http://www.licenceusecaseonto.org/epr_36
+:epr_36 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_36 ;
+        :has-theme :r_36 .
+
+
+###  http://www.licenceusecaseonto.org/epr_37
+:epr_37 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_37 ;
+        :has-theme :r_37 .
+
+
+###  http://www.licenceusecaseonto.org/epr_38
+:epr_38 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_38 ;
+        :has-theme :r_38 .
+
+
+###  http://www.licenceusecaseonto.org/epr_39
+:epr_39 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_39 ;
+        :has-theme :r_39 .
+
+
+###  http://www.licenceusecaseonto.org/epr_4
+:epr_4 rdf:type owl:NamedIndividual ,
+                :Publish ;
+       :has-agent :x_4 ;
+       :has-theme :r_4 .
+
+
+###  http://www.licenceusecaseonto.org/epr_40
+:epr_40 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_40 ;
+        :has-theme :r_40 .
+
+
+###  http://www.licenceusecaseonto.org/epr_41
+:epr_41 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_41 ;
+        :has-theme :r_41 .
+
+
+###  http://www.licenceusecaseonto.org/epr_42
+:epr_42 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_42 ;
+        :has-theme :r_42 .
+
+
+###  http://www.licenceusecaseonto.org/epr_43
+:epr_43 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_43 ;
+        :has-theme :r_43 .
+
+
+###  http://www.licenceusecaseonto.org/epr_44
+:epr_44 rdf:type owl:NamedIndividual ,
+                 :Publish ;
+        :has-agent :x_44 ;
+        :has-theme :r_44 .
+
+
+###  http://www.licenceusecaseonto.org/epr_45
+:epr_45 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_45 ;
+        :has-theme :r_45 .
+
+
+###  http://www.licenceusecaseonto.org/epr_46
+:epr_46 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_46 ;
+        :has-theme :r_46 .
+
+
+###  http://www.licenceusecaseonto.org/epr_47
+:epr_47 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_47 ;
+        :has-theme :r_47 .
+
+
+###  http://www.licenceusecaseonto.org/epr_48
+:epr_48 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_48 ;
+        :has-theme :r_48 .
+
+
+###  http://www.licenceusecaseonto.org/epr_49
+:epr_49 rdf:type owl:NamedIndividual ,
+                 :Publish ,
+                 <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+        :has-agent :x_49 ;
+        :has-theme :r_49 .
+
+
+###  http://www.licenceusecaseonto.org/epr_5
+:epr_5 rdf:type owl:NamedIndividual ,
+                :Publish ;
+       :has-agent :x_5 ;
+       :has-theme :r_5 .
+
+
+###  http://www.licenceusecaseonto.org/epr_6
+:epr_6 rdf:type owl:NamedIndividual ,
+                :Publish ;
+       :has-agent :x_6 ;
+       :has-theme :r_6 .
+
+
+###  http://www.licenceusecaseonto.org/epr_7
+:epr_7 rdf:type owl:NamedIndividual ,
+                :Publish ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_7 ;
+       :has-theme :r_7 .
+
+
+###  http://www.licenceusecaseonto.org/epr_8
+:epr_8 rdf:type owl:NamedIndividual ,
+                :Publish ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_8 ;
+       :has-theme :r_8 .
+
+
+###  http://www.licenceusecaseonto.org/epr_9
+:epr_9 rdf:type owl:NamedIndividual ,
+                :Publish ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_9 ;
+       :has-theme :r_9 .
+
+
+###  http://www.licenceusecaseonto.org/er_0
+:er_0 rdf:type owl:NamedIndividual ,
+               :Remove ;
+      :has-agent :x_0 ;
+      :has-theme :r_0 .
+
+
+###  http://www.licenceusecaseonto.org/er_1
+:er_1 rdf:type owl:NamedIndividual ,
+               :Remove ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :x_1 ;
+      :has-theme :r_1 .
+
+
+###  http://www.licenceusecaseonto.org/er_10
+:er_10 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_10 ;
+       :has-theme :r_10 .
+
+
+###  http://www.licenceusecaseonto.org/er_11
+:er_11 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_11 ;
+       :has-theme :r_11 .
+
+
+###  http://www.licenceusecaseonto.org/er_12
+:er_12 rdf:type owl:NamedIndividual ,
+                :Remove ;
+       :has-agent :x_12 ;
+       :has-theme :r_12 .
+
+
+###  http://www.licenceusecaseonto.org/er_13
+:er_13 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_13 ;
+       :has-theme :r_13 .
+
+
+###  http://www.licenceusecaseonto.org/er_14
+:er_14 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_14 ;
+       :has-theme :r_14 .
+
+
+###  http://www.licenceusecaseonto.org/er_15
+:er_15 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_15 ;
+       :has-theme :r_15 .
+
+
+###  http://www.licenceusecaseonto.org/er_16
+:er_16 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_16 ;
+       :has-theme :r_16 .
+
+
+###  http://www.licenceusecaseonto.org/er_17
+:er_17 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_17 ;
+       :has-theme :r_17 .
+
+
+###  http://www.licenceusecaseonto.org/er_18
+:er_18 rdf:type owl:NamedIndividual ,
+                :Remove ;
+       :has-agent :x_18 ;
+       :has-theme :r_18 .
+
+
+###  http://www.licenceusecaseonto.org/er_19
+:er_19 rdf:type owl:NamedIndividual ,
+                :Remove ;
+       :has-agent :x_19 ;
+       :has-theme :r_19 .
+
+
+###  http://www.licenceusecaseonto.org/er_2
+:er_2 rdf:type owl:NamedIndividual ,
+               :Remove ;
+      :has-agent :x_2 ;
+      :has-theme :r_2 .
+
+
+###  http://www.licenceusecaseonto.org/er_20
+:er_20 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_20 ;
+       :has-theme :r_20 .
+
+
+###  http://www.licenceusecaseonto.org/er_21
+:er_21 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_21 ;
+       :has-theme :r_21 .
+
+
+###  http://www.licenceusecaseonto.org/er_22
+:er_22 rdf:type owl:NamedIndividual ,
+                :Remove ;
+       :has-agent :x_22 ;
+       :has-theme :r_22 .
+
+
+###  http://www.licenceusecaseonto.org/er_23
+:er_23 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_23 ;
+       :has-theme :r_23 .
+
+
+###  http://www.licenceusecaseonto.org/er_24
+:er_24 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_24 ;
+       :has-theme :r_24 .
+
+
+###  http://www.licenceusecaseonto.org/er_25
+:er_25 rdf:type owl:NamedIndividual ,
+                :Remove ;
+       :has-agent :x_25 ;
+       :has-theme :r_25 .
+
+
+###  http://www.licenceusecaseonto.org/er_26
+:er_26 rdf:type owl:NamedIndividual ,
+                :Remove ;
+       :has-agent :x_26 ;
+       :has-theme :r_26 .
+
+
+###  http://www.licenceusecaseonto.org/er_27
+:er_27 rdf:type owl:NamedIndividual ,
+                :Remove ;
+       :has-agent :x_27 ;
+       :has-theme :r_27 .
+
+
+###  http://www.licenceusecaseonto.org/er_28
+:er_28 rdf:type owl:NamedIndividual ,
+                :Remove ;
+       :has-agent :x_28 ;
+       :has-theme :r_28 .
+
+
+###  http://www.licenceusecaseonto.org/er_29
+:er_29 rdf:type owl:NamedIndividual ,
+                :Remove ;
+       :has-agent :x_29 ;
+       :has-theme :r_29 .
+
+
+###  http://www.licenceusecaseonto.org/er_3
+:er_3 rdf:type owl:NamedIndividual ,
+               :Remove ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :x_3 ;
+      :has-theme :r_3 .
+
+
+###  http://www.licenceusecaseonto.org/er_30
+:er_30 rdf:type owl:NamedIndividual ,
+                :Remove ;
+       :has-agent :x_30 ;
+       :has-theme :r_30 .
+
+
+###  http://www.licenceusecaseonto.org/er_31
+:er_31 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_31 ;
+       :has-theme :r_31 .
+
+
+###  http://www.licenceusecaseonto.org/er_32
+:er_32 rdf:type owl:NamedIndividual ,
+                :Remove ;
+       :has-agent :x_32 ;
+       :has-theme :r_32 .
+
+
+###  http://www.licenceusecaseonto.org/er_33
+:er_33 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_33 ;
+       :has-theme :r_33 .
+
+
+###  http://www.licenceusecaseonto.org/er_34
+:er_34 rdf:type owl:NamedIndividual ,
+                :Remove ;
+       :has-agent :x_34 ;
+       :has-theme :r_34 .
+
+
+###  http://www.licenceusecaseonto.org/er_35
+:er_35 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_35 ;
+       :has-theme :r_35 .
+
+
+###  http://www.licenceusecaseonto.org/er_36
+:er_36 rdf:type owl:NamedIndividual ,
+                :Remove ;
+       :has-agent :x_36 ;
+       :has-theme :r_36 .
+
+
+###  http://www.licenceusecaseonto.org/er_37
+:er_37 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_37 ;
+       :has-theme :r_37 .
+
+
+###  http://www.licenceusecaseonto.org/er_38
+:er_38 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_38 ;
+       :has-theme :r_38 .
+
+
+###  http://www.licenceusecaseonto.org/er_39
+:er_39 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_39 ;
+       :has-theme :r_39 .
+
+
+###  http://www.licenceusecaseonto.org/er_4
+:er_4 rdf:type owl:NamedIndividual ,
+               :Remove ;
+      :has-agent :x_4 ;
+      :has-theme :r_4 .
+
+
+###  http://www.licenceusecaseonto.org/er_40
+:er_40 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_40 ;
+       :has-theme :r_40 .
+
+
+###  http://www.licenceusecaseonto.org/er_41
+:er_41 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_41 ;
+       :has-theme :r_41 .
+
+
+###  http://www.licenceusecaseonto.org/er_42
+:er_42 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_42 ;
+       :has-theme :r_42 .
+
+
+###  http://www.licenceusecaseonto.org/er_43
+:er_43 rdf:type owl:NamedIndividual ,
+                :Remove ;
+       :has-agent :x_43 ;
+       :has-theme :r_43 .
+
+
+###  http://www.licenceusecaseonto.org/er_44
+:er_44 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_44 ;
+       :has-theme :r_44 .
+
+
+###  http://www.licenceusecaseonto.org/er_45
+:er_45 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_45 ;
+       :has-theme :r_45 .
+
+
+###  http://www.licenceusecaseonto.org/er_46
+:er_46 rdf:type owl:NamedIndividual ,
+                :Remove ;
+       :has-agent :x_46 ;
+       :has-theme :r_46 .
+
+
+###  http://www.licenceusecaseonto.org/er_47
+:er_47 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_47 ;
+       :has-theme :r_47 .
+
+
+###  http://www.licenceusecaseonto.org/er_48
+:er_48 rdf:type owl:NamedIndividual ,
+                :Remove ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_48 ;
+       :has-theme :r_48 .
+
+
+###  http://www.licenceusecaseonto.org/er_49
+:er_49 rdf:type owl:NamedIndividual ,
+                :Remove ;
+       :has-agent :x_49 ;
+       :has-theme :r_49 .
+
+
+###  http://www.licenceusecaseonto.org/er_5
+:er_5 rdf:type owl:NamedIndividual ,
+               :Remove ;
+      :has-agent :x_5 ;
+      :has-theme :r_5 .
+
+
+###  http://www.licenceusecaseonto.org/er_6
+:er_6 rdf:type owl:NamedIndividual ,
+               :Remove ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :x_6 ;
+      :has-theme :r_6 .
+
+
+###  http://www.licenceusecaseonto.org/er_7
+:er_7 rdf:type owl:NamedIndividual ,
+               :Remove ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :x_7 ;
+      :has-theme :r_7 .
+
+
+###  http://www.licenceusecaseonto.org/er_8
+:er_8 rdf:type owl:NamedIndividual ,
+               :Remove ;
+      :has-agent :x_8 ;
+      :has-theme :r_8 .
+
+
+###  http://www.licenceusecaseonto.org/er_9
+:er_9 rdf:type owl:NamedIndividual ,
+               :Remove ;
+      :has-agent :x_9 ;
+      :has-theme :r_9 .
+
+
+###  http://www.licenceusecaseonto.org/ev_0
+:ev_0 rdf:type owl:NamedIndividual ,
+               :Evaluate ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :x_0 ;
+      :has-result :r_0 ;
+      :has-theme :p_0 .
+
+
+###  http://www.licenceusecaseonto.org/ev_1
+:ev_1 rdf:type owl:NamedIndividual ,
+               :Evaluate ;
+      :has-agent :x_1 ;
+      :has-result :r_1 ;
+      :has-theme :p_1 .
+
+
+###  http://www.licenceusecaseonto.org/ev_10
+:ev_10 rdf:type owl:NamedIndividual ,
+                :Evaluate ;
+       :has-agent :x_10 ;
+       :has-result :r_10 ;
+       :has-theme :p_10 .
+
+
+###  http://www.licenceusecaseonto.org/ev_11
+:ev_11 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_11 ;
+       :has-result :r_11 ;
+       :has-theme :p_11 .
+
+
+###  http://www.licenceusecaseonto.org/ev_12
+:ev_12 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_12 ;
+       :has-result :r_12 ;
+       :has-theme :p_12 .
+
+
+###  http://www.licenceusecaseonto.org/ev_13
+:ev_13 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_13 ;
+       :has-result :r_13 ;
+       :has-theme :p_13 .
+
+
+###  http://www.licenceusecaseonto.org/ev_14
+:ev_14 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_14 ;
+       :has-result :r_14 ;
+       :has-theme :p_14 .
+
+
+###  http://www.licenceusecaseonto.org/ev_15
+:ev_15 rdf:type owl:NamedIndividual ,
+                :Evaluate ;
+       :has-agent :x_15 ;
+       :has-result :r_15 ;
+       :has-theme :p_15 .
+
+
+###  http://www.licenceusecaseonto.org/ev_16
+:ev_16 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_16 ;
+       :has-result :r_16 ;
+       :has-theme :p_16 .
+
+
+###  http://www.licenceusecaseonto.org/ev_17
+:ev_17 rdf:type owl:NamedIndividual ,
+                :Evaluate ;
+       :has-agent :x_17 ;
+       :has-result :r_17 ;
+       :has-theme :p_17 .
+
+
+###  http://www.licenceusecaseonto.org/ev_18
+:ev_18 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_18 ;
+       :has-result :r_18 ;
+       :has-theme :p_18 .
+
+
+###  http://www.licenceusecaseonto.org/ev_19
+:ev_19 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_19 ;
+       :has-result :r_19 ;
+       :has-theme :p_19 .
+
+
+###  http://www.licenceusecaseonto.org/ev_2
+:ev_2 rdf:type owl:NamedIndividual ,
+               :Evaluate ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :x_2 ;
+      :has-result :r_2 ;
+      :has-theme :p_2 .
+
+
+###  http://www.licenceusecaseonto.org/ev_20
+:ev_20 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_20 ;
+       :has-result :r_20 ;
+       :has-theme :p_20 .
+
+
+###  http://www.licenceusecaseonto.org/ev_21
+:ev_21 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_21 ;
+       :has-result :r_21 ;
+       :has-theme :p_21 .
+
+
+###  http://www.licenceusecaseonto.org/ev_22
+:ev_22 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_22 ;
+       :has-result :r_22 ;
+       :has-theme :p_22 .
+
+
+###  http://www.licenceusecaseonto.org/ev_23
+:ev_23 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_23 ;
+       :has-result :r_23 ;
+       :has-theme :p_23 .
+
+
+###  http://www.licenceusecaseonto.org/ev_24
+:ev_24 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_24 ;
+       :has-result :r_24 ;
+       :has-theme :p_24 .
+
+
+###  http://www.licenceusecaseonto.org/ev_25
+:ev_25 rdf:type owl:NamedIndividual ,
+                :Evaluate ;
+       :has-agent :x_25 ;
+       :has-result :r_25 ;
+       :has-theme :p_25 .
+
+
+###  http://www.licenceusecaseonto.org/ev_26
+:ev_26 rdf:type owl:NamedIndividual ,
+                :Evaluate ;
+       :has-agent :x_26 ;
+       :has-result :r_26 ;
+       :has-theme :p_26 .
+
+
+###  http://www.licenceusecaseonto.org/ev_27
+:ev_27 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_27 ;
+       :has-result :r_27 ;
+       :has-theme :p_27 .
+
+
+###  http://www.licenceusecaseonto.org/ev_28
+:ev_28 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_28 ;
+       :has-result :r_28 ;
+       :has-theme :p_28 .
+
+
+###  http://www.licenceusecaseonto.org/ev_29
+:ev_29 rdf:type owl:NamedIndividual ,
+                :Evaluate ;
+       :has-agent :x_29 ;
+       :has-result :r_29 ;
+       :has-theme :p_29 .
+
+
+###  http://www.licenceusecaseonto.org/ev_3
+:ev_3 rdf:type owl:NamedIndividual ,
+               :Evaluate ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :x_3 ;
+      :has-result :r_3 ;
+      :has-theme :p_3 .
+
+
+###  http://www.licenceusecaseonto.org/ev_30
+:ev_30 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_30 ;
+       :has-result :r_30 ;
+       :has-theme :p_30 .
+
+
+###  http://www.licenceusecaseonto.org/ev_31
+:ev_31 rdf:type owl:NamedIndividual ,
+                :Evaluate ;
+       :has-agent :x_31 ;
+       :has-result :r_31 ;
+       :has-theme :p_31 .
+
+
+###  http://www.licenceusecaseonto.org/ev_32
+:ev_32 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_32 ;
+       :has-result :r_32 ;
+       :has-theme :p_32 .
+
+
+###  http://www.licenceusecaseonto.org/ev_33
+:ev_33 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_33 ;
+       :has-result :r_33 ;
+       :has-theme :p_33 .
+
+
+###  http://www.licenceusecaseonto.org/ev_34
+:ev_34 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_34 ;
+       :has-result :r_34 ;
+       :has-theme :p_34 .
+
+
+###  http://www.licenceusecaseonto.org/ev_35
+:ev_35 rdf:type owl:NamedIndividual ,
+                :Evaluate ;
+       :has-agent :x_35 ;
+       :has-result :r_35 ;
+       :has-theme :p_35 .
+
+
+###  http://www.licenceusecaseonto.org/ev_36
+:ev_36 rdf:type owl:NamedIndividual ,
+                :Evaluate ;
+       :has-agent :x_36 ;
+       :has-result :r_36 ;
+       :has-theme :p_36 .
+
+
+###  http://www.licenceusecaseonto.org/ev_37
+:ev_37 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_37 ;
+       :has-result :r_37 ;
+       :has-theme :p_37 .
+
+
+###  http://www.licenceusecaseonto.org/ev_38
+:ev_38 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_38 ;
+       :has-result :r_38 ;
+       :has-theme :p_38 .
+
+
+###  http://www.licenceusecaseonto.org/ev_39
+:ev_39 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_39 ;
+       :has-result :r_39 ;
+       :has-theme :p_39 .
+
+
+###  http://www.licenceusecaseonto.org/ev_4
+:ev_4 rdf:type owl:NamedIndividual ,
+               :Evaluate ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :x_4 ;
+      :has-result :r_4 ;
+      :has-theme :p_4 .
+
+
+###  http://www.licenceusecaseonto.org/ev_40
+:ev_40 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_40 ;
+       :has-result :r_40 ;
+       :has-theme :p_40 .
+
+
+###  http://www.licenceusecaseonto.org/ev_41
+:ev_41 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_41 ;
+       :has-result :r_41 ;
+       :has-theme :p_41 .
+
+
+###  http://www.licenceusecaseonto.org/ev_42
+:ev_42 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_42 ;
+       :has-result :r_42 ;
+       :has-theme :p_42 .
+
+
+###  http://www.licenceusecaseonto.org/ev_43
+:ev_43 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_43 ;
+       :has-result :r_43 ;
+       :has-theme :p_43 .
+
+
+###  http://www.licenceusecaseonto.org/ev_44
+:ev_44 rdf:type owl:NamedIndividual ,
+                :Evaluate ;
+       :has-agent :x_44 ;
+       :has-result :r_44 ;
+       :has-theme :p_44 .
+
+
+###  http://www.licenceusecaseonto.org/ev_45
+:ev_45 rdf:type owl:NamedIndividual ,
+                :Evaluate ;
+       :has-agent :x_45 ;
+       :has-result :r_45 ;
+       :has-theme :p_45 .
+
+
+###  http://www.licenceusecaseonto.org/ev_46
+:ev_46 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_46 ;
+       :has-result :r_46 ;
+       :has-theme :p_46 .
+
+
+###  http://www.licenceusecaseonto.org/ev_47
+:ev_47 rdf:type owl:NamedIndividual ,
+                :Evaluate ,
+                <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+       :has-agent :x_47 ;
+       :has-result :r_47 ;
+       :has-theme :p_47 .
+
+
+###  http://www.licenceusecaseonto.org/ev_48
+:ev_48 rdf:type owl:NamedIndividual ,
+                :Evaluate ;
+       :has-agent :x_48 ;
+       :has-result :r_48 ;
+       :has-theme :p_48 .
+
+
+###  http://www.licenceusecaseonto.org/ev_49
+:ev_49 rdf:type owl:NamedIndividual ,
+                :Evaluate ;
+       :has-agent :x_49 ;
+       :has-result :r_49 ;
+       :has-theme :p_49 .
+
+
+###  http://www.licenceusecaseonto.org/ev_5
+:ev_5 rdf:type owl:NamedIndividual ,
+               :Evaluate ;
+      :has-agent :x_5 ;
+      :has-result :r_5 ;
+      :has-theme :p_5 .
+
+
+###  http://www.licenceusecaseonto.org/ev_6
+:ev_6 rdf:type owl:NamedIndividual ,
+               :Evaluate ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :x_6 ;
+      :has-result :r_6 ;
+      :has-theme :p_6 .
+
+
+###  http://www.licenceusecaseonto.org/ev_7
+:ev_7 rdf:type owl:NamedIndividual ,
+               :Evaluate ;
+      :has-agent :x_7 ;
+      :has-result :r_7 ;
+      :has-theme :p_7 .
+
+
+###  http://www.licenceusecaseonto.org/ev_8
+:ev_8 rdf:type owl:NamedIndividual ,
+               :Evaluate ,
+               <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Rexist> ;
+      :has-agent :x_8 ;
+      :has-result :r_8 ;
+      :has-theme :p_8 .
+
+
+###  http://www.licenceusecaseonto.org/ev_9
+:ev_9 rdf:type owl:NamedIndividual ,
+               :Evaluate ;
+      :has-agent :x_9 ;
+      :has-result :r_9 ;
+      :has-theme :p_9 .
+
+
+###  http://www.licenceusecaseonto.org/l_0
+:l_0 rdf:type owl:NamedIndividual ,
+              :Licence ;
+     :is-licence-of :p_0 .
+
+
+###  http://www.licenceusecaseonto.org/l_1
+:l_1 rdf:type owl:NamedIndividual ,
+              :Licence ;
+     :is-licence-of :p_1 .
+
+
+###  http://www.licenceusecaseonto.org/l_10
+:l_10 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_10 .
+
+
+###  http://www.licenceusecaseonto.org/l_11
+:l_11 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_11 .
+
+
+###  http://www.licenceusecaseonto.org/l_12
+:l_12 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_12 .
+
+
+###  http://www.licenceusecaseonto.org/l_13
+:l_13 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_13 .
+
+
+###  http://www.licenceusecaseonto.org/l_14
+:l_14 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_14 .
+
+
+###  http://www.licenceusecaseonto.org/l_15
+:l_15 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_15 .
+
+
+###  http://www.licenceusecaseonto.org/l_16
+:l_16 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_16 .
+
+
+###  http://www.licenceusecaseonto.org/l_17
+:l_17 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_17 .
+
+
+###  http://www.licenceusecaseonto.org/l_18
+:l_18 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_18 .
+
+
+###  http://www.licenceusecaseonto.org/l_19
+:l_19 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_19 .
+
+
+###  http://www.licenceusecaseonto.org/l_2
+:l_2 rdf:type owl:NamedIndividual ,
+              :Licence ;
+     :is-licence-of :p_2 .
+
+
+###  http://www.licenceusecaseonto.org/l_20
+:l_20 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_20 .
+
+
+###  http://www.licenceusecaseonto.org/l_21
+:l_21 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_21 .
+
+
+###  http://www.licenceusecaseonto.org/l_22
+:l_22 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_22 .
+
+
+###  http://www.licenceusecaseonto.org/l_23
+:l_23 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_23 .
+
+
+###  http://www.licenceusecaseonto.org/l_24
+:l_24 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_24 .
+
+
+###  http://www.licenceusecaseonto.org/l_25
+:l_25 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_25 .
+
+
+###  http://www.licenceusecaseonto.org/l_26
+:l_26 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_26 .
+
+
+###  http://www.licenceusecaseonto.org/l_27
+:l_27 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_27 .
+
+
+###  http://www.licenceusecaseonto.org/l_28
+:l_28 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_28 .
+
+
+###  http://www.licenceusecaseonto.org/l_29
+:l_29 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_29 .
+
+
+###  http://www.licenceusecaseonto.org/l_3
+:l_3 rdf:type owl:NamedIndividual ,
+              :Licence ;
+     :is-licence-of :p_3 .
+
+
+###  http://www.licenceusecaseonto.org/l_30
+:l_30 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_30 .
+
+
+###  http://www.licenceusecaseonto.org/l_31
+:l_31 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_31 .
+
+
+###  http://www.licenceusecaseonto.org/l_32
+:l_32 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_32 .
+
+
+###  http://www.licenceusecaseonto.org/l_33
+:l_33 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_33 .
+
+
+###  http://www.licenceusecaseonto.org/l_34
+:l_34 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_34 .
+
+
+###  http://www.licenceusecaseonto.org/l_35
+:l_35 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_35 .
+
+
+###  http://www.licenceusecaseonto.org/l_36
+:l_36 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_36 .
+
+
+###  http://www.licenceusecaseonto.org/l_37
+:l_37 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_37 .
+
+
+###  http://www.licenceusecaseonto.org/l_38
+:l_38 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_38 .
+
+
+###  http://www.licenceusecaseonto.org/l_39
+:l_39 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_39 .
+
+
+###  http://www.licenceusecaseonto.org/l_4
+:l_4 rdf:type owl:NamedIndividual ,
+              :Licence ;
+     :is-licence-of :p_4 .
+
+
+###  http://www.licenceusecaseonto.org/l_40
+:l_40 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_40 .
+
+
+###  http://www.licenceusecaseonto.org/l_41
+:l_41 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_41 .
+
+
+###  http://www.licenceusecaseonto.org/l_42
+:l_42 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_42 .
+
+
+###  http://www.licenceusecaseonto.org/l_43
+:l_43 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_43 .
+
+
+###  http://www.licenceusecaseonto.org/l_44
+:l_44 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_44 .
+
+
+###  http://www.licenceusecaseonto.org/l_45
+:l_45 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_45 .
+
+
+###  http://www.licenceusecaseonto.org/l_46
+:l_46 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_46 .
+
+
+###  http://www.licenceusecaseonto.org/l_47
+:l_47 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_47 .
+
+
+###  http://www.licenceusecaseonto.org/l_48
+:l_48 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_48 .
+
+
+###  http://www.licenceusecaseonto.org/l_49
+:l_49 rdf:type owl:NamedIndividual ,
+               :Licence ;
+      :is-licence-of :p_49 .
+
+
+###  http://www.licenceusecaseonto.org/l_5
+:l_5 rdf:type owl:NamedIndividual ,
+              :Licence ;
+     :is-licence-of :p_5 .
+
+
+###  http://www.licenceusecaseonto.org/l_6
+:l_6 rdf:type owl:NamedIndividual ,
+              :Licence ;
+     :is-licence-of :p_6 .
+
+
+###  http://www.licenceusecaseonto.org/l_7
+:l_7 rdf:type owl:NamedIndividual ,
+              :Licence ;
+     :is-licence-of :p_7 .
+
+
+###  http://www.licenceusecaseonto.org/l_8
+:l_8 rdf:type owl:NamedIndividual ,
+              :Licence ;
+     :is-licence-of :p_8 .
+
+
+###  http://www.licenceusecaseonto.org/l_9
+:l_9 rdf:type owl:NamedIndividual ,
+              :Licence ;
+     :is-licence-of :p_9 .
+
+
+###  http://www.licenceusecaseonto.org/p_0
+:p_0 rdf:type owl:NamedIndividual ,
+              :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_1
+:p_1 rdf:type owl:NamedIndividual ,
+              :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_10
+:p_10 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_11
+:p_11 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_12
+:p_12 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_13
+:p_13 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_14
+:p_14 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_15
+:p_15 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_16
+:p_16 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_17
+:p_17 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_18
+:p_18 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_19
+:p_19 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_2
+:p_2 rdf:type owl:NamedIndividual ,
+              :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_20
+:p_20 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_21
+:p_21 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_22
+:p_22 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_23
+:p_23 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_24
+:p_24 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_25
+:p_25 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_26
+:p_26 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_27
+:p_27 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_28
+:p_28 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_29
+:p_29 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_3
+:p_3 rdf:type owl:NamedIndividual ,
+              :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_30
+:p_30 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_31
+:p_31 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_32
+:p_32 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_33
+:p_33 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_34
+:p_34 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_35
+:p_35 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_36
+:p_36 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_37
+:p_37 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_38
+:p_38 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_39
+:p_39 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_4
+:p_4 rdf:type owl:NamedIndividual ,
+              :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_40
+:p_40 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_41
+:p_41 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_42
+:p_42 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_43
+:p_43 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_44
+:p_44 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_45
+:p_45 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_46
+:p_46 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_47
+:p_47 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_48
+:p_48 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_49
+:p_49 rdf:type owl:NamedIndividual ,
+               :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_5
+:p_5 rdf:type owl:NamedIndividual ,
+              :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_6
+:p_6 rdf:type owl:NamedIndividual ,
+              :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_7
+:p_7 rdf:type owl:NamedIndividual ,
+              :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_8
+:p_8 rdf:type owl:NamedIndividual ,
+              :Product .
+
+
+###  http://www.licenceusecaseonto.org/p_9
+:p_9 rdf:type owl:NamedIndividual ,
+              :Product .
+
+
+###  http://www.licenceusecaseonto.org/r_0
+:r_0 rdf:type owl:NamedIndividual ,
+              :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_1
+:r_1 rdf:type owl:NamedIndividual ,
+              :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_10
+:r_10 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_11
+:r_11 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_12
+:r_12 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_13
+:r_13 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_14
+:r_14 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_15
+:r_15 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_16
+:r_16 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_17
+:r_17 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_18
+:r_18 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_19
+:r_19 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_2
+:r_2 rdf:type owl:NamedIndividual ,
+              :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_20
+:r_20 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_21
+:r_21 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_22
+:r_22 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_23
+:r_23 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_24
+:r_24 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_25
+:r_25 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_26
+:r_26 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_27
+:r_27 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_28
+:r_28 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_29
+:r_29 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_3
+:r_3 rdf:type owl:NamedIndividual ,
+              :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_30
+:r_30 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_31
+:r_31 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_32
+:r_32 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_33
+:r_33 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_34
+:r_34 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_35
+:r_35 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_36
+:r_36 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_37
+:r_37 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_38
+:r_38 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_39
+:r_39 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_4
+:r_4 rdf:type owl:NamedIndividual ,
+              :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_40
+:r_40 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_41
+:r_41 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_42
+:r_42 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_43
+:r_43 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_44
+:r_44 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_45
+:r_45 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_46
+:r_46 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_47
+:r_47 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_48
+:r_48 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_49
+:r_49 rdf:type owl:NamedIndividual ,
+               :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_5
+:r_5 rdf:type owl:NamedIndividual ,
+              :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_6
+:r_6 rdf:type owl:NamedIndividual ,
+              :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_7
+:r_7 rdf:type owl:NamedIndividual ,
+              :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_8
+:r_8 rdf:type owl:NamedIndividual ,
+              :Result .
+
+
+###  http://www.licenceusecaseonto.org/r_9
+:r_9 rdf:type owl:NamedIndividual ,
+              :Result .
+
+
+###  http://www.licenceusecaseonto.org/x_0
+:x_0 rdf:type owl:NamedIndividual ,
+              :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_1
+:x_1 rdf:type owl:NamedIndividual ,
+              :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_10
+:x_10 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_11
+:x_11 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_12
+:x_12 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_13
+:x_13 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_14
+:x_14 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_15
+:x_15 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_16
+:x_16 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_17
+:x_17 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_18
+:x_18 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_19
+:x_19 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_2
+:x_2 rdf:type owl:NamedIndividual ,
+              :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_20
+:x_20 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_21
+:x_21 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_22
+:x_22 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_23
+:x_23 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_24
+:x_24 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_25
+:x_25 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_26
+:x_26 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_27
+:x_27 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_28
+:x_28 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_29
+:x_29 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_3
+:x_3 rdf:type owl:NamedIndividual ,
+              :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_30
+:x_30 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_31
+:x_31 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_32
+:x_32 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_33
+:x_33 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_34
+:x_34 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_35
+:x_35 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_36
+:x_36 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_37
+:x_37 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_38
+:x_38 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_39
+:x_39 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_4
+:x_4 rdf:type owl:NamedIndividual ,
+              :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_40
+:x_40 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_41
+:x_41 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_42
+:x_42 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_43
+:x_43 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_44
+:x_44 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_45
+:x_45 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_46
+:x_46 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_47
+:x_47 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_48
+:x_48 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_49
+:x_49 rdf:type owl:NamedIndividual ,
+               :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_5
+:x_5 rdf:type owl:NamedIndividual ,
+              :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_6
+:x_6 rdf:type owl:NamedIndividual ,
+              :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_7
+:x_7 rdf:type owl:NamedIndividual ,
+              :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_8
+:x_8 rdf:type owl:NamedIndividual ,
+              :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/x_9
+:x_9 rdf:type owl:NamedIndividual ,
+              :Licensee .
+
+
+###  http://www.licenceusecaseonto.org/y_0
+:y_0 rdf:type owl:NamedIndividual ,
+              :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_1
+:y_1 rdf:type owl:NamedIndividual ,
+              :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_10
+:y_10 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_11
+:y_11 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_12
+:y_12 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_13
+:y_13 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_14
+:y_14 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_15
+:y_15 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_16
+:y_16 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_17
+:y_17 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_18
+:y_18 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_19
+:y_19 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_2
+:y_2 rdf:type owl:NamedIndividual ,
+              :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_20
+:y_20 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_21
+:y_21 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_22
+:y_22 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_23
+:y_23 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_24
+:y_24 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_25
+:y_25 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_26
+:y_26 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_27
+:y_27 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_28
+:y_28 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_29
+:y_29 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_3
+:y_3 rdf:type owl:NamedIndividual ,
+              :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_30
+:y_30 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_31
+:y_31 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_32
+:y_32 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_33
+:y_33 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_34
+:y_34 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_35
+:y_35 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_36
+:y_36 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_37
+:y_37 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_38
+:y_38 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_39
+:y_39 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_4
+:y_4 rdf:type owl:NamedIndividual ,
+              :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_40
+:y_40 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_41
+:y_41 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_42
+:y_42 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_43
+:y_43 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_44
+:y_44 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_45
+:y_45 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_46
+:y_46 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_47
+:y_47 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_48
+:y_48 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_49
+:y_49 rdf:type owl:NamedIndividual ,
+               :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_5
+:y_5 rdf:type owl:NamedIndividual ,
+              :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_6
+:y_6 rdf:type owl:NamedIndividual ,
+              :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_7
+:y_7 rdf:type owl:NamedIndividual ,
+              :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_8
+:y_8 rdf:type owl:NamedIndividual ,
+              :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/y_9
+:y_9 rdf:type owl:NamedIndividual ,
+              :Licensor .
+
+
+###  Generated by the OWL API (version 5.1.19) https://github.com/owlcs/owlapi/

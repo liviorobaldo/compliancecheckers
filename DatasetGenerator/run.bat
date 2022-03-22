@@ -1,0 +1,1 @@
+java -cp .;./lib/* -Dfile.encoding=utf-8 DatasetGenerator "./CORPUS"
