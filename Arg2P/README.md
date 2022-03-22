@@ -5,7 +5,7 @@ This folder contains the implementation of the use case as <a href="https://apic
 <p align="justify">The file <b>regulative+compliance_rules.arg2p</b> derives a violation for either all prohibitions that took place in the state of affairs and were not compensated <i>and</i> for all obligations that did not take place in the state of affairs and were not compensated.</p>
 
 <p align="justify">
-The state of affairs is described in one of the synthetic datasets (ABox) created by the <a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/DatasetGenerator">dataset generator available on this GitHub</a>. Each ABox is a collection of facts in Arg2P input format describing the state of affairs. 
+The state of affairs is described in one of the synthetic datasets (ABox) created by the <a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/DatasetGenerator">dataset generator available on this GitHub</a>. Each ABox is a collection of facts describing the state of affairs encoded in Arg2P's input format.
 </p>
 
 <p align="justify">
