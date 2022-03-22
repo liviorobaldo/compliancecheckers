@@ -6,7 +6,7 @@ On the other hand, the file <b>compliancerules.ttl</b> contains further SHACL SP
 </p>
 
 <p align="justify">
-The state of affairs is described in one of the synthetic datasets (ABox) created by the <a href="https://github.com/liviorobaldo/legalreasoners/tree/main/DatasetGenerator">dataset generator available on this GitHub</a>. Each ABox contains individuals populating the ontologies in <b>licenceusecaseTBox.owl</b> and <b>riolOntology.owl</b>.
+The state of affairs is described in one of the synthetic datasets (ABox) created by the <a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/DatasetGenerator">dataset generator available on this GitHub</a>. Each ABox contains individuals populating the ontologies in <b>licenceusecaseTBox.owl</b> and <b>riolOntology.owl</b>.
 </p>
 
 <p align="justify">The file <b>DetectViolationsOnCorpus.java</b> executes the SHACL rules on all ABox(es) it finds in the folder CORPUS created by the dataset generator. To compile and execute them, you need to install the <a href="https://www.oracle.com/java">Java Software Developer Kit (SDK)</a>. The files in this repository were developed and tested using Java version 11. The subfolder <b>lib</b> contains all Java libraries needed for the execution, specifically <b>shacl-1.3.2.jar</b>, the <a href="https://www.topquadrant.com/the-topbraid-evn-ontology-editor/">TopBraid</a> library to execute SHACL shapes and rules available <a href="https://repo1.maven.org/maven2/org/topbraid/shacl/1.3.2/">at this link</a>.
