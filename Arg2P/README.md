@@ -17,5 +17,5 @@ We invite you to visit <a href="https://apice.unibo.it/xwiki/bin/view/Arg2p/WebH
 </p>
 
 <p align="justify">
-The execution of the above instruction will output the evaluation of each ABox in the CORPUS folder within the file <b>evaluationArg2P.txt</b>. If this file does not yet exist, it will be created. To execute Arg2P on other operating systems please visit <a href="https://apice.unibo.it/xwiki/bin/view/Arg2p/WebHome">the official website of Arg2P</a> or contact the Arg2P developers.
+The execution of the above instruction will output the evaluation of each ABox in the CORPUS folder within the file <b>evaluationArg2P.txt</b>. If this file does not yet exist, it will be created. To execute Arg2P on other operating systems and/or with other use cases please visit <a href="https://apice.unibo.it/xwiki/bin/view/Arg2p/WebHome">the official website of Arg2P</a> or contact the Arg2P developers.
 </p>
