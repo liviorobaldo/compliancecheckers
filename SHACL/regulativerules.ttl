@@ -1,0 +1,276 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix swa: <http://topbraid.org/swa#> .
+@prefix tosh: <http://topbraid.org/tosh#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix TBox: <http://www.licenceusecaseonto.org/> .
+@prefix riolOntology: <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#> .
+@prefix ABox: <http://www.licenceusecaseonto.org/abox/> .
+@prefix : <http://www.licenceusecaseonto.org/regulativerules> .
+
+#======================================================================================================================================
+
+#-----------------------------------
+# SHACL rules
+#-----------------------------------
+
+###############################################################################################################################################
+# Prohibition Art1 with exception: Evaluating products is prohibited unless (ExceptionArt1b) the Licensee has a Licence
+###############################################################################################################################################
+:evaluatingProductsIsProhibitedUnlessLicence rdf:type sh:NodeShape;
+
+		#High priority: if licence has been granted on the product, then it is no longer prohibited for the licensee to evaluate the Product.
+	sh:rule[ rdf:type sh:SPARQLRule; sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI],
+			[sh:prefix"riolOntology";sh:namespace"https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#"^^xsd:anyURI]];
+		sh:construct """
+				#The Evaluate action is not Prohibited (ExceptionArt1b), IF...
+			CONSTRUCT {
+				$this rdf:type riolOntology:Permitted .
+				$this rdf:type riolOntology:ExceptionArt1b .
+			}
+			WHERE {
+					#... the Product has a Licence which is the theme of a Grant action that Rexist.
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee.
+				$this TBox:has-theme ?p.
+				?p rdf:type TBox:Product.
+				?l TBox:is-licence-of ?p.
+				?l rdf:type TBox:Licence.
+				?eg TBox:has-agent ?y.
+				?y rdf:type TBox:Licensor.
+				?eg TBox:has-theme ?l.
+				?eg rdf:type TBox:Grant.
+				?eg rdf:type riolOntology:Rexist.
+					#... AND the receiver of this Grant action is the same agent of the Evaluate action.
+				?eg TBox:has-receiver ?x.
+			}
+			""";
+	];
+	
+		#Lower priority: if ExceptionArt1b does not hold, then evaluating products is prohibited
+	sh:rule[ rdf:type sh:SPARQLRule; sh:order 1;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI],
+			[sh:prefix"riolOntology";sh:namespace"https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#"^^xsd:anyURI]];
+		sh:construct """
+				#The Evaluate action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type riolOntology:Prohibited .
+			}
+			WHERE {
+					#The exception from the previous rule (ExceptionArt1b) does not hold.
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee.
+				$this TBox:has-theme ?p.
+				?p rdf:type TBox:Product.
+				NOT EXISTS{$this rdf:type riolOntology:ExceptionArt1b}.
+			}
+			""";
+	];
+	
+sh:targetClass TBox:Evaluate.
+
+
+###############################################################################################################################################
+# Prohibitions Art2a and Art3a with exceptions: Publishing results (Art2a) or comments (Art3a) of evaluations is prohibited 
+# unless some exceptions hold.
+###############################################################################################################################################
+:publishingResultsOrCommentsOfEvaluationsIsProhibitedUnlessSomeExceptionsHold rdf:type sh:NodeShape;
+
+		# High priority: if publishing results of evaluations has been approved by the licensor, then publishing is permitted, 
+		# i.e., no longer prohibited (ExceptionArt2b holds).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"riolOntology";sh:namespace"https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish action is permitted, i.e., no longer Prohibited (ExceptionArt2b), IF...
+			CONSTRUCT {
+				$this rdf:type riolOntology:Permitted.
+				$this rdf:type riolOntology:ExceptionArt2b.
+			}
+			WHERE {
+					#...the theme of this Publish action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result.
+				?ev TBox:has-result ?r.
+				?ev rdf:type TBox:Evaluate.
+				?ev rdf:type riolOntology:Rexist.
+				
+					#... AND this Publish action is the theme of an Approve action that Rexist.
+				?ea TBox:has-theme $this.
+				?ea rdf:type TBox:Approve.
+				?ea rdf:type riolOntology:Rexist.
+				?ea TBox:has-agent ?y.
+				?y rdf:type TBox:Licensor.
+			}
+			""";
+	];
+	
+		#High priority: if the evaluation has been commissioned, then publishing the results is obligatory, i.e., no longer prohibited (ExceptionArt4a)
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"riolOntology";sh:namespace"https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish action is Obligatory, i.e., no longer Prohibited (ExceptionArt4a), IF...
+			CONSTRUCT {
+				$this rdf:type riolOntology:Obligatory.
+				$this rdf:type riolOntology:ExceptionArt4a.
+			}
+			WHERE {
+					#...the theme of this Publish action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result.
+				?ev TBox:has-result ?r.
+				?ev rdf:type TBox:Evaluate.
+				?ev rdf:type riolOntology:Rexist.
+				
+					#... AND this Evaluation is the theme of a Commission action that Rexist...
+				?ec TBox:has-theme ?ev.
+				?ec rdf:type TBox:Commission.
+				?ec rdf:type riolOntology:Rexist.
+			}
+			""";
+	];
+	
+		# Medium priority: if publishing results of evaluations has been permitted, then publishing comments of these evaluations 
+		# is no longer prohibited (ExceptionArt3b holds).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 1;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"riolOntology";sh:namespace"https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish action is no longer Prohibited (ExceptionArt3b), IF...
+			CONSTRUCT {
+				$this rdf:type riolOntology:Permitted.
+				$this rdf:type riolOntology:ExceptionArt3b.
+			}
+			WHERE {
+					#...the theme of this Publish action is the comment of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee.
+				$this TBox:has-theme ?c.
+				?c rdf:type TBox:Comment.
+				?c TBox:is-comment-of ?ev.
+				?ev rdf:type TBox:Evaluate.
+				?ev rdf:type riolOntology:Rexist.
+				
+					#... AND the Result of this Evaluation is the theme of a Publishing action that is Permitted...
+				?ev TBox:has-result ?r.
+				?epr TBox:has-agent ?x.
+				?epr TBox:has-theme ?r.
+				?epr rdf:type TBox:Publish.
+				?epr rdf:type riolOntology:Permitted.
+			}
+			""";
+	];
+	
+		# Lower priority: if the theme of the publish action is a result of an evaluation that really exists, then the publish action 
+		# is prohibited unless: 
+		# (1) the licensor approved the publishing (ExceptionArt2b), or
+		# (2) the evaluation has been commissioned (ExceptionArt4a), in which case the publication of the results is obligatory.
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 2;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"riolOntology";sh:namespace"https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type riolOntology:Prohibited.
+			}
+			WHERE {
+					#...the theme of this Publish action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result.
+				?ev TBox:has-result ?r.
+				?ev rdf:type TBox:Evaluate.
+				?ev rdf:type riolOntology:Rexist.
+					#... AND none of the exceptions in (1)-(2)-(3) above holds.
+				NOT EXISTS{$this rdf:type riolOntology:ExceptionArt2b}.
+				NOT EXISTS{$this rdf:type riolOntology:ExceptionArt4a}.
+			}
+			""";
+	];
+	
+		#The next rule is associated with the previous one: if the publishing is prohibited by the previous rule *and* the publishing
+		#really exists, then the removal of the results is obligatory (compensatory obligation).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 3;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"riolOntology";sh:namespace"https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#It is obligatory to remove the results (and this will compensate its prohibited publishig) IF...
+			CONSTRUCT {
+				[rdf:type riolOntology:Obligatory;
+				 rdf:type TBox:Remove;
+				 TBox:has-agent ?x;
+				 TBox:has-theme ?r;
+				 riolOntology:compensate $this].
+			}
+			WHERE {
+					#...this Publish action really exists.
+				$this rdf:type riolOntology:Rexist.
+					#...and all conditions of the previous rule hold (i.e., the Publish action is also Prohibited).
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result.
+				?ev TBox:has-result ?r.
+				?ev rdf:type TBox:Evaluate.
+				?ev rdf:type riolOntology:Rexist.
+					#... AND none of the exceptions in (1)-(2)-(3) above holds.
+				NOT EXISTS{$this rdf:type riolOntology:ExceptionArt2b}.
+				NOT EXISTS{$this rdf:type riolOntology:ExceptionArt4a}.
+			}
+			""";
+	];
+		
+		
+	
+		# Lower priority: if the theme of the publish action is a comment about an evaluation that really exists, then the publish action is prohibited
+		# unless the licensor approved the publishing of the evaluation's results (ExceptionArt3b).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 2;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"riolOntology";sh:namespace"https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type riolOntology:Prohibited.
+			}
+			WHERE {
+					#...the theme of this Publish action is a comment about an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee.
+				$this TBox:has-theme ?c.
+				?c rdf:type TBox:Comment.
+				?c TBox:is-comment-of ?ev.
+				?ev rdf:type TBox:Evaluate.
+				?ev rdf:type riolOntology:Rexist.
+					#...AND ExceptionArt3b does not hold.
+				NOT EXISTS{$this rdf:type riolOntology:ExceptionArt3b}.
+			}
+			""";
+	];
+
+sh:targetClass TBox:Publish.

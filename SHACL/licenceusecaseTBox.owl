@@ -1,0 +1,247 @@
+@prefix : <http://www.licenceusecaseonto.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.licenceusecaseonto.org/> .
+
+<http://www.licenceusecaseonto.org/> rdf:type owl:Ontology ;
+									 owl:imports <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.licenceusecaseonto.org/has-agent
+:has-agent rdf:type owl:ObjectProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Action> ;
+           rdfs:range :Actor .
+
+
+###  http://www.licenceusecaseonto.org/has-receiver
+:has-receiver rdf:type owl:ObjectProperty ,
+                       owl:FunctionalProperty ;
+              rdfs:domain <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Action>  ;
+              rdfs:range :Actor .
+
+
+###  http://www.licenceusecaseonto.org/has-result
+:has-result rdf:type owl:ObjectProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :Evaluate ;
+            rdfs:range :Result .
+
+
+###  http://www.licenceusecaseonto.org/has-theme
+:has-theme rdf:type owl:ObjectProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Action>  ;
+           rdfs:range [ rdf:type owl:Class ;
+                        owl:unionOf ( <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Action> 
+                                      :Object
+                                    )
+                      ] .
+
+
+###  http://www.licenceusecaseonto.org/is-comment-of
+:is-comment-of rdf:type owl:ObjectProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain :Comment ;
+               rdfs:range :Evaluate .
+
+
+###  http://www.licenceusecaseonto.org/is-licence-of
+:is-licence-of rdf:type owl:ObjectProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain :Licence ;
+               rdfs:range :Product .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+
+###  http://www.licenceusecaseonto.org/Actor
+:Actor rdf:type owl:Class .
+
+
+###  http://www.licenceusecaseonto.org/Approve
+:Approve rdf:type owl:Class ;
+         rdfs:subClassOf <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Action>  ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :has-agent ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Licensor
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :has-theme ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Publish
+                         ] .
+
+
+###  http://www.licenceusecaseonto.org/Comment
+:Comment rdf:type owl:Class ;
+         rdfs:subClassOf :Object ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :is-comment-of ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Evaluate
+                         ] .
+
+
+###  http://www.licenceusecaseonto.org/Commission
+:Commission rdf:type owl:Class ;
+            rdfs:subClassOf <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Action>  ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :has-theme ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :Evaluate
+                            ] .
+
+
+###  http://www.licenceusecaseonto.org/Evaluate
+:Evaluate rdf:type owl:Class ;
+          rdfs:subClassOf <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Action>  ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :has-agent ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Licensee
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :has-result ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Result
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :has-theme ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Product
+                          ] .
+
+
+###  http://www.licenceusecaseonto.org/Grant
+:Grant rdf:type owl:Class ;
+       rdfs:subClassOf <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Action>  ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :has-agent ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass :Licensor
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :has-receiver ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass :Licensee
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :has-theme ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass :Licence
+                       ] .
+
+
+###  http://www.licenceusecaseonto.org/Licence
+:Licence rdf:type owl:Class ;
+         rdfs:subClassOf :Object ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :is-licence-of ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Product
+                         ] .
+
+
+###  http://www.licenceusecaseonto.org/Licensee
+:Licensee rdf:type owl:Class ;
+          rdfs:subClassOf :Actor ;
+          owl:disjointWith :Licensor .
+
+
+###  http://www.licenceusecaseonto.org/Licensor
+:Licensor rdf:type owl:Class ;
+          rdfs:subClassOf :Actor .
+
+
+###  http://www.licenceusecaseonto.org/Object
+:Object rdf:type owl:Class .
+
+
+###  http://www.licenceusecaseonto.org/Product
+:Product rdf:type owl:Class ;
+         rdfs:subClassOf :Object .
+
+
+###  http://www.licenceusecaseonto.org/Publish
+:Publish rdf:type owl:Class ;
+         rdfs:subClassOf <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Action>  ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :has-agent ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Licensee
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :has-theme ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass [ rdf:type owl:Class ;
+                                         owl:unionOf ( :Comment
+                                                       :Result
+                                                     )
+                                       ]
+                         ] .
+
+
+###  http://www.licenceusecaseonto.org/Remove
+:Remove rdf:type owl:Class ;
+        rdfs:subClassOf <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Action>  ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :has-agent ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Licensee
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :has-theme ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Result
+                        ] .
+
+
+###  http://www.licenceusecaseonto.org/Result
+:Result rdf:type owl:Class ;
+        rdfs:subClassOf :Object .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#Action> 
+                :Actor
+                :Object
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Approve
+                :Commission
+                :Evaluate
+                :Grant
+                :Publish
+                :Remove
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Comment
+                :Licence
+                :Product
+                :Result
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

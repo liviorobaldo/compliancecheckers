@@ -1,0 +1,72 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix TBox: <http://www.licenceusecaseonto.org/> .
+@prefix riolOntology: <https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#> .
+@prefix ABox: <http://www.licenceusecaseonto.org/abox/> .
+@prefix : <http://www.licenceusecaseonto.org/regulativerules> .
+
+
+#If an Action is ((prohibited and Rexist) OR (is obligatory and it does not rexist)) AND (it has not been compensated), it is a violation.
+:CheckCompliance
+  rdf:type sh:NodeShape ;
+	#This rule solves compensations. Note that the SHACL engine (https://www.w3.org/TR/shacl-af/#dfn-shacl-rules-engine) first executes
+	#this rule on *all* individuals in riolOntology:Action and then it executes the next rule on *all* these individuals.
+	#Therefore, first SHACL tries to solve all existential quantifications, i.e., to infer which compensatory obligations really exist,
+	#then it checks for compliance.
+  sh:rule[rdf:type sh:SPARQLRule; sh:order 0;
+	sh:prefixes[sh:declare 
+		[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+		[sh:prefix"rdfs";sh:namespace"http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI],
+		[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI],
+		[sh:prefix"riolOntology";sh:namespace"https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#"^^xsd:anyURI]];
+	sh:construct """
+		CONSTRUCT {
+			$this rdf:type riolOntology:Rexist.
+		}
+		WHERE {
+			$this riolOntology:compensate ?a.
+			$this rdf:type ?class.
+			?class rdfs:subClassOf riolOntology:Action.
+			?er rdf:type ?class.
+			$this TBox:has-agent ?x.
+			$this TBox:has-theme ?r.
+			?er TBox:has-agent ?x.
+			?er TBox:has-theme ?r.
+			?er rdf:type riolOntology:Rexist.
+		}
+		""";
+	];
+  sh:rule[rdf:type sh:SPARQLRule; sh:order 1;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI],
+			[sh:prefix"riolOntology";sh:namespace"https://www.swansea.ac.uk/law/legal-innovation-lab-wales/riolOntology#"^^xsd:anyURI]];
+		sh:construct """
+			CONSTRUCT {
+				[rdf:type riolOntology:Violation;
+				 riolOntology:refer-to $this].
+			}
+			WHERE {
+				{
+					$this rdf:type riolOntology:Obligatory. 
+					NOT EXISTS{$this rdf:type riolOntology:Rexist}.
+				}
+				UNION
+				{
+					$this rdf:type riolOntology:Prohibited. 
+					$this rdf:type riolOntology:Rexist.
+				}
+				NOT EXISTS
+				{
+					?c riolOntology:compensate $this. 
+					?c rdf:type riolOntology:Rexist
+				}
+			}
+			""";
+	];
+	#sh:targetClass also applies to instances in the subclasses (see https://www.w3.org/TR/shacl/#targetClass)
+sh:targetClass riolOntology:Modality.
