@@ -1,5 +1,5 @@
 <p align="justify">
-This folder contains the implementation of the use case as <a href="http://spindle.data61.csiro.au/spindle/download.html">SPINdle rules</a>. The use case has been implemented within the file <b>regulative+compliance_rules.dfl</b>. This file must be included within the folder "<a href="https://github.com/liviorobaldo/legalreasoners/tree/main/DatasetGenerator/CORPUS/SPINdle">CORPUS/SPINdle</a>" (<u>you can find it <a href="https://github.com/liviorobaldo/legalreasoners/tree/main/DatasetGenerator/CORPUS/SPINdle">there</a>) because the dataset generator will (externally) ground the rules before invoking the reasoner. This is a mandatory step because SPINdle's input format is propositional.
+This folder contains the implementation of the use case as <a href="http://spindle.data61.csiro.au/spindle/download.html">SPINdle rules</a>. The use case has been implemented within the file <b>regulative+compliance_rules.dfl</b>. This file must be included within the folder "<a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/DatasetGenerator/CORPUS/SPINdle">CORPUS/SPINdle</a>" (<u>you can find it <a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/DatasetGenerator/CORPUS/SPINdle">there</a>) because the dataset generator will (externally) ground the rules before invoking the reasoner. This is a mandatory step because SPINdle's input format is propositional.
 </p>
 
 <p align="justify">
@@ -9,7 +9,7 @@ The file <b>regulative+compliance_rules.dfl</b> contains both the regulative rul
 <p align="justify">The file <b>regulative+compliance_rules.dfl</b> derives a violation for either all prohibitions that took place in the state of affairs and were not compensated <i>and</i> for all obligations that did not take place in the state of affairs and were not compensated.</p>
 
 <p align="justify">
-The state of affairs is described in one of the synthetic datasets (ABox) created by the <a href="https://github.com/liviorobaldo/legalreasoners/tree/main/DatasetGenerator">dataset generator available on this GitHub</a>. Each ABox contains both the (indexed) SPINdle rules and the (indexed) input propositional symbols.
+The state of affairs is described in one of the synthetic datasets (ABox) created by the <a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/DatasetGenerator">dataset generator available on this GitHub</a>. Each ABox contains both the (indexed) SPINdle rules and the (indexed) input propositional symbols.
 </p>
 
 <p align="justify">
