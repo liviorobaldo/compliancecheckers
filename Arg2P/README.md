@@ -1,5 +1,5 @@
 <p align="justify">
-This folder contains the implementation of the use case as <a href="https://apice.unibo.it/xwiki/bin/view/Arg2p/WebHome">Arg2P rules</a>. The use case has been implemented within the file <b> regulative+compliance_rules.arg2p </b>. This contains both the regulative rules, able to infer which actions of the state of affairs are prohibited, obligatory, or permitted, and the rules for checking compliance of the derived prohibitions and obligations.
+This folder contains the implementation of the use case as <a href="https://apice.unibo.it/xwiki/bin/view/Arg2p/WebHome">Arg2P rules</a>. The use case has been implemented within the file <b> regulative+compliance_rules.arg2p </b>. This file contains both the regulative rules, able to infer which actions of the state of affairs are prohibited, obligatory, or permitted, and the rules for checking compliance of the derived prohibitions and obligations.
 </p>
 
 <p align="justify">The file <b>regulative+compliance_rules.arg2p</b> derives a violation for either all prohibitions that took place in the state of affairs and were not compensated <i>and</i> for all obligations that did not take place in the state of affairs and were not compensated.</p>
