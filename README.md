@@ -30,5 +30,5 @@ The norms in the use case has been implemented as:
 </p>
 
 <p align="justify">
-The implementations can be tested on the synthetic (Abox) datasets created via the dataset generator <a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/DatasetGenerator">at this link</a>.
+The implementations can be tested on the synthetic (ABox) datasets created via the dataset generator <a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/DatasetGenerator">at this link</a>.
 </p>
