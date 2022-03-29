@@ -1,0 +1,1074 @@
+Art1a_0[O]: => -Evaluate_ev_0
+Art1b_0[P]: Grant_eg_0, Rexist_eg_0 => Evaluate_ev_0
+Art1b_0 > Art1a_0
+Art2a_0[O]: Evaluate_ev_0, Rexist_ev_0 => -Publish_epr_0
+Art2b_0[P]: Approve_ea_0, Rexist_ea_0 => Publish_epr_0
+Art2b_0 > Art2a_0
+Art2c_0[O]: [O]-Publish_epr_0, Rexist_epr_0 => Remove_er_0
+Art2e_0: [O]-Publish_epr_0, Rexist_epr_0 => compensate_er_epr_0
+Art3a_0[O]: Evaluate_ev_0, Rexist_ev_0 => -Publish_epc_0
+Art3b_0[P]: [P]Publish_epr_0 => Publish_epc_0
+Art3b_0 > Art3a_0
+Art4a_0[O]: Commission_ec_0, Rexist_ec_0, Evaluate_ev_0, Rexist_ev_0 => Publish_epr_0
+Art4a_0 > Art2a_0
+ccRuleEv_0: [O]-Evaluate_ev_0, Rexist_ev_0 => violated_ev_0
+ccRuleEpr1_0: [O]-Publish_epr_0, Rexist_epr_0, -compensated_er_epr_0 => violated_epr_0
+ccRuleComp1_0: compensate_er_epr_0 => -compensated_er_epr_0
+ccRuleComp2_0: compensate_er_epr_0, Rexist_er_0 => compensated_er_epr_0
+ccRuleComp2_0 > ccRuleComp1_0
+ccRuleEr1_0: [O]Remove_er_0 => violated_er_0
+ccRuleEr2_0: [O]Remove_er_0, Rexist_er_0 => -violated_er_0
+ccRuleEr2_0 > ccRuleEr1_0
+ccRuleEpr2_0: [O]Publish_epr_0 => violated_epr_0
+ccRuleEpr3_0: [O]Publish_epr_0, Rexist_epr_0 => -violated_epr_0
+ccRuleEpr3_0 > ccRuleEpr2_0
+ccRuleEpc_0: [O]-Publish_epc_0, Rexist_epc_0 => violated_epc_0
+>> Approve_ea_0
+>> Commission_ec_0
+>> Evaluate_ev_0
+>> Grant_eg_0
+>> Publish_epc_0
+>> Publish_epr_0
+>> Remove_er_0
+>> Rexist_ec_0
+Art1a_1[O]: => -Evaluate_ev_1
+Art1b_1[P]: Grant_eg_1, Rexist_eg_1 => Evaluate_ev_1
+Art1b_1 > Art1a_1
+Art2a_1[O]: Evaluate_ev_1, Rexist_ev_1 => -Publish_epr_1
+Art2b_1[P]: Approve_ea_1, Rexist_ea_1 => Publish_epr_1
+Art2b_1 > Art2a_1
+Art2c_1[O]: [O]-Publish_epr_1, Rexist_epr_1 => Remove_er_1
+Art2e_1: [O]-Publish_epr_1, Rexist_epr_1 => compensate_er_epr_1
+Art3a_1[O]: Evaluate_ev_1, Rexist_ev_1 => -Publish_epc_1
+Art3b_1[P]: [P]Publish_epr_1 => Publish_epc_1
+Art3b_1 > Art3a_1
+Art4a_1[O]: Commission_ec_1, Rexist_ec_1, Evaluate_ev_1, Rexist_ev_1 => Publish_epr_1
+Art4a_1 > Art2a_1
+ccRuleEv_1: [O]-Evaluate_ev_1, Rexist_ev_1 => violated_ev_1
+ccRuleEpr1_1: [O]-Publish_epr_1, Rexist_epr_1, -compensated_er_epr_1 => violated_epr_1
+ccRuleComp1_1: compensate_er_epr_1 => -compensated_er_epr_1
+ccRuleComp2_1: compensate_er_epr_1, Rexist_er_1 => compensated_er_epr_1
+ccRuleComp2_1 > ccRuleComp1_1
+ccRuleEr1_1: [O]Remove_er_1 => violated_er_1
+ccRuleEr2_1: [O]Remove_er_1, Rexist_er_1 => -violated_er_1
+ccRuleEr2_1 > ccRuleEr1_1
+ccRuleEpr2_1: [O]Publish_epr_1 => violated_epr_1
+ccRuleEpr3_1: [O]Publish_epr_1, Rexist_epr_1 => -violated_epr_1
+ccRuleEpr3_1 > ccRuleEpr2_1
+ccRuleEpc_1: [O]-Publish_epc_1, Rexist_epc_1 => violated_epc_1
+>> Approve_ea_1
+>> Commission_ec_1
+>> Evaluate_ev_1
+>> Grant_eg_1
+>> Publish_epc_1
+>> Publish_epr_1
+>> Remove_er_1
+>> Rexist_ev_1
+>> Rexist_epc_1
+Art1a_2[O]: => -Evaluate_ev_2
+Art1b_2[P]: Grant_eg_2, Rexist_eg_2 => Evaluate_ev_2
+Art1b_2 > Art1a_2
+Art2a_2[O]: Evaluate_ev_2, Rexist_ev_2 => -Publish_epr_2
+Art2b_2[P]: Approve_ea_2, Rexist_ea_2 => Publish_epr_2
+Art2b_2 > Art2a_2
+Art2c_2[O]: [O]-Publish_epr_2, Rexist_epr_2 => Remove_er_2
+Art2e_2: [O]-Publish_epr_2, Rexist_epr_2 => compensate_er_epr_2
+Art3a_2[O]: Evaluate_ev_2, Rexist_ev_2 => -Publish_epc_2
+Art3b_2[P]: [P]Publish_epr_2 => Publish_epc_2
+Art3b_2 > Art3a_2
+Art4a_2[O]: Commission_ec_2, Rexist_ec_2, Evaluate_ev_2, Rexist_ev_2 => Publish_epr_2
+Art4a_2 > Art2a_2
+ccRuleEv_2: [O]-Evaluate_ev_2, Rexist_ev_2 => violated_ev_2
+ccRuleEpr1_2: [O]-Publish_epr_2, Rexist_epr_2, -compensated_er_epr_2 => violated_epr_2
+ccRuleComp1_2: compensate_er_epr_2 => -compensated_er_epr_2
+ccRuleComp2_2: compensate_er_epr_2, Rexist_er_2 => compensated_er_epr_2
+ccRuleComp2_2 > ccRuleComp1_2
+ccRuleEr1_2: [O]Remove_er_2 => violated_er_2
+ccRuleEr2_2: [O]Remove_er_2, Rexist_er_2 => -violated_er_2
+ccRuleEr2_2 > ccRuleEr1_2
+ccRuleEpr2_2: [O]Publish_epr_2 => violated_epr_2
+ccRuleEpr3_2: [O]Publish_epr_2, Rexist_epr_2 => -violated_epr_2
+ccRuleEpr3_2 > ccRuleEpr2_2
+ccRuleEpc_2: [O]-Publish_epc_2, Rexist_epc_2 => violated_epc_2
+>> Approve_ea_2
+>> Commission_ec_2
+>> Evaluate_ev_2
+>> Grant_eg_2
+>> Publish_epc_2
+>> Publish_epr_2
+>> Remove_er_2
+>> Rexist_ea_2
+>> Rexist_ec_2
+>> Rexist_ev_2
+>> Rexist_eg_2
+>> Rexist_epr_2
+Art1a_3[O]: => -Evaluate_ev_3
+Art1b_3[P]: Grant_eg_3, Rexist_eg_3 => Evaluate_ev_3
+Art1b_3 > Art1a_3
+Art2a_3[O]: Evaluate_ev_3, Rexist_ev_3 => -Publish_epr_3
+Art2b_3[P]: Approve_ea_3, Rexist_ea_3 => Publish_epr_3
+Art2b_3 > Art2a_3
+Art2c_3[O]: [O]-Publish_epr_3, Rexist_epr_3 => Remove_er_3
+Art2e_3: [O]-Publish_epr_3, Rexist_epr_3 => compensate_er_epr_3
+Art3a_3[O]: Evaluate_ev_3, Rexist_ev_3 => -Publish_epc_3
+Art3b_3[P]: [P]Publish_epr_3 => Publish_epc_3
+Art3b_3 > Art3a_3
+Art4a_3[O]: Commission_ec_3, Rexist_ec_3, Evaluate_ev_3, Rexist_ev_3 => Publish_epr_3
+Art4a_3 > Art2a_3
+ccRuleEv_3: [O]-Evaluate_ev_3, Rexist_ev_3 => violated_ev_3
+ccRuleEpr1_3: [O]-Publish_epr_3, Rexist_epr_3, -compensated_er_epr_3 => violated_epr_3
+ccRuleComp1_3: compensate_er_epr_3 => -compensated_er_epr_3
+ccRuleComp2_3: compensate_er_epr_3, Rexist_er_3 => compensated_er_epr_3
+ccRuleComp2_3 > ccRuleComp1_3
+ccRuleEr1_3: [O]Remove_er_3 => violated_er_3
+ccRuleEr2_3: [O]Remove_er_3, Rexist_er_3 => -violated_er_3
+ccRuleEr2_3 > ccRuleEr1_3
+ccRuleEpr2_3: [O]Publish_epr_3 => violated_epr_3
+ccRuleEpr3_3: [O]Publish_epr_3, Rexist_epr_3 => -violated_epr_3
+ccRuleEpr3_3 > ccRuleEpr2_3
+ccRuleEpc_3: [O]-Publish_epc_3, Rexist_epc_3 => violated_epc_3
+>> Approve_ea_3
+>> Commission_ec_3
+>> Evaluate_ev_3
+>> Grant_eg_3
+>> Publish_epc_3
+>> Publish_epr_3
+>> Remove_er_3
+>> Rexist_ea_3
+>> Rexist_ec_3
+>> Rexist_ev_3
+>> Rexist_eg_3
+>> Rexist_epc_3
+>> Rexist_er_3
+Art1a_4[O]: => -Evaluate_ev_4
+Art1b_4[P]: Grant_eg_4, Rexist_eg_4 => Evaluate_ev_4
+Art1b_4 > Art1a_4
+Art2a_4[O]: Evaluate_ev_4, Rexist_ev_4 => -Publish_epr_4
+Art2b_4[P]: Approve_ea_4, Rexist_ea_4 => Publish_epr_4
+Art2b_4 > Art2a_4
+Art2c_4[O]: [O]-Publish_epr_4, Rexist_epr_4 => Remove_er_4
+Art2e_4: [O]-Publish_epr_4, Rexist_epr_4 => compensate_er_epr_4
+Art3a_4[O]: Evaluate_ev_4, Rexist_ev_4 => -Publish_epc_4
+Art3b_4[P]: [P]Publish_epr_4 => Publish_epc_4
+Art3b_4 > Art3a_4
+Art4a_4[O]: Commission_ec_4, Rexist_ec_4, Evaluate_ev_4, Rexist_ev_4 => Publish_epr_4
+Art4a_4 > Art2a_4
+ccRuleEv_4: [O]-Evaluate_ev_4, Rexist_ev_4 => violated_ev_4
+ccRuleEpr1_4: [O]-Publish_epr_4, Rexist_epr_4, -compensated_er_epr_4 => violated_epr_4
+ccRuleComp1_4: compensate_er_epr_4 => -compensated_er_epr_4
+ccRuleComp2_4: compensate_er_epr_4, Rexist_er_4 => compensated_er_epr_4
+ccRuleComp2_4 > ccRuleComp1_4
+ccRuleEr1_4: [O]Remove_er_4 => violated_er_4
+ccRuleEr2_4: [O]Remove_er_4, Rexist_er_4 => -violated_er_4
+ccRuleEr2_4 > ccRuleEr1_4
+ccRuleEpr2_4: [O]Publish_epr_4 => violated_epr_4
+ccRuleEpr3_4: [O]Publish_epr_4, Rexist_epr_4 => -violated_epr_4
+ccRuleEpr3_4 > ccRuleEpr2_4
+ccRuleEpc_4: [O]-Publish_epc_4, Rexist_epc_4 => violated_epc_4
+>> Approve_ea_4
+>> Commission_ec_4
+>> Evaluate_ev_4
+>> Grant_eg_4
+>> Publish_epc_4
+>> Publish_epr_4
+>> Remove_er_4
+>> Rexist_ea_4
+>> Rexist_epr_4
+>> Rexist_er_4
+Art1a_5[O]: => -Evaluate_ev_5
+Art1b_5[P]: Grant_eg_5, Rexist_eg_5 => Evaluate_ev_5
+Art1b_5 > Art1a_5
+Art2a_5[O]: Evaluate_ev_5, Rexist_ev_5 => -Publish_epr_5
+Art2b_5[P]: Approve_ea_5, Rexist_ea_5 => Publish_epr_5
+Art2b_5 > Art2a_5
+Art2c_5[O]: [O]-Publish_epr_5, Rexist_epr_5 => Remove_er_5
+Art2e_5: [O]-Publish_epr_5, Rexist_epr_5 => compensate_er_epr_5
+Art3a_5[O]: Evaluate_ev_5, Rexist_ev_5 => -Publish_epc_5
+Art3b_5[P]: [P]Publish_epr_5 => Publish_epc_5
+Art3b_5 > Art3a_5
+Art4a_5[O]: Commission_ec_5, Rexist_ec_5, Evaluate_ev_5, Rexist_ev_5 => Publish_epr_5
+Art4a_5 > Art2a_5
+ccRuleEv_5: [O]-Evaluate_ev_5, Rexist_ev_5 => violated_ev_5
+ccRuleEpr1_5: [O]-Publish_epr_5, Rexist_epr_5, -compensated_er_epr_5 => violated_epr_5
+ccRuleComp1_5: compensate_er_epr_5 => -compensated_er_epr_5
+ccRuleComp2_5: compensate_er_epr_5, Rexist_er_5 => compensated_er_epr_5
+ccRuleComp2_5 > ccRuleComp1_5
+ccRuleEr1_5: [O]Remove_er_5 => violated_er_5
+ccRuleEr2_5: [O]Remove_er_5, Rexist_er_5 => -violated_er_5
+ccRuleEr2_5 > ccRuleEr1_5
+ccRuleEpr2_5: [O]Publish_epr_5 => violated_epr_5
+ccRuleEpr3_5: [O]Publish_epr_5, Rexist_epr_5 => -violated_epr_5
+ccRuleEpr3_5 > ccRuleEpr2_5
+ccRuleEpc_5: [O]-Publish_epc_5, Rexist_epc_5 => violated_epc_5
+>> Approve_ea_5
+>> Commission_ec_5
+>> Evaluate_ev_5
+>> Grant_eg_5
+>> Publish_epc_5
+>> Publish_epr_5
+>> Remove_er_5
+>> Rexist_ea_5
+>> Rexist_epc_5
+Art1a_6[O]: => -Evaluate_ev_6
+Art1b_6[P]: Grant_eg_6, Rexist_eg_6 => Evaluate_ev_6
+Art1b_6 > Art1a_6
+Art2a_6[O]: Evaluate_ev_6, Rexist_ev_6 => -Publish_epr_6
+Art2b_6[P]: Approve_ea_6, Rexist_ea_6 => Publish_epr_6
+Art2b_6 > Art2a_6
+Art2c_6[O]: [O]-Publish_epr_6, Rexist_epr_6 => Remove_er_6
+Art2e_6: [O]-Publish_epr_6, Rexist_epr_6 => compensate_er_epr_6
+Art3a_6[O]: Evaluate_ev_6, Rexist_ev_6 => -Publish_epc_6
+Art3b_6[P]: [P]Publish_epr_6 => Publish_epc_6
+Art3b_6 > Art3a_6
+Art4a_6[O]: Commission_ec_6, Rexist_ec_6, Evaluate_ev_6, Rexist_ev_6 => Publish_epr_6
+Art4a_6 > Art2a_6
+ccRuleEv_6: [O]-Evaluate_ev_6, Rexist_ev_6 => violated_ev_6
+ccRuleEpr1_6: [O]-Publish_epr_6, Rexist_epr_6, -compensated_er_epr_6 => violated_epr_6
+ccRuleComp1_6: compensate_er_epr_6 => -compensated_er_epr_6
+ccRuleComp2_6: compensate_er_epr_6, Rexist_er_6 => compensated_er_epr_6
+ccRuleComp2_6 > ccRuleComp1_6
+ccRuleEr1_6: [O]Remove_er_6 => violated_er_6
+ccRuleEr2_6: [O]Remove_er_6, Rexist_er_6 => -violated_er_6
+ccRuleEr2_6 > ccRuleEr1_6
+ccRuleEpr2_6: [O]Publish_epr_6 => violated_epr_6
+ccRuleEpr3_6: [O]Publish_epr_6, Rexist_epr_6 => -violated_epr_6
+ccRuleEpr3_6 > ccRuleEpr2_6
+ccRuleEpc_6: [O]-Publish_epc_6, Rexist_epc_6 => violated_epc_6
+>> Approve_ea_6
+>> Commission_ec_6
+>> Evaluate_ev_6
+>> Grant_eg_6
+>> Publish_epc_6
+>> Publish_epr_6
+>> Remove_er_6
+>> Rexist_ea_6
+>> Rexist_ec_6
+>> Rexist_eg_6
+>> Rexist_epc_6
+>> Rexist_epr_6
+Art1a_7[O]: => -Evaluate_ev_7
+Art1b_7[P]: Grant_eg_7, Rexist_eg_7 => Evaluate_ev_7
+Art1b_7 > Art1a_7
+Art2a_7[O]: Evaluate_ev_7, Rexist_ev_7 => -Publish_epr_7
+Art2b_7[P]: Approve_ea_7, Rexist_ea_7 => Publish_epr_7
+Art2b_7 > Art2a_7
+Art2c_7[O]: [O]-Publish_epr_7, Rexist_epr_7 => Remove_er_7
+Art2e_7: [O]-Publish_epr_7, Rexist_epr_7 => compensate_er_epr_7
+Art3a_7[O]: Evaluate_ev_7, Rexist_ev_7 => -Publish_epc_7
+Art3b_7[P]: [P]Publish_epr_7 => Publish_epc_7
+Art3b_7 > Art3a_7
+Art4a_7[O]: Commission_ec_7, Rexist_ec_7, Evaluate_ev_7, Rexist_ev_7 => Publish_epr_7
+Art4a_7 > Art2a_7
+ccRuleEv_7: [O]-Evaluate_ev_7, Rexist_ev_7 => violated_ev_7
+ccRuleEpr1_7: [O]-Publish_epr_7, Rexist_epr_7, -compensated_er_epr_7 => violated_epr_7
+ccRuleComp1_7: compensate_er_epr_7 => -compensated_er_epr_7
+ccRuleComp2_7: compensate_er_epr_7, Rexist_er_7 => compensated_er_epr_7
+ccRuleComp2_7 > ccRuleComp1_7
+ccRuleEr1_7: [O]Remove_er_7 => violated_er_7
+ccRuleEr2_7: [O]Remove_er_7, Rexist_er_7 => -violated_er_7
+ccRuleEr2_7 > ccRuleEr1_7
+ccRuleEpr2_7: [O]Publish_epr_7 => violated_epr_7
+ccRuleEpr3_7: [O]Publish_epr_7, Rexist_epr_7 => -violated_epr_7
+ccRuleEpr3_7 > ccRuleEpr2_7
+ccRuleEpc_7: [O]-Publish_epc_7, Rexist_epc_7 => violated_epc_7
+>> Approve_ea_7
+>> Commission_ec_7
+>> Evaluate_ev_7
+>> Grant_eg_7
+>> Publish_epc_7
+>> Publish_epr_7
+>> Remove_er_7
+>> Rexist_ea_7
+>> Rexist_epc_7
+Art1a_8[O]: => -Evaluate_ev_8
+Art1b_8[P]: Grant_eg_8, Rexist_eg_8 => Evaluate_ev_8
+Art1b_8 > Art1a_8
+Art2a_8[O]: Evaluate_ev_8, Rexist_ev_8 => -Publish_epr_8
+Art2b_8[P]: Approve_ea_8, Rexist_ea_8 => Publish_epr_8
+Art2b_8 > Art2a_8
+Art2c_8[O]: [O]-Publish_epr_8, Rexist_epr_8 => Remove_er_8
+Art2e_8: [O]-Publish_epr_8, Rexist_epr_8 => compensate_er_epr_8
+Art3a_8[O]: Evaluate_ev_8, Rexist_ev_8 => -Publish_epc_8
+Art3b_8[P]: [P]Publish_epr_8 => Publish_epc_8
+Art3b_8 > Art3a_8
+Art4a_8[O]: Commission_ec_8, Rexist_ec_8, Evaluate_ev_8, Rexist_ev_8 => Publish_epr_8
+Art4a_8 > Art2a_8
+ccRuleEv_8: [O]-Evaluate_ev_8, Rexist_ev_8 => violated_ev_8
+ccRuleEpr1_8: [O]-Publish_epr_8, Rexist_epr_8, -compensated_er_epr_8 => violated_epr_8
+ccRuleComp1_8: compensate_er_epr_8 => -compensated_er_epr_8
+ccRuleComp2_8: compensate_er_epr_8, Rexist_er_8 => compensated_er_epr_8
+ccRuleComp2_8 > ccRuleComp1_8
+ccRuleEr1_8: [O]Remove_er_8 => violated_er_8
+ccRuleEr2_8: [O]Remove_er_8, Rexist_er_8 => -violated_er_8
+ccRuleEr2_8 > ccRuleEr1_8
+ccRuleEpr2_8: [O]Publish_epr_8 => violated_epr_8
+ccRuleEpr3_8: [O]Publish_epr_8, Rexist_epr_8 => -violated_epr_8
+ccRuleEpr3_8 > ccRuleEpr2_8
+ccRuleEpc_8: [O]-Publish_epc_8, Rexist_epc_8 => violated_epc_8
+>> Approve_ea_8
+>> Commission_ec_8
+>> Evaluate_ev_8
+>> Grant_eg_8
+>> Publish_epc_8
+>> Publish_epr_8
+>> Remove_er_8
+>> Rexist_ea_8
+>> Rexist_eg_8
+>> Rexist_er_8
+Art1a_9[O]: => -Evaluate_ev_9
+Art1b_9[P]: Grant_eg_9, Rexist_eg_9 => Evaluate_ev_9
+Art1b_9 > Art1a_9
+Art2a_9[O]: Evaluate_ev_9, Rexist_ev_9 => -Publish_epr_9
+Art2b_9[P]: Approve_ea_9, Rexist_ea_9 => Publish_epr_9
+Art2b_9 > Art2a_9
+Art2c_9[O]: [O]-Publish_epr_9, Rexist_epr_9 => Remove_er_9
+Art2e_9: [O]-Publish_epr_9, Rexist_epr_9 => compensate_er_epr_9
+Art3a_9[O]: Evaluate_ev_9, Rexist_ev_9 => -Publish_epc_9
+Art3b_9[P]: [P]Publish_epr_9 => Publish_epc_9
+Art3b_9 > Art3a_9
+Art4a_9[O]: Commission_ec_9, Rexist_ec_9, Evaluate_ev_9, Rexist_ev_9 => Publish_epr_9
+Art4a_9 > Art2a_9
+ccRuleEv_9: [O]-Evaluate_ev_9, Rexist_ev_9 => violated_ev_9
+ccRuleEpr1_9: [O]-Publish_epr_9, Rexist_epr_9, -compensated_er_epr_9 => violated_epr_9
+ccRuleComp1_9: compensate_er_epr_9 => -compensated_er_epr_9
+ccRuleComp2_9: compensate_er_epr_9, Rexist_er_9 => compensated_er_epr_9
+ccRuleComp2_9 > ccRuleComp1_9
+ccRuleEr1_9: [O]Remove_er_9 => violated_er_9
+ccRuleEr2_9: [O]Remove_er_9, Rexist_er_9 => -violated_er_9
+ccRuleEr2_9 > ccRuleEr1_9
+ccRuleEpr2_9: [O]Publish_epr_9 => violated_epr_9
+ccRuleEpr3_9: [O]Publish_epr_9, Rexist_epr_9 => -violated_epr_9
+ccRuleEpr3_9 > ccRuleEpr2_9
+ccRuleEpc_9: [O]-Publish_epc_9, Rexist_epc_9 => violated_epc_9
+>> Approve_ea_9
+>> Commission_ec_9
+>> Evaluate_ev_9
+>> Grant_eg_9
+>> Publish_epc_9
+>> Publish_epr_9
+>> Remove_er_9
+>> Rexist_ea_9
+>> Rexist_ec_9
+>> Rexist_epc_9
+>> Rexist_epr_9
+>> Rexist_er_9
+Art1a_10[O]: => -Evaluate_ev_10
+Art1b_10[P]: Grant_eg_10, Rexist_eg_10 => Evaluate_ev_10
+Art1b_10 > Art1a_10
+Art2a_10[O]: Evaluate_ev_10, Rexist_ev_10 => -Publish_epr_10
+Art2b_10[P]: Approve_ea_10, Rexist_ea_10 => Publish_epr_10
+Art2b_10 > Art2a_10
+Art2c_10[O]: [O]-Publish_epr_10, Rexist_epr_10 => Remove_er_10
+Art2e_10: [O]-Publish_epr_10, Rexist_epr_10 => compensate_er_epr_10
+Art3a_10[O]: Evaluate_ev_10, Rexist_ev_10 => -Publish_epc_10
+Art3b_10[P]: [P]Publish_epr_10 => Publish_epc_10
+Art3b_10 > Art3a_10
+Art4a_10[O]: Commission_ec_10, Rexist_ec_10, Evaluate_ev_10, Rexist_ev_10 => Publish_epr_10
+Art4a_10 > Art2a_10
+ccRuleEv_10: [O]-Evaluate_ev_10, Rexist_ev_10 => violated_ev_10
+ccRuleEpr1_10: [O]-Publish_epr_10, Rexist_epr_10, -compensated_er_epr_10 => violated_epr_10
+ccRuleComp1_10: compensate_er_epr_10 => -compensated_er_epr_10
+ccRuleComp2_10: compensate_er_epr_10, Rexist_er_10 => compensated_er_epr_10
+ccRuleComp2_10 > ccRuleComp1_10
+ccRuleEr1_10: [O]Remove_er_10 => violated_er_10
+ccRuleEr2_10: [O]Remove_er_10, Rexist_er_10 => -violated_er_10
+ccRuleEr2_10 > ccRuleEr1_10
+ccRuleEpr2_10: [O]Publish_epr_10 => violated_epr_10
+ccRuleEpr3_10: [O]Publish_epr_10, Rexist_epr_10 => -violated_epr_10
+ccRuleEpr3_10 > ccRuleEpr2_10
+ccRuleEpc_10: [O]-Publish_epc_10, Rexist_epc_10 => violated_epc_10
+>> Approve_ea_10
+>> Commission_ec_10
+>> Evaluate_ev_10
+>> Grant_eg_10
+>> Publish_epc_10
+>> Publish_epr_10
+>> Remove_er_10
+>> Rexist_ec_10
+>> Rexist_eg_10
+>> Rexist_epc_10
+>> Rexist_epr_10
+>> Rexist_er_10
+Art1a_11[O]: => -Evaluate_ev_11
+Art1b_11[P]: Grant_eg_11, Rexist_eg_11 => Evaluate_ev_11
+Art1b_11 > Art1a_11
+Art2a_11[O]: Evaluate_ev_11, Rexist_ev_11 => -Publish_epr_11
+Art2b_11[P]: Approve_ea_11, Rexist_ea_11 => Publish_epr_11
+Art2b_11 > Art2a_11
+Art2c_11[O]: [O]-Publish_epr_11, Rexist_epr_11 => Remove_er_11
+Art2e_11: [O]-Publish_epr_11, Rexist_epr_11 => compensate_er_epr_11
+Art3a_11[O]: Evaluate_ev_11, Rexist_ev_11 => -Publish_epc_11
+Art3b_11[P]: [P]Publish_epr_11 => Publish_epc_11
+Art3b_11 > Art3a_11
+Art4a_11[O]: Commission_ec_11, Rexist_ec_11, Evaluate_ev_11, Rexist_ev_11 => Publish_epr_11
+Art4a_11 > Art2a_11
+ccRuleEv_11: [O]-Evaluate_ev_11, Rexist_ev_11 => violated_ev_11
+ccRuleEpr1_11: [O]-Publish_epr_11, Rexist_epr_11, -compensated_er_epr_11 => violated_epr_11
+ccRuleComp1_11: compensate_er_epr_11 => -compensated_er_epr_11
+ccRuleComp2_11: compensate_er_epr_11, Rexist_er_11 => compensated_er_epr_11
+ccRuleComp2_11 > ccRuleComp1_11
+ccRuleEr1_11: [O]Remove_er_11 => violated_er_11
+ccRuleEr2_11: [O]Remove_er_11, Rexist_er_11 => -violated_er_11
+ccRuleEr2_11 > ccRuleEr1_11
+ccRuleEpr2_11: [O]Publish_epr_11 => violated_epr_11
+ccRuleEpr3_11: [O]Publish_epr_11, Rexist_epr_11 => -violated_epr_11
+ccRuleEpr3_11 > ccRuleEpr2_11
+ccRuleEpc_11: [O]-Publish_epc_11, Rexist_epc_11 => violated_epc_11
+>> Approve_ea_11
+>> Commission_ec_11
+>> Evaluate_ev_11
+>> Grant_eg_11
+>> Publish_epc_11
+>> Publish_epr_11
+>> Remove_er_11
+Art1a_12[O]: => -Evaluate_ev_12
+Art1b_12[P]: Grant_eg_12, Rexist_eg_12 => Evaluate_ev_12
+Art1b_12 > Art1a_12
+Art2a_12[O]: Evaluate_ev_12, Rexist_ev_12 => -Publish_epr_12
+Art2b_12[P]: Approve_ea_12, Rexist_ea_12 => Publish_epr_12
+Art2b_12 > Art2a_12
+Art2c_12[O]: [O]-Publish_epr_12, Rexist_epr_12 => Remove_er_12
+Art2e_12: [O]-Publish_epr_12, Rexist_epr_12 => compensate_er_epr_12
+Art3a_12[O]: Evaluate_ev_12, Rexist_ev_12 => -Publish_epc_12
+Art3b_12[P]: [P]Publish_epr_12 => Publish_epc_12
+Art3b_12 > Art3a_12
+Art4a_12[O]: Commission_ec_12, Rexist_ec_12, Evaluate_ev_12, Rexist_ev_12 => Publish_epr_12
+Art4a_12 > Art2a_12
+ccRuleEv_12: [O]-Evaluate_ev_12, Rexist_ev_12 => violated_ev_12
+ccRuleEpr1_12: [O]-Publish_epr_12, Rexist_epr_12, -compensated_er_epr_12 => violated_epr_12
+ccRuleComp1_12: compensate_er_epr_12 => -compensated_er_epr_12
+ccRuleComp2_12: compensate_er_epr_12, Rexist_er_12 => compensated_er_epr_12
+ccRuleComp2_12 > ccRuleComp1_12
+ccRuleEr1_12: [O]Remove_er_12 => violated_er_12
+ccRuleEr2_12: [O]Remove_er_12, Rexist_er_12 => -violated_er_12
+ccRuleEr2_12 > ccRuleEr1_12
+ccRuleEpr2_12: [O]Publish_epr_12 => violated_epr_12
+ccRuleEpr3_12: [O]Publish_epr_12, Rexist_epr_12 => -violated_epr_12
+ccRuleEpr3_12 > ccRuleEpr2_12
+ccRuleEpc_12: [O]-Publish_epc_12, Rexist_epc_12 => violated_epc_12
+>> Approve_ea_12
+>> Commission_ec_12
+>> Evaluate_ev_12
+>> Grant_eg_12
+>> Publish_epc_12
+>> Publish_epr_12
+>> Remove_er_12
+>> Rexist_ea_12
+>> Rexist_ev_12
+>> Rexist_epc_12
+Art1a_13[O]: => -Evaluate_ev_13
+Art1b_13[P]: Grant_eg_13, Rexist_eg_13 => Evaluate_ev_13
+Art1b_13 > Art1a_13
+Art2a_13[O]: Evaluate_ev_13, Rexist_ev_13 => -Publish_epr_13
+Art2b_13[P]: Approve_ea_13, Rexist_ea_13 => Publish_epr_13
+Art2b_13 > Art2a_13
+Art2c_13[O]: [O]-Publish_epr_13, Rexist_epr_13 => Remove_er_13
+Art2e_13: [O]-Publish_epr_13, Rexist_epr_13 => compensate_er_epr_13
+Art3a_13[O]: Evaluate_ev_13, Rexist_ev_13 => -Publish_epc_13
+Art3b_13[P]: [P]Publish_epr_13 => Publish_epc_13
+Art3b_13 > Art3a_13
+Art4a_13[O]: Commission_ec_13, Rexist_ec_13, Evaluate_ev_13, Rexist_ev_13 => Publish_epr_13
+Art4a_13 > Art2a_13
+ccRuleEv_13: [O]-Evaluate_ev_13, Rexist_ev_13 => violated_ev_13
+ccRuleEpr1_13: [O]-Publish_epr_13, Rexist_epr_13, -compensated_er_epr_13 => violated_epr_13
+ccRuleComp1_13: compensate_er_epr_13 => -compensated_er_epr_13
+ccRuleComp2_13: compensate_er_epr_13, Rexist_er_13 => compensated_er_epr_13
+ccRuleComp2_13 > ccRuleComp1_13
+ccRuleEr1_13: [O]Remove_er_13 => violated_er_13
+ccRuleEr2_13: [O]Remove_er_13, Rexist_er_13 => -violated_er_13
+ccRuleEr2_13 > ccRuleEr1_13
+ccRuleEpr2_13: [O]Publish_epr_13 => violated_epr_13
+ccRuleEpr3_13: [O]Publish_epr_13, Rexist_epr_13 => -violated_epr_13
+ccRuleEpr3_13 > ccRuleEpr2_13
+ccRuleEpc_13: [O]-Publish_epc_13, Rexist_epc_13 => violated_epc_13
+>> Approve_ea_13
+>> Commission_ec_13
+>> Evaluate_ev_13
+>> Grant_eg_13
+>> Publish_epc_13
+>> Publish_epr_13
+>> Remove_er_13
+>> Rexist_ev_13
+>> Rexist_eg_13
+>> Rexist_epr_13
+>> Rexist_er_13
+Art1a_14[O]: => -Evaluate_ev_14
+Art1b_14[P]: Grant_eg_14, Rexist_eg_14 => Evaluate_ev_14
+Art1b_14 > Art1a_14
+Art2a_14[O]: Evaluate_ev_14, Rexist_ev_14 => -Publish_epr_14
+Art2b_14[P]: Approve_ea_14, Rexist_ea_14 => Publish_epr_14
+Art2b_14 > Art2a_14
+Art2c_14[O]: [O]-Publish_epr_14, Rexist_epr_14 => Remove_er_14
+Art2e_14: [O]-Publish_epr_14, Rexist_epr_14 => compensate_er_epr_14
+Art3a_14[O]: Evaluate_ev_14, Rexist_ev_14 => -Publish_epc_14
+Art3b_14[P]: [P]Publish_epr_14 => Publish_epc_14
+Art3b_14 > Art3a_14
+Art4a_14[O]: Commission_ec_14, Rexist_ec_14, Evaluate_ev_14, Rexist_ev_14 => Publish_epr_14
+Art4a_14 > Art2a_14
+ccRuleEv_14: [O]-Evaluate_ev_14, Rexist_ev_14 => violated_ev_14
+ccRuleEpr1_14: [O]-Publish_epr_14, Rexist_epr_14, -compensated_er_epr_14 => violated_epr_14
+ccRuleComp1_14: compensate_er_epr_14 => -compensated_er_epr_14
+ccRuleComp2_14: compensate_er_epr_14, Rexist_er_14 => compensated_er_epr_14
+ccRuleComp2_14 > ccRuleComp1_14
+ccRuleEr1_14: [O]Remove_er_14 => violated_er_14
+ccRuleEr2_14: [O]Remove_er_14, Rexist_er_14 => -violated_er_14
+ccRuleEr2_14 > ccRuleEr1_14
+ccRuleEpr2_14: [O]Publish_epr_14 => violated_epr_14
+ccRuleEpr3_14: [O]Publish_epr_14, Rexist_epr_14 => -violated_epr_14
+ccRuleEpr3_14 > ccRuleEpr2_14
+ccRuleEpc_14: [O]-Publish_epc_14, Rexist_epc_14 => violated_epc_14
+>> Approve_ea_14
+>> Commission_ec_14
+>> Evaluate_ev_14
+>> Grant_eg_14
+>> Publish_epc_14
+>> Publish_epr_14
+>> Remove_er_14
+>> Rexist_ea_14
+>> Rexist_ec_14
+>> Rexist_ev_14
+>> Rexist_eg_14
+>> Rexist_epr_14
+Art1a_15[O]: => -Evaluate_ev_15
+Art1b_15[P]: Grant_eg_15, Rexist_eg_15 => Evaluate_ev_15
+Art1b_15 > Art1a_15
+Art2a_15[O]: Evaluate_ev_15, Rexist_ev_15 => -Publish_epr_15
+Art2b_15[P]: Approve_ea_15, Rexist_ea_15 => Publish_epr_15
+Art2b_15 > Art2a_15
+Art2c_15[O]: [O]-Publish_epr_15, Rexist_epr_15 => Remove_er_15
+Art2e_15: [O]-Publish_epr_15, Rexist_epr_15 => compensate_er_epr_15
+Art3a_15[O]: Evaluate_ev_15, Rexist_ev_15 => -Publish_epc_15
+Art3b_15[P]: [P]Publish_epr_15 => Publish_epc_15
+Art3b_15 > Art3a_15
+Art4a_15[O]: Commission_ec_15, Rexist_ec_15, Evaluate_ev_15, Rexist_ev_15 => Publish_epr_15
+Art4a_15 > Art2a_15
+ccRuleEv_15: [O]-Evaluate_ev_15, Rexist_ev_15 => violated_ev_15
+ccRuleEpr1_15: [O]-Publish_epr_15, Rexist_epr_15, -compensated_er_epr_15 => violated_epr_15
+ccRuleComp1_15: compensate_er_epr_15 => -compensated_er_epr_15
+ccRuleComp2_15: compensate_er_epr_15, Rexist_er_15 => compensated_er_epr_15
+ccRuleComp2_15 > ccRuleComp1_15
+ccRuleEr1_15: [O]Remove_er_15 => violated_er_15
+ccRuleEr2_15: [O]Remove_er_15, Rexist_er_15 => -violated_er_15
+ccRuleEr2_15 > ccRuleEr1_15
+ccRuleEpr2_15: [O]Publish_epr_15 => violated_epr_15
+ccRuleEpr3_15: [O]Publish_epr_15, Rexist_epr_15 => -violated_epr_15
+ccRuleEpr3_15 > ccRuleEpr2_15
+ccRuleEpc_15: [O]-Publish_epc_15, Rexist_epc_15 => violated_epc_15
+>> Approve_ea_15
+>> Commission_ec_15
+>> Evaluate_ev_15
+>> Grant_eg_15
+>> Publish_epc_15
+>> Publish_epr_15
+>> Remove_er_15
+>> Rexist_ev_15
+>> Rexist_epc_15
+>> Rexist_er_15
+Art1a_16[O]: => -Evaluate_ev_16
+Art1b_16[P]: Grant_eg_16, Rexist_eg_16 => Evaluate_ev_16
+Art1b_16 > Art1a_16
+Art2a_16[O]: Evaluate_ev_16, Rexist_ev_16 => -Publish_epr_16
+Art2b_16[P]: Approve_ea_16, Rexist_ea_16 => Publish_epr_16
+Art2b_16 > Art2a_16
+Art2c_16[O]: [O]-Publish_epr_16, Rexist_epr_16 => Remove_er_16
+Art2e_16: [O]-Publish_epr_16, Rexist_epr_16 => compensate_er_epr_16
+Art3a_16[O]: Evaluate_ev_16, Rexist_ev_16 => -Publish_epc_16
+Art3b_16[P]: [P]Publish_epr_16 => Publish_epc_16
+Art3b_16 > Art3a_16
+Art4a_16[O]: Commission_ec_16, Rexist_ec_16, Evaluate_ev_16, Rexist_ev_16 => Publish_epr_16
+Art4a_16 > Art2a_16
+ccRuleEv_16: [O]-Evaluate_ev_16, Rexist_ev_16 => violated_ev_16
+ccRuleEpr1_16: [O]-Publish_epr_16, Rexist_epr_16, -compensated_er_epr_16 => violated_epr_16
+ccRuleComp1_16: compensate_er_epr_16 => -compensated_er_epr_16
+ccRuleComp2_16: compensate_er_epr_16, Rexist_er_16 => compensated_er_epr_16
+ccRuleComp2_16 > ccRuleComp1_16
+ccRuleEr1_16: [O]Remove_er_16 => violated_er_16
+ccRuleEr2_16: [O]Remove_er_16, Rexist_er_16 => -violated_er_16
+ccRuleEr2_16 > ccRuleEr1_16
+ccRuleEpr2_16: [O]Publish_epr_16 => violated_epr_16
+ccRuleEpr3_16: [O]Publish_epr_16, Rexist_epr_16 => -violated_epr_16
+ccRuleEpr3_16 > ccRuleEpr2_16
+ccRuleEpc_16: [O]-Publish_epc_16, Rexist_epc_16 => violated_epc_16
+>> Approve_ea_16
+>> Commission_ec_16
+>> Evaluate_ev_16
+>> Grant_eg_16
+>> Publish_epc_16
+>> Publish_epr_16
+>> Remove_er_16
+>> Rexist_ea_16
+>> Rexist_ec_16
+>> Rexist_ev_16
+>> Rexist_epc_16
+>> Rexist_epr_16
+>> Rexist_er_16
+Art1a_17[O]: => -Evaluate_ev_17
+Art1b_17[P]: Grant_eg_17, Rexist_eg_17 => Evaluate_ev_17
+Art1b_17 > Art1a_17
+Art2a_17[O]: Evaluate_ev_17, Rexist_ev_17 => -Publish_epr_17
+Art2b_17[P]: Approve_ea_17, Rexist_ea_17 => Publish_epr_17
+Art2b_17 > Art2a_17
+Art2c_17[O]: [O]-Publish_epr_17, Rexist_epr_17 => Remove_er_17
+Art2e_17: [O]-Publish_epr_17, Rexist_epr_17 => compensate_er_epr_17
+Art3a_17[O]: Evaluate_ev_17, Rexist_ev_17 => -Publish_epc_17
+Art3b_17[P]: [P]Publish_epr_17 => Publish_epc_17
+Art3b_17 > Art3a_17
+Art4a_17[O]: Commission_ec_17, Rexist_ec_17, Evaluate_ev_17, Rexist_ev_17 => Publish_epr_17
+Art4a_17 > Art2a_17
+ccRuleEv_17: [O]-Evaluate_ev_17, Rexist_ev_17 => violated_ev_17
+ccRuleEpr1_17: [O]-Publish_epr_17, Rexist_epr_17, -compensated_er_epr_17 => violated_epr_17
+ccRuleComp1_17: compensate_er_epr_17 => -compensated_er_epr_17
+ccRuleComp2_17: compensate_er_epr_17, Rexist_er_17 => compensated_er_epr_17
+ccRuleComp2_17 > ccRuleComp1_17
+ccRuleEr1_17: [O]Remove_er_17 => violated_er_17
+ccRuleEr2_17: [O]Remove_er_17, Rexist_er_17 => -violated_er_17
+ccRuleEr2_17 > ccRuleEr1_17
+ccRuleEpr2_17: [O]Publish_epr_17 => violated_epr_17
+ccRuleEpr3_17: [O]Publish_epr_17, Rexist_epr_17 => -violated_epr_17
+ccRuleEpr3_17 > ccRuleEpr2_17
+ccRuleEpc_17: [O]-Publish_epc_17, Rexist_epc_17 => violated_epc_17
+>> Approve_ea_17
+>> Commission_ec_17
+>> Evaluate_ev_17
+>> Grant_eg_17
+>> Publish_epc_17
+>> Publish_epr_17
+>> Remove_er_17
+>> Rexist_ec_17
+>> Rexist_ev_17
+>> Rexist_eg_17
+Art1a_18[O]: => -Evaluate_ev_18
+Art1b_18[P]: Grant_eg_18, Rexist_eg_18 => Evaluate_ev_18
+Art1b_18 > Art1a_18
+Art2a_18[O]: Evaluate_ev_18, Rexist_ev_18 => -Publish_epr_18
+Art2b_18[P]: Approve_ea_18, Rexist_ea_18 => Publish_epr_18
+Art2b_18 > Art2a_18
+Art2c_18[O]: [O]-Publish_epr_18, Rexist_epr_18 => Remove_er_18
+Art2e_18: [O]-Publish_epr_18, Rexist_epr_18 => compensate_er_epr_18
+Art3a_18[O]: Evaluate_ev_18, Rexist_ev_18 => -Publish_epc_18
+Art3b_18[P]: [P]Publish_epr_18 => Publish_epc_18
+Art3b_18 > Art3a_18
+Art4a_18[O]: Commission_ec_18, Rexist_ec_18, Evaluate_ev_18, Rexist_ev_18 => Publish_epr_18
+Art4a_18 > Art2a_18
+ccRuleEv_18: [O]-Evaluate_ev_18, Rexist_ev_18 => violated_ev_18
+ccRuleEpr1_18: [O]-Publish_epr_18, Rexist_epr_18, -compensated_er_epr_18 => violated_epr_18
+ccRuleComp1_18: compensate_er_epr_18 => -compensated_er_epr_18
+ccRuleComp2_18: compensate_er_epr_18, Rexist_er_18 => compensated_er_epr_18
+ccRuleComp2_18 > ccRuleComp1_18
+ccRuleEr1_18: [O]Remove_er_18 => violated_er_18
+ccRuleEr2_18: [O]Remove_er_18, Rexist_er_18 => -violated_er_18
+ccRuleEr2_18 > ccRuleEr1_18
+ccRuleEpr2_18: [O]Publish_epr_18 => violated_epr_18
+ccRuleEpr3_18: [O]Publish_epr_18, Rexist_epr_18 => -violated_epr_18
+ccRuleEpr3_18 > ccRuleEpr2_18
+ccRuleEpc_18: [O]-Publish_epc_18, Rexist_epc_18 => violated_epc_18
+>> Approve_ea_18
+>> Commission_ec_18
+>> Evaluate_ev_18
+>> Grant_eg_18
+>> Publish_epc_18
+>> Publish_epr_18
+>> Remove_er_18
+>> Rexist_ea_18
+>> Rexist_ec_18
+>> Rexist_ev_18
+>> Rexist_eg_18
+>> Rexist_epc_18
+>> Rexist_epr_18
+>> Rexist_er_18
+Art1a_19[O]: => -Evaluate_ev_19
+Art1b_19[P]: Grant_eg_19, Rexist_eg_19 => Evaluate_ev_19
+Art1b_19 > Art1a_19
+Art2a_19[O]: Evaluate_ev_19, Rexist_ev_19 => -Publish_epr_19
+Art2b_19[P]: Approve_ea_19, Rexist_ea_19 => Publish_epr_19
+Art2b_19 > Art2a_19
+Art2c_19[O]: [O]-Publish_epr_19, Rexist_epr_19 => Remove_er_19
+Art2e_19: [O]-Publish_epr_19, Rexist_epr_19 => compensate_er_epr_19
+Art3a_19[O]: Evaluate_ev_19, Rexist_ev_19 => -Publish_epc_19
+Art3b_19[P]: [P]Publish_epr_19 => Publish_epc_19
+Art3b_19 > Art3a_19
+Art4a_19[O]: Commission_ec_19, Rexist_ec_19, Evaluate_ev_19, Rexist_ev_19 => Publish_epr_19
+Art4a_19 > Art2a_19
+ccRuleEv_19: [O]-Evaluate_ev_19, Rexist_ev_19 => violated_ev_19
+ccRuleEpr1_19: [O]-Publish_epr_19, Rexist_epr_19, -compensated_er_epr_19 => violated_epr_19
+ccRuleComp1_19: compensate_er_epr_19 => -compensated_er_epr_19
+ccRuleComp2_19: compensate_er_epr_19, Rexist_er_19 => compensated_er_epr_19
+ccRuleComp2_19 > ccRuleComp1_19
+ccRuleEr1_19: [O]Remove_er_19 => violated_er_19
+ccRuleEr2_19: [O]Remove_er_19, Rexist_er_19 => -violated_er_19
+ccRuleEr2_19 > ccRuleEr1_19
+ccRuleEpr2_19: [O]Publish_epr_19 => violated_epr_19
+ccRuleEpr3_19: [O]Publish_epr_19, Rexist_epr_19 => -violated_epr_19
+ccRuleEpr3_19 > ccRuleEpr2_19
+ccRuleEpc_19: [O]-Publish_epc_19, Rexist_epc_19 => violated_epc_19
+>> Approve_ea_19
+>> Commission_ec_19
+>> Evaluate_ev_19
+>> Grant_eg_19
+>> Publish_epc_19
+>> Publish_epr_19
+>> Remove_er_19
+>> Rexist_eg_19
+>> Rexist_epr_19
+>> Rexist_er_19
+Art1a_20[O]: => -Evaluate_ev_20
+Art1b_20[P]: Grant_eg_20, Rexist_eg_20 => Evaluate_ev_20
+Art1b_20 > Art1a_20
+Art2a_20[O]: Evaluate_ev_20, Rexist_ev_20 => -Publish_epr_20
+Art2b_20[P]: Approve_ea_20, Rexist_ea_20 => Publish_epr_20
+Art2b_20 > Art2a_20
+Art2c_20[O]: [O]-Publish_epr_20, Rexist_epr_20 => Remove_er_20
+Art2e_20: [O]-Publish_epr_20, Rexist_epr_20 => compensate_er_epr_20
+Art3a_20[O]: Evaluate_ev_20, Rexist_ev_20 => -Publish_epc_20
+Art3b_20[P]: [P]Publish_epr_20 => Publish_epc_20
+Art3b_20 > Art3a_20
+Art4a_20[O]: Commission_ec_20, Rexist_ec_20, Evaluate_ev_20, Rexist_ev_20 => Publish_epr_20
+Art4a_20 > Art2a_20
+ccRuleEv_20: [O]-Evaluate_ev_20, Rexist_ev_20 => violated_ev_20
+ccRuleEpr1_20: [O]-Publish_epr_20, Rexist_epr_20, -compensated_er_epr_20 => violated_epr_20
+ccRuleComp1_20: compensate_er_epr_20 => -compensated_er_epr_20
+ccRuleComp2_20: compensate_er_epr_20, Rexist_er_20 => compensated_er_epr_20
+ccRuleComp2_20 > ccRuleComp1_20
+ccRuleEr1_20: [O]Remove_er_20 => violated_er_20
+ccRuleEr2_20: [O]Remove_er_20, Rexist_er_20 => -violated_er_20
+ccRuleEr2_20 > ccRuleEr1_20
+ccRuleEpr2_20: [O]Publish_epr_20 => violated_epr_20
+ccRuleEpr3_20: [O]Publish_epr_20, Rexist_epr_20 => -violated_epr_20
+ccRuleEpr3_20 > ccRuleEpr2_20
+ccRuleEpc_20: [O]-Publish_epc_20, Rexist_epc_20 => violated_epc_20
+>> Approve_ea_20
+>> Commission_ec_20
+>> Evaluate_ev_20
+>> Grant_eg_20
+>> Publish_epc_20
+>> Publish_epr_20
+>> Remove_er_20
+>> Rexist_ea_20
+>> Rexist_ev_20
+>> Rexist_eg_20
+>> Rexist_epc_20
+>> Rexist_er_20
+Art1a_21[O]: => -Evaluate_ev_21
+Art1b_21[P]: Grant_eg_21, Rexist_eg_21 => Evaluate_ev_21
+Art1b_21 > Art1a_21
+Art2a_21[O]: Evaluate_ev_21, Rexist_ev_21 => -Publish_epr_21
+Art2b_21[P]: Approve_ea_21, Rexist_ea_21 => Publish_epr_21
+Art2b_21 > Art2a_21
+Art2c_21[O]: [O]-Publish_epr_21, Rexist_epr_21 => Remove_er_21
+Art2e_21: [O]-Publish_epr_21, Rexist_epr_21 => compensate_er_epr_21
+Art3a_21[O]: Evaluate_ev_21, Rexist_ev_21 => -Publish_epc_21
+Art3b_21[P]: [P]Publish_epr_21 => Publish_epc_21
+Art3b_21 > Art3a_21
+Art4a_21[O]: Commission_ec_21, Rexist_ec_21, Evaluate_ev_21, Rexist_ev_21 => Publish_epr_21
+Art4a_21 > Art2a_21
+ccRuleEv_21: [O]-Evaluate_ev_21, Rexist_ev_21 => violated_ev_21
+ccRuleEpr1_21: [O]-Publish_epr_21, Rexist_epr_21, -compensated_er_epr_21 => violated_epr_21
+ccRuleComp1_21: compensate_er_epr_21 => -compensated_er_epr_21
+ccRuleComp2_21: compensate_er_epr_21, Rexist_er_21 => compensated_er_epr_21
+ccRuleComp2_21 > ccRuleComp1_21
+ccRuleEr1_21: [O]Remove_er_21 => violated_er_21
+ccRuleEr2_21: [O]Remove_er_21, Rexist_er_21 => -violated_er_21
+ccRuleEr2_21 > ccRuleEr1_21
+ccRuleEpr2_21: [O]Publish_epr_21 => violated_epr_21
+ccRuleEpr3_21: [O]Publish_epr_21, Rexist_epr_21 => -violated_epr_21
+ccRuleEpr3_21 > ccRuleEpr2_21
+ccRuleEpc_21: [O]-Publish_epc_21, Rexist_epc_21 => violated_epc_21
+>> Approve_ea_21
+>> Commission_ec_21
+>> Evaluate_ev_21
+>> Grant_eg_21
+>> Publish_epc_21
+>> Publish_epr_21
+>> Remove_er_21
+>> Rexist_eg_21
+>> Rexist_epc_21
+>> Rexist_epr_21
+>> Rexist_er_21
+Art1a_22[O]: => -Evaluate_ev_22
+Art1b_22[P]: Grant_eg_22, Rexist_eg_22 => Evaluate_ev_22
+Art1b_22 > Art1a_22
+Art2a_22[O]: Evaluate_ev_22, Rexist_ev_22 => -Publish_epr_22
+Art2b_22[P]: Approve_ea_22, Rexist_ea_22 => Publish_epr_22
+Art2b_22 > Art2a_22
+Art2c_22[O]: [O]-Publish_epr_22, Rexist_epr_22 => Remove_er_22
+Art2e_22: [O]-Publish_epr_22, Rexist_epr_22 => compensate_er_epr_22
+Art3a_22[O]: Evaluate_ev_22, Rexist_ev_22 => -Publish_epc_22
+Art3b_22[P]: [P]Publish_epr_22 => Publish_epc_22
+Art3b_22 > Art3a_22
+Art4a_22[O]: Commission_ec_22, Rexist_ec_22, Evaluate_ev_22, Rexist_ev_22 => Publish_epr_22
+Art4a_22 > Art2a_22
+ccRuleEv_22: [O]-Evaluate_ev_22, Rexist_ev_22 => violated_ev_22
+ccRuleEpr1_22: [O]-Publish_epr_22, Rexist_epr_22, -compensated_er_epr_22 => violated_epr_22
+ccRuleComp1_22: compensate_er_epr_22 => -compensated_er_epr_22
+ccRuleComp2_22: compensate_er_epr_22, Rexist_er_22 => compensated_er_epr_22
+ccRuleComp2_22 > ccRuleComp1_22
+ccRuleEr1_22: [O]Remove_er_22 => violated_er_22
+ccRuleEr2_22: [O]Remove_er_22, Rexist_er_22 => -violated_er_22
+ccRuleEr2_22 > ccRuleEr1_22
+ccRuleEpr2_22: [O]Publish_epr_22 => violated_epr_22
+ccRuleEpr3_22: [O]Publish_epr_22, Rexist_epr_22 => -violated_epr_22
+ccRuleEpr3_22 > ccRuleEpr2_22
+ccRuleEpc_22: [O]-Publish_epc_22, Rexist_epc_22 => violated_epc_22
+>> Approve_ea_22
+>> Commission_ec_22
+>> Evaluate_ev_22
+>> Grant_eg_22
+>> Publish_epc_22
+>> Publish_epr_22
+>> Remove_er_22
+>> Rexist_ea_22
+>> Rexist_eg_22
+>> Rexist_er_22
+Art1a_23[O]: => -Evaluate_ev_23
+Art1b_23[P]: Grant_eg_23, Rexist_eg_23 => Evaluate_ev_23
+Art1b_23 > Art1a_23
+Art2a_23[O]: Evaluate_ev_23, Rexist_ev_23 => -Publish_epr_23
+Art2b_23[P]: Approve_ea_23, Rexist_ea_23 => Publish_epr_23
+Art2b_23 > Art2a_23
+Art2c_23[O]: [O]-Publish_epr_23, Rexist_epr_23 => Remove_er_23
+Art2e_23: [O]-Publish_epr_23, Rexist_epr_23 => compensate_er_epr_23
+Art3a_23[O]: Evaluate_ev_23, Rexist_ev_23 => -Publish_epc_23
+Art3b_23[P]: [P]Publish_epr_23 => Publish_epc_23
+Art3b_23 > Art3a_23
+Art4a_23[O]: Commission_ec_23, Rexist_ec_23, Evaluate_ev_23, Rexist_ev_23 => Publish_epr_23
+Art4a_23 > Art2a_23
+ccRuleEv_23: [O]-Evaluate_ev_23, Rexist_ev_23 => violated_ev_23
+ccRuleEpr1_23: [O]-Publish_epr_23, Rexist_epr_23, -compensated_er_epr_23 => violated_epr_23
+ccRuleComp1_23: compensate_er_epr_23 => -compensated_er_epr_23
+ccRuleComp2_23: compensate_er_epr_23, Rexist_er_23 => compensated_er_epr_23
+ccRuleComp2_23 > ccRuleComp1_23
+ccRuleEr1_23: [O]Remove_er_23 => violated_er_23
+ccRuleEr2_23: [O]Remove_er_23, Rexist_er_23 => -violated_er_23
+ccRuleEr2_23 > ccRuleEr1_23
+ccRuleEpr2_23: [O]Publish_epr_23 => violated_epr_23
+ccRuleEpr3_23: [O]Publish_epr_23, Rexist_epr_23 => -violated_epr_23
+ccRuleEpr3_23 > ccRuleEpr2_23
+ccRuleEpc_23: [O]-Publish_epc_23, Rexist_epc_23 => violated_epc_23
+>> Approve_ea_23
+>> Commission_ec_23
+>> Evaluate_ev_23
+>> Grant_eg_23
+>> Publish_epc_23
+>> Publish_epr_23
+>> Remove_er_23
+>> Rexist_ea_23
+>> Rexist_ec_23
+>> Rexist_ev_23
+>> Rexist_eg_23
+>> Rexist_er_23
+Art1a_24[O]: => -Evaluate_ev_24
+Art1b_24[P]: Grant_eg_24, Rexist_eg_24 => Evaluate_ev_24
+Art1b_24 > Art1a_24
+Art2a_24[O]: Evaluate_ev_24, Rexist_ev_24 => -Publish_epr_24
+Art2b_24[P]: Approve_ea_24, Rexist_ea_24 => Publish_epr_24
+Art2b_24 > Art2a_24
+Art2c_24[O]: [O]-Publish_epr_24, Rexist_epr_24 => Remove_er_24
+Art2e_24: [O]-Publish_epr_24, Rexist_epr_24 => compensate_er_epr_24
+Art3a_24[O]: Evaluate_ev_24, Rexist_ev_24 => -Publish_epc_24
+Art3b_24[P]: [P]Publish_epr_24 => Publish_epc_24
+Art3b_24 > Art3a_24
+Art4a_24[O]: Commission_ec_24, Rexist_ec_24, Evaluate_ev_24, Rexist_ev_24 => Publish_epr_24
+Art4a_24 > Art2a_24
+ccRuleEv_24: [O]-Evaluate_ev_24, Rexist_ev_24 => violated_ev_24
+ccRuleEpr1_24: [O]-Publish_epr_24, Rexist_epr_24, -compensated_er_epr_24 => violated_epr_24
+ccRuleComp1_24: compensate_er_epr_24 => -compensated_er_epr_24
+ccRuleComp2_24: compensate_er_epr_24, Rexist_er_24 => compensated_er_epr_24
+ccRuleComp2_24 > ccRuleComp1_24
+ccRuleEr1_24: [O]Remove_er_24 => violated_er_24
+ccRuleEr2_24: [O]Remove_er_24, Rexist_er_24 => -violated_er_24
+ccRuleEr2_24 > ccRuleEr1_24
+ccRuleEpr2_24: [O]Publish_epr_24 => violated_epr_24
+ccRuleEpr3_24: [O]Publish_epr_24, Rexist_epr_24 => -violated_epr_24
+ccRuleEpr3_24 > ccRuleEpr2_24
+ccRuleEpc_24: [O]-Publish_epc_24, Rexist_epc_24 => violated_epc_24
+>> Approve_ea_24
+>> Commission_ec_24
+>> Evaluate_ev_24
+>> Grant_eg_24
+>> Publish_epc_24
+>> Publish_epr_24
+>> Remove_er_24
+>> Rexist_ec_24
+>> Rexist_ev_24
+>> Rexist_eg_24
+>> Rexist_epc_24
+Art1a_25[O]: => -Evaluate_ev_25
+Art1b_25[P]: Grant_eg_25, Rexist_eg_25 => Evaluate_ev_25
+Art1b_25 > Art1a_25
+Art2a_25[O]: Evaluate_ev_25, Rexist_ev_25 => -Publish_epr_25
+Art2b_25[P]: Approve_ea_25, Rexist_ea_25 => Publish_epr_25
+Art2b_25 > Art2a_25
+Art2c_25[O]: [O]-Publish_epr_25, Rexist_epr_25 => Remove_er_25
+Art2e_25: [O]-Publish_epr_25, Rexist_epr_25 => compensate_er_epr_25
+Art3a_25[O]: Evaluate_ev_25, Rexist_ev_25 => -Publish_epc_25
+Art3b_25[P]: [P]Publish_epr_25 => Publish_epc_25
+Art3b_25 > Art3a_25
+Art4a_25[O]: Commission_ec_25, Rexist_ec_25, Evaluate_ev_25, Rexist_ev_25 => Publish_epr_25
+Art4a_25 > Art2a_25
+ccRuleEv_25: [O]-Evaluate_ev_25, Rexist_ev_25 => violated_ev_25
+ccRuleEpr1_25: [O]-Publish_epr_25, Rexist_epr_25, -compensated_er_epr_25 => violated_epr_25
+ccRuleComp1_25: compensate_er_epr_25 => -compensated_er_epr_25
+ccRuleComp2_25: compensate_er_epr_25, Rexist_er_25 => compensated_er_epr_25
+ccRuleComp2_25 > ccRuleComp1_25
+ccRuleEr1_25: [O]Remove_er_25 => violated_er_25
+ccRuleEr2_25: [O]Remove_er_25, Rexist_er_25 => -violated_er_25
+ccRuleEr2_25 > ccRuleEr1_25
+ccRuleEpr2_25: [O]Publish_epr_25 => violated_epr_25
+ccRuleEpr3_25: [O]Publish_epr_25, Rexist_epr_25 => -violated_epr_25
+ccRuleEpr3_25 > ccRuleEpr2_25
+ccRuleEpc_25: [O]-Publish_epc_25, Rexist_epc_25 => violated_epc_25
+>> Approve_ea_25
+>> Commission_ec_25
+>> Evaluate_ev_25
+>> Grant_eg_25
+>> Publish_epc_25
+>> Publish_epr_25
+>> Remove_er_25
+>> Rexist_ea_25
+>> Rexist_ec_25
+>> Rexist_eg_25
+>> Rexist_epc_25
+>> Rexist_epr_25
+>> Rexist_er_25
+Art1a_26[O]: => -Evaluate_ev_26
+Art1b_26[P]: Grant_eg_26, Rexist_eg_26 => Evaluate_ev_26
+Art1b_26 > Art1a_26
+Art2a_26[O]: Evaluate_ev_26, Rexist_ev_26 => -Publish_epr_26
+Art2b_26[P]: Approve_ea_26, Rexist_ea_26 => Publish_epr_26
+Art2b_26 > Art2a_26
+Art2c_26[O]: [O]-Publish_epr_26, Rexist_epr_26 => Remove_er_26
+Art2e_26: [O]-Publish_epr_26, Rexist_epr_26 => compensate_er_epr_26
+Art3a_26[O]: Evaluate_ev_26, Rexist_ev_26 => -Publish_epc_26
+Art3b_26[P]: [P]Publish_epr_26 => Publish_epc_26
+Art3b_26 > Art3a_26
+Art4a_26[O]: Commission_ec_26, Rexist_ec_26, Evaluate_ev_26, Rexist_ev_26 => Publish_epr_26
+Art4a_26 > Art2a_26
+ccRuleEv_26: [O]-Evaluate_ev_26, Rexist_ev_26 => violated_ev_26
+ccRuleEpr1_26: [O]-Publish_epr_26, Rexist_epr_26, -compensated_er_epr_26 => violated_epr_26
+ccRuleComp1_26: compensate_er_epr_26 => -compensated_er_epr_26
+ccRuleComp2_26: compensate_er_epr_26, Rexist_er_26 => compensated_er_epr_26
+ccRuleComp2_26 > ccRuleComp1_26
+ccRuleEr1_26: [O]Remove_er_26 => violated_er_26
+ccRuleEr2_26: [O]Remove_er_26, Rexist_er_26 => -violated_er_26
+ccRuleEr2_26 > ccRuleEr1_26
+ccRuleEpr2_26: [O]Publish_epr_26 => violated_epr_26
+ccRuleEpr3_26: [O]Publish_epr_26, Rexist_epr_26 => -violated_epr_26
+ccRuleEpr3_26 > ccRuleEpr2_26
+ccRuleEpc_26: [O]-Publish_epc_26, Rexist_epc_26 => violated_epc_26
+>> Approve_ea_26
+>> Commission_ec_26
+>> Evaluate_ev_26
+>> Grant_eg_26
+>> Publish_epc_26
+>> Publish_epr_26
+>> Remove_er_26
+>> Rexist_ea_26
+>> Rexist_ec_26
+>> Rexist_ev_26
+>> Rexist_epc_26
+Art1a_27[O]: => -Evaluate_ev_27
+Art1b_27[P]: Grant_eg_27, Rexist_eg_27 => Evaluate_ev_27
+Art1b_27 > Art1a_27
+Art2a_27[O]: Evaluate_ev_27, Rexist_ev_27 => -Publish_epr_27
+Art2b_27[P]: Approve_ea_27, Rexist_ea_27 => Publish_epr_27
+Art2b_27 > Art2a_27
+Art2c_27[O]: [O]-Publish_epr_27, Rexist_epr_27 => Remove_er_27
+Art2e_27: [O]-Publish_epr_27, Rexist_epr_27 => compensate_er_epr_27
+Art3a_27[O]: Evaluate_ev_27, Rexist_ev_27 => -Publish_epc_27
+Art3b_27[P]: [P]Publish_epr_27 => Publish_epc_27
+Art3b_27 > Art3a_27
+Art4a_27[O]: Commission_ec_27, Rexist_ec_27, Evaluate_ev_27, Rexist_ev_27 => Publish_epr_27
+Art4a_27 > Art2a_27
+ccRuleEv_27: [O]-Evaluate_ev_27, Rexist_ev_27 => violated_ev_27
+ccRuleEpr1_27: [O]-Publish_epr_27, Rexist_epr_27, -compensated_er_epr_27 => violated_epr_27
+ccRuleComp1_27: compensate_er_epr_27 => -compensated_er_epr_27
+ccRuleComp2_27: compensate_er_epr_27, Rexist_er_27 => compensated_er_epr_27
+ccRuleComp2_27 > ccRuleComp1_27
+ccRuleEr1_27: [O]Remove_er_27 => violated_er_27
+ccRuleEr2_27: [O]Remove_er_27, Rexist_er_27 => -violated_er_27
+ccRuleEr2_27 > ccRuleEr1_27
+ccRuleEpr2_27: [O]Publish_epr_27 => violated_epr_27
+ccRuleEpr3_27: [O]Publish_epr_27, Rexist_epr_27 => -violated_epr_27
+ccRuleEpr3_27 > ccRuleEpr2_27
+ccRuleEpc_27: [O]-Publish_epc_27, Rexist_epc_27 => violated_epc_27
+>> Approve_ea_27
+>> Commission_ec_27
+>> Evaluate_ev_27
+>> Grant_eg_27
+>> Publish_epc_27
+>> Publish_epr_27
+>> Remove_er_27
+>> Rexist_ev_27
+>> Rexist_eg_27
+>> Rexist_epr_27
+>> Rexist_er_27
+Art1a_28[O]: => -Evaluate_ev_28
+Art1b_28[P]: Grant_eg_28, Rexist_eg_28 => Evaluate_ev_28
+Art1b_28 > Art1a_28
+Art2a_28[O]: Evaluate_ev_28, Rexist_ev_28 => -Publish_epr_28
+Art2b_28[P]: Approve_ea_28, Rexist_ea_28 => Publish_epr_28
+Art2b_28 > Art2a_28
+Art2c_28[O]: [O]-Publish_epr_28, Rexist_epr_28 => Remove_er_28
+Art2e_28: [O]-Publish_epr_28, Rexist_epr_28 => compensate_er_epr_28
+Art3a_28[O]: Evaluate_ev_28, Rexist_ev_28 => -Publish_epc_28
+Art3b_28[P]: [P]Publish_epr_28 => Publish_epc_28
+Art3b_28 > Art3a_28
+Art4a_28[O]: Commission_ec_28, Rexist_ec_28, Evaluate_ev_28, Rexist_ev_28 => Publish_epr_28
+Art4a_28 > Art2a_28
+ccRuleEv_28: [O]-Evaluate_ev_28, Rexist_ev_28 => violated_ev_28
+ccRuleEpr1_28: [O]-Publish_epr_28, Rexist_epr_28, -compensated_er_epr_28 => violated_epr_28
+ccRuleComp1_28: compensate_er_epr_28 => -compensated_er_epr_28
+ccRuleComp2_28: compensate_er_epr_28, Rexist_er_28 => compensated_er_epr_28
+ccRuleComp2_28 > ccRuleComp1_28
+ccRuleEr1_28: [O]Remove_er_28 => violated_er_28
+ccRuleEr2_28: [O]Remove_er_28, Rexist_er_28 => -violated_er_28
+ccRuleEr2_28 > ccRuleEr1_28
+ccRuleEpr2_28: [O]Publish_epr_28 => violated_epr_28
+ccRuleEpr3_28: [O]Publish_epr_28, Rexist_epr_28 => -violated_epr_28
+ccRuleEpr3_28 > ccRuleEpr2_28
+ccRuleEpc_28: [O]-Publish_epc_28, Rexist_epc_28 => violated_epc_28
+>> Approve_ea_28
+>> Commission_ec_28
+>> Evaluate_ev_28
+>> Grant_eg_28
+>> Publish_epc_28
+>> Publish_epr_28
+>> Remove_er_28
+>> Rexist_ea_28
+>> Rexist_ec_28
+>> Rexist_eg_28
+>> Rexist_epc_28
+Art1a_29[O]: => -Evaluate_ev_29
+Art1b_29[P]: Grant_eg_29, Rexist_eg_29 => Evaluate_ev_29
+Art1b_29 > Art1a_29
+Art2a_29[O]: Evaluate_ev_29, Rexist_ev_29 => -Publish_epr_29
+Art2b_29[P]: Approve_ea_29, Rexist_ea_29 => Publish_epr_29
+Art2b_29 > Art2a_29
+Art2c_29[O]: [O]-Publish_epr_29, Rexist_epr_29 => Remove_er_29
+Art2e_29: [O]-Publish_epr_29, Rexist_epr_29 => compensate_er_epr_29
+Art3a_29[O]: Evaluate_ev_29, Rexist_ev_29 => -Publish_epc_29
+Art3b_29[P]: [P]Publish_epr_29 => Publish_epc_29
+Art3b_29 > Art3a_29
+Art4a_29[O]: Commission_ec_29, Rexist_ec_29, Evaluate_ev_29, Rexist_ev_29 => Publish_epr_29
+Art4a_29 > Art2a_29
+ccRuleEv_29: [O]-Evaluate_ev_29, Rexist_ev_29 => violated_ev_29
+ccRuleEpr1_29: [O]-Publish_epr_29, Rexist_epr_29, -compensated_er_epr_29 => violated_epr_29
+ccRuleComp1_29: compensate_er_epr_29 => -compensated_er_epr_29
+ccRuleComp2_29: compensate_er_epr_29, Rexist_er_29 => compensated_er_epr_29
+ccRuleComp2_29 > ccRuleComp1_29
+ccRuleEr1_29: [O]Remove_er_29 => violated_er_29
+ccRuleEr2_29: [O]Remove_er_29, Rexist_er_29 => -violated_er_29
+ccRuleEr2_29 > ccRuleEr1_29
+ccRuleEpr2_29: [O]Publish_epr_29 => violated_epr_29
+ccRuleEpr3_29: [O]Publish_epr_29, Rexist_epr_29 => -violated_epr_29
+ccRuleEpr3_29 > ccRuleEpr2_29
+ccRuleEpc_29: [O]-Publish_epc_29, Rexist_epc_29 => violated_epc_29
+>> Approve_ea_29
+>> Commission_ec_29
+>> Evaluate_ev_29
+>> Grant_eg_29
+>> Publish_epc_29
+>> Publish_epr_29
+>> Remove_er_29
+>> Rexist_ea_29
+>> Rexist_epc_29
