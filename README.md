@@ -1,4 +1,4 @@
-# Legal reasoners
+# Compliance checker
 
 <p align="justify">
 This GitHub repository contains implementations of a selected use case of legal norms in different automatic reasoners.
