@@ -5,7 +5,7 @@ This folder contains the implementation of the use case as <a href="https://link
 <p align="justify">The file <b>regulative+compliance_rules.pl</b> derives a violation for either all prohibitions that took place in the state of affairs and were not compensated <i>and</i> for all obligations that did not take place in the state of affairs and were not compensated.</p>
 
 <p align="justify">
-The state of affairs is described in one of the synthetic datasets (ABox) created by the <a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/DatasetGenerator">dataset generator available on this GitHub</a>. Each ABox is a collection of facts describing the states of affairs encoded in PROLEG's input format. Furthermore, since PROLEG is query-based, each ABox has been enriched with all queries that allow to infer a violation from the input facts. A final query "goal" allows then to invoke all other queries.
+The state of affairs is described in one of the synthetic datasets (ABox) created by the <a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/DatasetGenerator">dataset generator available on this GitHub</a>. Each ABox is a collection of facts describing the states of affairs encoded in PROLEG's input format. Furthermore, since PROLEG is query-based, each ABox has been enriched with all queries that allow to infer a violation from the input facts. A final query "goal" allows to invoke all other queries.
 </p>
 
 <p align="justify">
