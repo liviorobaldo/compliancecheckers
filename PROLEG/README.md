@@ -10,15 +10,15 @@ The state of affairs is described in one of the synthetic datasets (ABox) create
 
 <p align="justify">
   In order to execute PROLEG, you need to install a Prolog environment such as <a href="https://www.swi-prolog.org">SWI Prolog</a>, the one we used to execute the rules in 
-  <b>regulative+compliance_rules.pl</b> on the syntethic datasets. PROLEG is actually the Prolog library <b>prolegEng2.pl</b> that must be loaded before executing 
+  <b>regulative+compliance_rules.pl</b> on the syntethic datasets. PROLEG is actually the Prolog library <b>prolegEng3.pl</b> that must be loaded before executing 
   the rules. Each ABox created by the <a href="https://github.com/liviorobaldo/compliancecheckers/tree/main/DatasetGenerator">dataset generator</a> starts with the 
   following instruction, which loads both the PROLEG library and the rules from the use case:
 </p>
 
 <p align="center">
-<i>:- [ "./prolegEng2.pl", "./regulative+compliance_rules.pl" ].</i>
+<i>:- [ "./prolegEng3.pl", "./regulative+compliance_rules.pl" ].</i>
 </p>
 
 <p align="justify">
-The execution of the run file will output the evaluation of each ABox in the CORPUS folder within the file <b>evaluationPROLEG.txt</b> together with the plaintiff-defendant explanations built by the PROLEG reasoner.
+The execution of the run file will output the evaluation of each ABox in the CORPUS folder within the file <b>evaluationPROLEG.txt</b> together with the explanations built by the PROLEG reasoner.
 </p>
