@@ -1,1 +1,0 @@
-javac -cp .;./lib/* DetectViolationsOnCorpus.java
