@@ -1,0 +1,1 @@
+java -Xms32G -cp .;./* -Dfile.encoding=utf-8 DetectViolationsOnCorpus ..\DatasetGenerator\CORPUS\SPINdle >> ..\DatasetGenerator\CORPUS\evaluationSPIndle.txt
