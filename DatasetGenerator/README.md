@@ -21,7 +21,7 @@ to generate the datasets within the CORPUS folder. Similar scripts can be used t
 </p>
 
 <p align="justify">
-There are four parameters at the beginning, to configure the dataset generator. 
+There are four parameters to configure the dataset generator. 
 </p>
 
 <p align="justify">
