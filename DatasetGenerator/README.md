@@ -21,5 +21,14 @@ to generate the datasets within the CORPUS folder. Similar scripts can be used t
 </p>
 
 <p align="justify">
-PS. the subfolder "./CORPUS/SPINdle" must contain the file "SPINdle_regulative+compliance_rules.dfl". This contains the non-indexed SPINdle rules that the dataset generator will ground.
+There are four parameters at the beginning, to configure the dataset generator. 
+</p>
+
+<p align="justify">
+"numbersOfUseCases" is used to duplicate the norms in the use case. For instance, if its value is "{1, 10, 20}", the generator creates three datasets: one in which the if-then rules in the use case are duplicated a single time, one in which they are duplicated 10 times, and one in which they are duplicated 20 times. As you can see in the Java code, each dataset is stored within a subfolder of "INDEXED_RULES", for each of the reasoners.
+</p>
+
+
+<p align="justify">
+"minSize", "maxSize", and "stepSize" are used to generate the sets of states of affairs, for each dataset of duplicated rules. For instance, if minSize=10, maxSize=50, and stepSize=10, it creates datasets of 10, 20, 30, 40, and 50 states of affairs for each dataset of duplicated if-then rules created via "numbersOfUseCases", i.e., for every subfolder of "INDEXED_RULES" of every reasoner.
 </p>
