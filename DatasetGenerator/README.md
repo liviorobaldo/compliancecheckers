@@ -30,5 +30,5 @@ There are four parameters to configure the dataset generator.
 
 
 <p align="justify">
-"minSize", "maxSize", and "stepSize" are used to generate the sets of states of affairs, for each dataset of duplicated rules. For instance, if minSize=10, maxSize=50, and stepSize=10, it creates datasets of 10, 20, 30, 40, and 50 states of affairs for each dataset of duplicated if-then rules created via "numbersOfUseCases", i.e., for every subfolder of "INDEXED_RULES" of every reasoner.
+"minSize", "maxSize", and "stepSize" are used to generate the sets of states of affairs, for every dataset of duplicated rules. For instance, if minSize=10, maxSize=50, and stepSize=10, the generator creates datasets of 10, 20, 30, 40, and 50 states of affairs for each dataset of duplicated if-then rules created via "numbersOfUseCases", i.e., for every subfolder of "INDEXED_RULES" of every reasoner.
 </p>
