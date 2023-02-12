@@ -25,7 +25,7 @@ There are four parameters to configure the dataset generator.
 </p>
 
 <p align="justify">
-"numbersOfUseCases" is used to duplicate the norms in the use case. For instance, if its value is "{1, 10, 20}", the generator creates three datasets: one in which the if-then rules in the use case are duplicated a single time, one in which they are duplicated 10 times, and one in which they are duplicated 20 times. As you can see in the Java code, each dataset is stored within a subfolder of "INDEXED_RULES", for each reasoner.
+"numbersOfUseCases" is used to duplicate the norms in the use case. For instance, if its value is "{1, 10, 20}", the generator creates three datasets: one in which the if-then rules in the use case are duplicated a single time, one in which they are duplicated 10 times, and one in which they are duplicated 20 times. As you can see in the Java code, each dataset is stored within a subfolder of "INDEXED_RULES", for every reasoner.
 </p>
 
 
