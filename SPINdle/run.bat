@@ -1,1 +1,0 @@
-java -cp .;./* -Dfile.encoding=utf-8 DetectViolationsOnCorpus .\CORPUS\SPINdle >> .\CORPUS\evaluationSPIndle.txt
