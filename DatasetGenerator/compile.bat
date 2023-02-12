@@ -1,1 +1,0 @@
-javac -cp .;./lib/* DatasetGenerator.java
