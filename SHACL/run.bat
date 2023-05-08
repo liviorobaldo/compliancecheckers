@@ -1,2 +1,0 @@
-del ..\DatasetCreation\CORPUS\evaluationSHACL.txt
-java -Xms30G -cp .;./build/classes;./lib/* -Dfile.encoding=utf-8 DetectViolationsOnCorpus "licenceusecaseTBox.owl" "INDEXED_RULES" "compliancerules.ttl" "../DatasetGenerator/CORPUS/SHACL" "../DatasetGenerator/CORPUS/evaluationSHACL.txt"
