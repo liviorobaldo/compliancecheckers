@@ -1,0 +1,2571 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix swa: <http://topbraid.org/swa#> .
+@prefix tosh: <http://topbraid.org/tosh#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix TBox: <http://www.licenceusecaseonto.org/> .
+@prefix ABox: <http://www.licenceusecaseonto.org/abox/> .
+@prefix : <http://www.licenceusecaseonto.org/regulativerules> .
+
+#======================================================================================================================================
+
+#-----------------------------------
+# SHACL rules
+#-----------------------------------
+
+###############################################################################################################################################
+# Prohibition Art1 with exception: Evaluating products is prohibited unless (ExceptionArt1b_0) the Licensee_0 has a Licence_0
+###############################################################################################################################################
+:evaluatingProduct_0sIsProhibitedUnlessLicence_0 rdf:type sh:NodeShape;
+
+		#High priority: if licence has been granted on the product, then it is no longer prohibited for the licensee to evaluate the Product_0.
+	sh:rule[ rdf:type sh:SPARQLRule; sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Evaluate_0 action is not Prohibited (ExceptionArt1b_0), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted .
+				$this rdf:type TBox:ExceptionArt1b_0 .
+			}
+			WHERE {
+					#... the Product_0 has a Licence_0 which is the theme of a Grant_0 action that Rexist.
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_0.
+				$this TBox:has-theme ?p.
+				?p rdf:type TBox:Product_0.
+				?l TBox:is-licence-of_0 ?p.
+				?l rdf:type TBox:Licence_0.
+				?eg TBox:has-agent ?y.
+				?y rdf:type TBox:Licensor_0.
+				?eg TBox:has-theme ?l.
+				?eg rdf:type TBox:Grant_0.
+				?eg rdf:type TBox:Rexist.
+					#... AND the receiver of this Grant_0 action is the same agent of the Evaluate_0 action.
+				?eg TBox:has-receiver_0 ?x.
+			}
+			""";
+	];
+	
+		#Lower priority: if ExceptionArt1b_0 does not hold, then evaluating products is prohibited
+	sh:rule[ rdf:type sh:SPARQLRule; sh:order 1;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Evaluate_0 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited .
+			}
+			WHERE {
+					#The exception from the previous rule (ExceptionArt1b_0) does not hold.
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_0.
+				$this TBox:has-theme ?p.
+				?p rdf:type TBox:Product_0.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt1b_0}.
+			}
+			""";
+	];
+	
+sh:targetClass TBox:Evaluate_0.
+
+
+###############################################################################################################################################
+# Prohibitions Art2a and Art3a with exceptions: Publish_0ing results (Art2a) or comments (Art3a) of evaluations is prohibited 
+# unless some exceptions hold.
+###############################################################################################################################################
+:publishingResult_0sOrComment_0sOfEvaluationsIsProhibitedUnlessSomeExceptionsHold rdf:type sh:NodeShape;
+
+		# High priority: if publishing results of evaluations has been approved by the licensor, then publishing is permitted, 
+		# i.e., no longer prohibited (ExceptionArt2b_0 holds).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_0 action is permitted, i.e., no longer Prohibited (ExceptionArt2b_0), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted.
+				$this rdf:type TBox:ExceptionArt2b_0.
+			}
+			WHERE {
+					#...the theme of this Publish_0 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_0.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_0.
+				?ev TBox:has-result_0 ?r.
+				?ev rdf:type TBox:Evaluate_0.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND this Publish_0 action is the theme of an Approve_0 action that Rexist.
+				?ea TBox:has-theme $this.
+				?ea rdf:type TBox:Approve_0.
+				?ea rdf:type TBox:Rexist.
+				?ea TBox:has-agent ?y.
+				?y rdf:type TBox:Licensor_0.
+			}
+			""";
+	];
+	
+		#High priority: if the evaluation has been commissioned, then publishing the results is obligatory, i.e., no longer prohibited (ExceptionArt4a_0)
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_0 action is Obligatory, i.e., no longer Prohibited (ExceptionArt4a_0), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Obligatory.
+				$this rdf:type TBox:ExceptionArt4a_0.
+			}
+			WHERE {
+					#...the theme of this Publish_0 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_0.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_0.
+				?ev TBox:has-result_0 ?r.
+				?ev rdf:type TBox:Evaluate_0.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND this Evaluation is the theme of a Commission_0 action that Rexist...
+				?ec TBox:has-theme ?ev.
+				?ec rdf:type TBox:Commission_0.
+				?ec rdf:type TBox:Rexist.
+			}
+			""";
+	];
+	
+		# Medium priority: if publishing results of evaluations has been permitted, then publishing comments of these evaluations 
+		# is no longer prohibited (ExceptionArt3b_0 holds).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 1;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_0 action is no longer Prohibited (ExceptionArt3b_0), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted.
+				$this rdf:type TBox:ExceptionArt3b_0.
+			}
+			WHERE {
+					#...the theme of this Publish_0 action is the comment of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_0.
+				$this TBox:has-theme ?c.
+				?c rdf:type TBox:Comment_0.
+				?c TBox:is-comment-of_0 ?ev.
+				?ev rdf:type TBox:Evaluate_0.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND the Result_0 of this Evaluation is the theme of a Publish_0ing action that is Permitted...
+				?ev TBox:has-result_0 ?r.
+				?epr TBox:has-agent ?x.
+				?epr TBox:has-theme ?r.
+				?epr rdf:type TBox:Publish_0.
+				?epr rdf:type TBox:Permitted.
+			}
+			""";
+	];
+	
+		# Lower priority: if the theme of the publish action is a result of an evaluation that really exists, then the publish action 
+		# is prohibited unless: 
+		# (1) the licensor approved the publishing (ExceptionArt2b_0), or
+		# (2) the evaluation has been commissioned (ExceptionArt4a_0), in which case the publication of the results is obligatory.
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 2;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_0 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited.
+			}
+			WHERE {
+					#...the theme of this Publish_0 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_0.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_0.
+				?ev TBox:has-result_0 ?r.
+				?ev rdf:type TBox:Evaluate_0.
+				?ev rdf:type TBox:Rexist.
+					#... AND none of the exceptions in (1)-(2)-(3) above holds.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt2b_0}.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt4a_0}.
+			}
+			""";
+	];
+	
+		#The next rule is associated with the previous one: if the publishing is prohibited by the previous rule *and* the publishing
+		#really exists, then the removal of the results is obligatory (compensatory obligation).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 3;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#It is obligatory to remove the results (and this will compensate its prohibited publishig) IF...
+			CONSTRUCT {
+				[rdf:type TBox:Obligatory;
+				 rdf:type TBox:Remove_0;
+				 TBox:has-agent ?x;
+				 TBox:has-theme ?r;
+				 TBox:compensate $this].
+			}
+			WHERE {
+					#...this Publish_0 action really exists.
+				$this rdf:type TBox:Rexist.
+					#...and all conditions of the previous rule hold (i.e., the Publish_0 action is also Prohibited).
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_0.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_0.
+				?ev TBox:has-result_0 ?r.
+				?ev rdf:type TBox:Evaluate_0.
+				?ev rdf:type TBox:Rexist.
+					#... AND none of the exceptions in (1)-(2)-(3) above holds.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt2b_0}.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt4a_0}.
+			}
+			""";
+	];
+		
+		
+	
+		# Lower priority: if the theme of the publish action is a comment about an evaluation that really exists, then the publish action is prohibited
+		# unless the licensor approved the publishing of the evaluation's results (ExceptionArt3b_0).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 2;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_0 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited.
+			}
+			WHERE {
+					#...the theme of this Publish_0 action is a comment about an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_0.
+				$this TBox:has-theme ?c.
+				?c rdf:type TBox:Comment_0.
+				?c TBox:is-comment-of_0 ?ev.
+				?ev rdf:type TBox:Evaluate_0.
+				?ev rdf:type TBox:Rexist.
+					#...AND ExceptionArt3b_0 does not hold.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt3b_0}.
+			}
+			""";
+	];
+
+sh:targetClass TBox:Publish_0.
+
+#======================================================================================================================================
+
+#-----------------------------------
+# SHACL rules
+#-----------------------------------
+
+###############################################################################################################################################
+# Prohibition Art1 with exception: Evaluating products is prohibited unless (ExceptionArt1b_1) the Licensee_1 has a Licence_1
+###############################################################################################################################################
+:evaluatingProduct_1sIsProhibitedUnlessLicence_1 rdf:type sh:NodeShape;
+
+		#High priority: if licence has been granted on the product, then it is no longer prohibited for the licensee to evaluate the Product_1.
+	sh:rule[ rdf:type sh:SPARQLRule; sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Evaluate_1 action is not Prohibited (ExceptionArt1b_1), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted .
+				$this rdf:type TBox:ExceptionArt1b_1 .
+			}
+			WHERE {
+					#... the Product_1 has a Licence_1 which is the theme of a Grant_1 action that Rexist.
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_1.
+				$this TBox:has-theme ?p.
+				?p rdf:type TBox:Product_1.
+				?l TBox:is-licence-of_1 ?p.
+				?l rdf:type TBox:Licence_1.
+				?eg TBox:has-agent ?y.
+				?y rdf:type TBox:Licensor_1.
+				?eg TBox:has-theme ?l.
+				?eg rdf:type TBox:Grant_1.
+				?eg rdf:type TBox:Rexist.
+					#... AND the receiver of this Grant_1 action is the same agent of the Evaluate_1 action.
+				?eg TBox:has-receiver_1 ?x.
+			}
+			""";
+	];
+	
+		#Lower priority: if ExceptionArt1b_1 does not hold, then evaluating products is prohibited
+	sh:rule[ rdf:type sh:SPARQLRule; sh:order 1;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Evaluate_1 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited .
+			}
+			WHERE {
+					#The exception from the previous rule (ExceptionArt1b_1) does not hold.
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_1.
+				$this TBox:has-theme ?p.
+				?p rdf:type TBox:Product_1.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt1b_1}.
+			}
+			""";
+	];
+	
+sh:targetClass TBox:Evaluate_1.
+
+
+###############################################################################################################################################
+# Prohibitions Art2a and Art3a with exceptions: Publish_1ing results (Art2a) or comments (Art3a) of evaluations is prohibited 
+# unless some exceptions hold.
+###############################################################################################################################################
+:publishingResult_1sOrComment_1sOfEvaluationsIsProhibitedUnlessSomeExceptionsHold rdf:type sh:NodeShape;
+
+		# High priority: if publishing results of evaluations has been approved by the licensor, then publishing is permitted, 
+		# i.e., no longer prohibited (ExceptionArt2b_1 holds).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_1 action is permitted, i.e., no longer Prohibited (ExceptionArt2b_1), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted.
+				$this rdf:type TBox:ExceptionArt2b_1.
+			}
+			WHERE {
+					#...the theme of this Publish_1 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_1.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_1.
+				?ev TBox:has-result_1 ?r.
+				?ev rdf:type TBox:Evaluate_1.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND this Publish_1 action is the theme of an Approve_1 action that Rexist.
+				?ea TBox:has-theme $this.
+				?ea rdf:type TBox:Approve_1.
+				?ea rdf:type TBox:Rexist.
+				?ea TBox:has-agent ?y.
+				?y rdf:type TBox:Licensor_1.
+			}
+			""";
+	];
+	
+		#High priority: if the evaluation has been commissioned, then publishing the results is obligatory, i.e., no longer prohibited (ExceptionArt4a_1)
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_1 action is Obligatory, i.e., no longer Prohibited (ExceptionArt4a_1), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Obligatory.
+				$this rdf:type TBox:ExceptionArt4a_1.
+			}
+			WHERE {
+					#...the theme of this Publish_1 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_1.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_1.
+				?ev TBox:has-result_1 ?r.
+				?ev rdf:type TBox:Evaluate_1.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND this Evaluation is the theme of a Commission_1 action that Rexist...
+				?ec TBox:has-theme ?ev.
+				?ec rdf:type TBox:Commission_1.
+				?ec rdf:type TBox:Rexist.
+			}
+			""";
+	];
+	
+		# Medium priority: if publishing results of evaluations has been permitted, then publishing comments of these evaluations 
+		# is no longer prohibited (ExceptionArt3b_1 holds).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 1;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_1 action is no longer Prohibited (ExceptionArt3b_1), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted.
+				$this rdf:type TBox:ExceptionArt3b_1.
+			}
+			WHERE {
+					#...the theme of this Publish_1 action is the comment of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_1.
+				$this TBox:has-theme ?c.
+				?c rdf:type TBox:Comment_1.
+				?c TBox:is-comment-of_1 ?ev.
+				?ev rdf:type TBox:Evaluate_1.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND the Result_1 of this Evaluation is the theme of a Publish_1ing action that is Permitted...
+				?ev TBox:has-result_1 ?r.
+				?epr TBox:has-agent ?x.
+				?epr TBox:has-theme ?r.
+				?epr rdf:type TBox:Publish_1.
+				?epr rdf:type TBox:Permitted.
+			}
+			""";
+	];
+	
+		# Lower priority: if the theme of the publish action is a result of an evaluation that really exists, then the publish action 
+		# is prohibited unless: 
+		# (1) the licensor approved the publishing (ExceptionArt2b_1), or
+		# (2) the evaluation has been commissioned (ExceptionArt4a_1), in which case the publication of the results is obligatory.
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 2;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_1 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited.
+			}
+			WHERE {
+					#...the theme of this Publish_1 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_1.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_1.
+				?ev TBox:has-result_1 ?r.
+				?ev rdf:type TBox:Evaluate_1.
+				?ev rdf:type TBox:Rexist.
+					#... AND none of the exceptions in (1)-(2)-(3) above holds.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt2b_1}.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt4a_1}.
+			}
+			""";
+	];
+	
+		#The next rule is associated with the previous one: if the publishing is prohibited by the previous rule *and* the publishing
+		#really exists, then the removal of the results is obligatory (compensatory obligation).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 3;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#It is obligatory to remove the results (and this will compensate its prohibited publishig) IF...
+			CONSTRUCT {
+				[rdf:type TBox:Obligatory;
+				 rdf:type TBox:Remove_1;
+				 TBox:has-agent ?x;
+				 TBox:has-theme ?r;
+				 TBox:compensate $this].
+			}
+			WHERE {
+					#...this Publish_1 action really exists.
+				$this rdf:type TBox:Rexist.
+					#...and all conditions of the previous rule hold (i.e., the Publish_1 action is also Prohibited).
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_1.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_1.
+				?ev TBox:has-result_1 ?r.
+				?ev rdf:type TBox:Evaluate_1.
+				?ev rdf:type TBox:Rexist.
+					#... AND none of the exceptions in (1)-(2)-(3) above holds.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt2b_1}.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt4a_1}.
+			}
+			""";
+	];
+		
+		
+	
+		# Lower priority: if the theme of the publish action is a comment about an evaluation that really exists, then the publish action is prohibited
+		# unless the licensor approved the publishing of the evaluation's results (ExceptionArt3b_1).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 2;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_1 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited.
+			}
+			WHERE {
+					#...the theme of this Publish_1 action is a comment about an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_1.
+				$this TBox:has-theme ?c.
+				?c rdf:type TBox:Comment_1.
+				?c TBox:is-comment-of_1 ?ev.
+				?ev rdf:type TBox:Evaluate_1.
+				?ev rdf:type TBox:Rexist.
+					#...AND ExceptionArt3b_1 does not hold.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt3b_1}.
+			}
+			""";
+	];
+
+sh:targetClass TBox:Publish_1.
+
+#======================================================================================================================================
+
+#-----------------------------------
+# SHACL rules
+#-----------------------------------
+
+###############################################################################################################################################
+# Prohibition Art1 with exception: Evaluating products is prohibited unless (ExceptionArt1b_2) the Licensee_2 has a Licence_2
+###############################################################################################################################################
+:evaluatingProduct_2sIsProhibitedUnlessLicence_2 rdf:type sh:NodeShape;
+
+		#High priority: if licence has been granted on the product, then it is no longer prohibited for the licensee to evaluate the Product_2.
+	sh:rule[ rdf:type sh:SPARQLRule; sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Evaluate_2 action is not Prohibited (ExceptionArt1b_2), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted .
+				$this rdf:type TBox:ExceptionArt1b_2 .
+			}
+			WHERE {
+					#... the Product_2 has a Licence_2 which is the theme of a Grant_2 action that Rexist.
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_2.
+				$this TBox:has-theme ?p.
+				?p rdf:type TBox:Product_2.
+				?l TBox:is-licence-of_2 ?p.
+				?l rdf:type TBox:Licence_2.
+				?eg TBox:has-agent ?y.
+				?y rdf:type TBox:Licensor_2.
+				?eg TBox:has-theme ?l.
+				?eg rdf:type TBox:Grant_2.
+				?eg rdf:type TBox:Rexist.
+					#... AND the receiver of this Grant_2 action is the same agent of the Evaluate_2 action.
+				?eg TBox:has-receiver_2 ?x.
+			}
+			""";
+	];
+	
+		#Lower priority: if ExceptionArt1b_2 does not hold, then evaluating products is prohibited
+	sh:rule[ rdf:type sh:SPARQLRule; sh:order 1;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Evaluate_2 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited .
+			}
+			WHERE {
+					#The exception from the previous rule (ExceptionArt1b_2) does not hold.
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_2.
+				$this TBox:has-theme ?p.
+				?p rdf:type TBox:Product_2.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt1b_2}.
+			}
+			""";
+	];
+	
+sh:targetClass TBox:Evaluate_2.
+
+
+###############################################################################################################################################
+# Prohibitions Art2a and Art3a with exceptions: Publish_2ing results (Art2a) or comments (Art3a) of evaluations is prohibited 
+# unless some exceptions hold.
+###############################################################################################################################################
+:publishingResult_2sOrComment_2sOfEvaluationsIsProhibitedUnlessSomeExceptionsHold rdf:type sh:NodeShape;
+
+		# High priority: if publishing results of evaluations has been approved by the licensor, then publishing is permitted, 
+		# i.e., no longer prohibited (ExceptionArt2b_2 holds).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_2 action is permitted, i.e., no longer Prohibited (ExceptionArt2b_2), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted.
+				$this rdf:type TBox:ExceptionArt2b_2.
+			}
+			WHERE {
+					#...the theme of this Publish_2 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_2.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_2.
+				?ev TBox:has-result_2 ?r.
+				?ev rdf:type TBox:Evaluate_2.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND this Publish_2 action is the theme of an Approve_2 action that Rexist.
+				?ea TBox:has-theme $this.
+				?ea rdf:type TBox:Approve_2.
+				?ea rdf:type TBox:Rexist.
+				?ea TBox:has-agent ?y.
+				?y rdf:type TBox:Licensor_2.
+			}
+			""";
+	];
+	
+		#High priority: if the evaluation has been commissioned, then publishing the results is obligatory, i.e., no longer prohibited (ExceptionArt4a_2)
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_2 action is Obligatory, i.e., no longer Prohibited (ExceptionArt4a_2), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Obligatory.
+				$this rdf:type TBox:ExceptionArt4a_2.
+			}
+			WHERE {
+					#...the theme of this Publish_2 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_2.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_2.
+				?ev TBox:has-result_2 ?r.
+				?ev rdf:type TBox:Evaluate_2.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND this Evaluation is the theme of a Commission_2 action that Rexist...
+				?ec TBox:has-theme ?ev.
+				?ec rdf:type TBox:Commission_2.
+				?ec rdf:type TBox:Rexist.
+			}
+			""";
+	];
+	
+		# Medium priority: if publishing results of evaluations has been permitted, then publishing comments of these evaluations 
+		# is no longer prohibited (ExceptionArt3b_2 holds).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 1;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_2 action is no longer Prohibited (ExceptionArt3b_2), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted.
+				$this rdf:type TBox:ExceptionArt3b_2.
+			}
+			WHERE {
+					#...the theme of this Publish_2 action is the comment of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_2.
+				$this TBox:has-theme ?c.
+				?c rdf:type TBox:Comment_2.
+				?c TBox:is-comment-of_2 ?ev.
+				?ev rdf:type TBox:Evaluate_2.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND the Result_2 of this Evaluation is the theme of a Publish_2ing action that is Permitted...
+				?ev TBox:has-result_2 ?r.
+				?epr TBox:has-agent ?x.
+				?epr TBox:has-theme ?r.
+				?epr rdf:type TBox:Publish_2.
+				?epr rdf:type TBox:Permitted.
+			}
+			""";
+	];
+	
+		# Lower priority: if the theme of the publish action is a result of an evaluation that really exists, then the publish action 
+		# is prohibited unless: 
+		# (1) the licensor approved the publishing (ExceptionArt2b_2), or
+		# (2) the evaluation has been commissioned (ExceptionArt4a_2), in which case the publication of the results is obligatory.
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 2;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_2 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited.
+			}
+			WHERE {
+					#...the theme of this Publish_2 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_2.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_2.
+				?ev TBox:has-result_2 ?r.
+				?ev rdf:type TBox:Evaluate_2.
+				?ev rdf:type TBox:Rexist.
+					#... AND none of the exceptions in (1)-(2)-(3) above holds.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt2b_2}.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt4a_2}.
+			}
+			""";
+	];
+	
+		#The next rule is associated with the previous one: if the publishing is prohibited by the previous rule *and* the publishing
+		#really exists, then the removal of the results is obligatory (compensatory obligation).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 3;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#It is obligatory to remove the results (and this will compensate its prohibited publishig) IF...
+			CONSTRUCT {
+				[rdf:type TBox:Obligatory;
+				 rdf:type TBox:Remove_2;
+				 TBox:has-agent ?x;
+				 TBox:has-theme ?r;
+				 TBox:compensate $this].
+			}
+			WHERE {
+					#...this Publish_2 action really exists.
+				$this rdf:type TBox:Rexist.
+					#...and all conditions of the previous rule hold (i.e., the Publish_2 action is also Prohibited).
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_2.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_2.
+				?ev TBox:has-result_2 ?r.
+				?ev rdf:type TBox:Evaluate_2.
+				?ev rdf:type TBox:Rexist.
+					#... AND none of the exceptions in (1)-(2)-(3) above holds.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt2b_2}.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt4a_2}.
+			}
+			""";
+	];
+		
+		
+	
+		# Lower priority: if the theme of the publish action is a comment about an evaluation that really exists, then the publish action is prohibited
+		# unless the licensor approved the publishing of the evaluation's results (ExceptionArt3b_2).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 2;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_2 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited.
+			}
+			WHERE {
+					#...the theme of this Publish_2 action is a comment about an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_2.
+				$this TBox:has-theme ?c.
+				?c rdf:type TBox:Comment_2.
+				?c TBox:is-comment-of_2 ?ev.
+				?ev rdf:type TBox:Evaluate_2.
+				?ev rdf:type TBox:Rexist.
+					#...AND ExceptionArt3b_2 does not hold.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt3b_2}.
+			}
+			""";
+	];
+
+sh:targetClass TBox:Publish_2.
+
+#======================================================================================================================================
+
+#-----------------------------------
+# SHACL rules
+#-----------------------------------
+
+###############################################################################################################################################
+# Prohibition Art1 with exception: Evaluating products is prohibited unless (ExceptionArt1b_3) the Licensee_3 has a Licence_3
+###############################################################################################################################################
+:evaluatingProduct_3sIsProhibitedUnlessLicence_3 rdf:type sh:NodeShape;
+
+		#High priority: if licence has been granted on the product, then it is no longer prohibited for the licensee to evaluate the Product_3.
+	sh:rule[ rdf:type sh:SPARQLRule; sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Evaluate_3 action is not Prohibited (ExceptionArt1b_3), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted .
+				$this rdf:type TBox:ExceptionArt1b_3 .
+			}
+			WHERE {
+					#... the Product_3 has a Licence_3 which is the theme of a Grant_3 action that Rexist.
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_3.
+				$this TBox:has-theme ?p.
+				?p rdf:type TBox:Product_3.
+				?l TBox:is-licence-of_3 ?p.
+				?l rdf:type TBox:Licence_3.
+				?eg TBox:has-agent ?y.
+				?y rdf:type TBox:Licensor_3.
+				?eg TBox:has-theme ?l.
+				?eg rdf:type TBox:Grant_3.
+				?eg rdf:type TBox:Rexist.
+					#... AND the receiver of this Grant_3 action is the same agent of the Evaluate_3 action.
+				?eg TBox:has-receiver_3 ?x.
+			}
+			""";
+	];
+	
+		#Lower priority: if ExceptionArt1b_3 does not hold, then evaluating products is prohibited
+	sh:rule[ rdf:type sh:SPARQLRule; sh:order 1;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Evaluate_3 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited .
+			}
+			WHERE {
+					#The exception from the previous rule (ExceptionArt1b_3) does not hold.
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_3.
+				$this TBox:has-theme ?p.
+				?p rdf:type TBox:Product_3.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt1b_3}.
+			}
+			""";
+	];
+	
+sh:targetClass TBox:Evaluate_3.
+
+
+###############################################################################################################################################
+# Prohibitions Art2a and Art3a with exceptions: Publish_3ing results (Art2a) or comments (Art3a) of evaluations is prohibited 
+# unless some exceptions hold.
+###############################################################################################################################################
+:publishingResult_3sOrComment_3sOfEvaluationsIsProhibitedUnlessSomeExceptionsHold rdf:type sh:NodeShape;
+
+		# High priority: if publishing results of evaluations has been approved by the licensor, then publishing is permitted, 
+		# i.e., no longer prohibited (ExceptionArt2b_3 holds).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_3 action is permitted, i.e., no longer Prohibited (ExceptionArt2b_3), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted.
+				$this rdf:type TBox:ExceptionArt2b_3.
+			}
+			WHERE {
+					#...the theme of this Publish_3 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_3.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_3.
+				?ev TBox:has-result_3 ?r.
+				?ev rdf:type TBox:Evaluate_3.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND this Publish_3 action is the theme of an Approve_3 action that Rexist.
+				?ea TBox:has-theme $this.
+				?ea rdf:type TBox:Approve_3.
+				?ea rdf:type TBox:Rexist.
+				?ea TBox:has-agent ?y.
+				?y rdf:type TBox:Licensor_3.
+			}
+			""";
+	];
+	
+		#High priority: if the evaluation has been commissioned, then publishing the results is obligatory, i.e., no longer prohibited (ExceptionArt4a_3)
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_3 action is Obligatory, i.e., no longer Prohibited (ExceptionArt4a_3), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Obligatory.
+				$this rdf:type TBox:ExceptionArt4a_3.
+			}
+			WHERE {
+					#...the theme of this Publish_3 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_3.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_3.
+				?ev TBox:has-result_3 ?r.
+				?ev rdf:type TBox:Evaluate_3.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND this Evaluation is the theme of a Commission_3 action that Rexist...
+				?ec TBox:has-theme ?ev.
+				?ec rdf:type TBox:Commission_3.
+				?ec rdf:type TBox:Rexist.
+			}
+			""";
+	];
+	
+		# Medium priority: if publishing results of evaluations has been permitted, then publishing comments of these evaluations 
+		# is no longer prohibited (ExceptionArt3b_3 holds).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 1;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_3 action is no longer Prohibited (ExceptionArt3b_3), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted.
+				$this rdf:type TBox:ExceptionArt3b_3.
+			}
+			WHERE {
+					#...the theme of this Publish_3 action is the comment of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_3.
+				$this TBox:has-theme ?c.
+				?c rdf:type TBox:Comment_3.
+				?c TBox:is-comment-of_3 ?ev.
+				?ev rdf:type TBox:Evaluate_3.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND the Result_3 of this Evaluation is the theme of a Publish_3ing action that is Permitted...
+				?ev TBox:has-result_3 ?r.
+				?epr TBox:has-agent ?x.
+				?epr TBox:has-theme ?r.
+				?epr rdf:type TBox:Publish_3.
+				?epr rdf:type TBox:Permitted.
+			}
+			""";
+	];
+	
+		# Lower priority: if the theme of the publish action is a result of an evaluation that really exists, then the publish action 
+		# is prohibited unless: 
+		# (1) the licensor approved the publishing (ExceptionArt2b_3), or
+		# (2) the evaluation has been commissioned (ExceptionArt4a_3), in which case the publication of the results is obligatory.
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 2;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_3 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited.
+			}
+			WHERE {
+					#...the theme of this Publish_3 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_3.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_3.
+				?ev TBox:has-result_3 ?r.
+				?ev rdf:type TBox:Evaluate_3.
+				?ev rdf:type TBox:Rexist.
+					#... AND none of the exceptions in (1)-(2)-(3) above holds.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt2b_3}.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt4a_3}.
+			}
+			""";
+	];
+	
+		#The next rule is associated with the previous one: if the publishing is prohibited by the previous rule *and* the publishing
+		#really exists, then the removal of the results is obligatory (compensatory obligation).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 3;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#It is obligatory to remove the results (and this will compensate its prohibited publishig) IF...
+			CONSTRUCT {
+				[rdf:type TBox:Obligatory;
+				 rdf:type TBox:Remove_3;
+				 TBox:has-agent ?x;
+				 TBox:has-theme ?r;
+				 TBox:compensate $this].
+			}
+			WHERE {
+					#...this Publish_3 action really exists.
+				$this rdf:type TBox:Rexist.
+					#...and all conditions of the previous rule hold (i.e., the Publish_3 action is also Prohibited).
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_3.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_3.
+				?ev TBox:has-result_3 ?r.
+				?ev rdf:type TBox:Evaluate_3.
+				?ev rdf:type TBox:Rexist.
+					#... AND none of the exceptions in (1)-(2)-(3) above holds.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt2b_3}.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt4a_3}.
+			}
+			""";
+	];
+		
+		
+	
+		# Lower priority: if the theme of the publish action is a comment about an evaluation that really exists, then the publish action is prohibited
+		# unless the licensor approved the publishing of the evaluation's results (ExceptionArt3b_3).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 2;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_3 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited.
+			}
+			WHERE {
+					#...the theme of this Publish_3 action is a comment about an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_3.
+				$this TBox:has-theme ?c.
+				?c rdf:type TBox:Comment_3.
+				?c TBox:is-comment-of_3 ?ev.
+				?ev rdf:type TBox:Evaluate_3.
+				?ev rdf:type TBox:Rexist.
+					#...AND ExceptionArt3b_3 does not hold.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt3b_3}.
+			}
+			""";
+	];
+
+sh:targetClass TBox:Publish_3.
+
+#======================================================================================================================================
+
+#-----------------------------------
+# SHACL rules
+#-----------------------------------
+
+###############################################################################################################################################
+# Prohibition Art1 with exception: Evaluating products is prohibited unless (ExceptionArt1b_4) the Licensee_4 has a Licence_4
+###############################################################################################################################################
+:evaluatingProduct_4sIsProhibitedUnlessLicence_4 rdf:type sh:NodeShape;
+
+		#High priority: if licence has been granted on the product, then it is no longer prohibited for the licensee to evaluate the Product_4.
+	sh:rule[ rdf:type sh:SPARQLRule; sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Evaluate_4 action is not Prohibited (ExceptionArt1b_4), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted .
+				$this rdf:type TBox:ExceptionArt1b_4 .
+			}
+			WHERE {
+					#... the Product_4 has a Licence_4 which is the theme of a Grant_4 action that Rexist.
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_4.
+				$this TBox:has-theme ?p.
+				?p rdf:type TBox:Product_4.
+				?l TBox:is-licence-of_4 ?p.
+				?l rdf:type TBox:Licence_4.
+				?eg TBox:has-agent ?y.
+				?y rdf:type TBox:Licensor_4.
+				?eg TBox:has-theme ?l.
+				?eg rdf:type TBox:Grant_4.
+				?eg rdf:type TBox:Rexist.
+					#... AND the receiver of this Grant_4 action is the same agent of the Evaluate_4 action.
+				?eg TBox:has-receiver_4 ?x.
+			}
+			""";
+	];
+	
+		#Lower priority: if ExceptionArt1b_4 does not hold, then evaluating products is prohibited
+	sh:rule[ rdf:type sh:SPARQLRule; sh:order 1;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Evaluate_4 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited .
+			}
+			WHERE {
+					#The exception from the previous rule (ExceptionArt1b_4) does not hold.
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_4.
+				$this TBox:has-theme ?p.
+				?p rdf:type TBox:Product_4.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt1b_4}.
+			}
+			""";
+	];
+	
+sh:targetClass TBox:Evaluate_4.
+
+
+###############################################################################################################################################
+# Prohibitions Art2a and Art3a with exceptions: Publish_4ing results (Art2a) or comments (Art3a) of evaluations is prohibited 
+# unless some exceptions hold.
+###############################################################################################################################################
+:publishingResult_4sOrComment_4sOfEvaluationsIsProhibitedUnlessSomeExceptionsHold rdf:type sh:NodeShape;
+
+		# High priority: if publishing results of evaluations has been approved by the licensor, then publishing is permitted, 
+		# i.e., no longer prohibited (ExceptionArt2b_4 holds).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_4 action is permitted, i.e., no longer Prohibited (ExceptionArt2b_4), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted.
+				$this rdf:type TBox:ExceptionArt2b_4.
+			}
+			WHERE {
+					#...the theme of this Publish_4 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_4.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_4.
+				?ev TBox:has-result_4 ?r.
+				?ev rdf:type TBox:Evaluate_4.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND this Publish_4 action is the theme of an Approve_4 action that Rexist.
+				?ea TBox:has-theme $this.
+				?ea rdf:type TBox:Approve_4.
+				?ea rdf:type TBox:Rexist.
+				?ea TBox:has-agent ?y.
+				?y rdf:type TBox:Licensor_4.
+			}
+			""";
+	];
+	
+		#High priority: if the evaluation has been commissioned, then publishing the results is obligatory, i.e., no longer prohibited (ExceptionArt4a_4)
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_4 action is Obligatory, i.e., no longer Prohibited (ExceptionArt4a_4), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Obligatory.
+				$this rdf:type TBox:ExceptionArt4a_4.
+			}
+			WHERE {
+					#...the theme of this Publish_4 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_4.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_4.
+				?ev TBox:has-result_4 ?r.
+				?ev rdf:type TBox:Evaluate_4.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND this Evaluation is the theme of a Commission_4 action that Rexist...
+				?ec TBox:has-theme ?ev.
+				?ec rdf:type TBox:Commission_4.
+				?ec rdf:type TBox:Rexist.
+			}
+			""";
+	];
+	
+		# Medium priority: if publishing results of evaluations has been permitted, then publishing comments of these evaluations 
+		# is no longer prohibited (ExceptionArt3b_4 holds).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 1;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_4 action is no longer Prohibited (ExceptionArt3b_4), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted.
+				$this rdf:type TBox:ExceptionArt3b_4.
+			}
+			WHERE {
+					#...the theme of this Publish_4 action is the comment of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_4.
+				$this TBox:has-theme ?c.
+				?c rdf:type TBox:Comment_4.
+				?c TBox:is-comment-of_4 ?ev.
+				?ev rdf:type TBox:Evaluate_4.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND the Result_4 of this Evaluation is the theme of a Publish_4ing action that is Permitted...
+				?ev TBox:has-result_4 ?r.
+				?epr TBox:has-agent ?x.
+				?epr TBox:has-theme ?r.
+				?epr rdf:type TBox:Publish_4.
+				?epr rdf:type TBox:Permitted.
+			}
+			""";
+	];
+	
+		# Lower priority: if the theme of the publish action is a result of an evaluation that really exists, then the publish action 
+		# is prohibited unless: 
+		# (1) the licensor approved the publishing (ExceptionArt2b_4), or
+		# (2) the evaluation has been commissioned (ExceptionArt4a_4), in which case the publication of the results is obligatory.
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 2;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_4 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited.
+			}
+			WHERE {
+					#...the theme of this Publish_4 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_4.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_4.
+				?ev TBox:has-result_4 ?r.
+				?ev rdf:type TBox:Evaluate_4.
+				?ev rdf:type TBox:Rexist.
+					#... AND none of the exceptions in (1)-(2)-(3) above holds.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt2b_4}.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt4a_4}.
+			}
+			""";
+	];
+	
+		#The next rule is associated with the previous one: if the publishing is prohibited by the previous rule *and* the publishing
+		#really exists, then the removal of the results is obligatory (compensatory obligation).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 3;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#It is obligatory to remove the results (and this will compensate its prohibited publishig) IF...
+			CONSTRUCT {
+				[rdf:type TBox:Obligatory;
+				 rdf:type TBox:Remove_4;
+				 TBox:has-agent ?x;
+				 TBox:has-theme ?r;
+				 TBox:compensate $this].
+			}
+			WHERE {
+					#...this Publish_4 action really exists.
+				$this rdf:type TBox:Rexist.
+					#...and all conditions of the previous rule hold (i.e., the Publish_4 action is also Prohibited).
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_4.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_4.
+				?ev TBox:has-result_4 ?r.
+				?ev rdf:type TBox:Evaluate_4.
+				?ev rdf:type TBox:Rexist.
+					#... AND none of the exceptions in (1)-(2)-(3) above holds.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt2b_4}.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt4a_4}.
+			}
+			""";
+	];
+		
+		
+	
+		# Lower priority: if the theme of the publish action is a comment about an evaluation that really exists, then the publish action is prohibited
+		# unless the licensor approved the publishing of the evaluation's results (ExceptionArt3b_4).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 2;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_4 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited.
+			}
+			WHERE {
+					#...the theme of this Publish_4 action is a comment about an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_4.
+				$this TBox:has-theme ?c.
+				?c rdf:type TBox:Comment_4.
+				?c TBox:is-comment-of_4 ?ev.
+				?ev rdf:type TBox:Evaluate_4.
+				?ev rdf:type TBox:Rexist.
+					#...AND ExceptionArt3b_4 does not hold.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt3b_4}.
+			}
+			""";
+	];
+
+sh:targetClass TBox:Publish_4.
+
+#======================================================================================================================================
+
+#-----------------------------------
+# SHACL rules
+#-----------------------------------
+
+###############################################################################################################################################
+# Prohibition Art1 with exception: Evaluating products is prohibited unless (ExceptionArt1b_5) the Licensee_5 has a Licence_5
+###############################################################################################################################################
+:evaluatingProduct_5sIsProhibitedUnlessLicence_5 rdf:type sh:NodeShape;
+
+		#High priority: if licence has been granted on the product, then it is no longer prohibited for the licensee to evaluate the Product_5.
+	sh:rule[ rdf:type sh:SPARQLRule; sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Evaluate_5 action is not Prohibited (ExceptionArt1b_5), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted .
+				$this rdf:type TBox:ExceptionArt1b_5 .
+			}
+			WHERE {
+					#... the Product_5 has a Licence_5 which is the theme of a Grant_5 action that Rexist.
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_5.
+				$this TBox:has-theme ?p.
+				?p rdf:type TBox:Product_5.
+				?l TBox:is-licence-of_5 ?p.
+				?l rdf:type TBox:Licence_5.
+				?eg TBox:has-agent ?y.
+				?y rdf:type TBox:Licensor_5.
+				?eg TBox:has-theme ?l.
+				?eg rdf:type TBox:Grant_5.
+				?eg rdf:type TBox:Rexist.
+					#... AND the receiver of this Grant_5 action is the same agent of the Evaluate_5 action.
+				?eg TBox:has-receiver_5 ?x.
+			}
+			""";
+	];
+	
+		#Lower priority: if ExceptionArt1b_5 does not hold, then evaluating products is prohibited
+	sh:rule[ rdf:type sh:SPARQLRule; sh:order 1;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Evaluate_5 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited .
+			}
+			WHERE {
+					#The exception from the previous rule (ExceptionArt1b_5) does not hold.
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_5.
+				$this TBox:has-theme ?p.
+				?p rdf:type TBox:Product_5.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt1b_5}.
+			}
+			""";
+	];
+	
+sh:targetClass TBox:Evaluate_5.
+
+
+###############################################################################################################################################
+# Prohibitions Art2a and Art3a with exceptions: Publish_5ing results (Art2a) or comments (Art3a) of evaluations is prohibited 
+# unless some exceptions hold.
+###############################################################################################################################################
+:publishingResult_5sOrComment_5sOfEvaluationsIsProhibitedUnlessSomeExceptionsHold rdf:type sh:NodeShape;
+
+		# High priority: if publishing results of evaluations has been approved by the licensor, then publishing is permitted, 
+		# i.e., no longer prohibited (ExceptionArt2b_5 holds).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_5 action is permitted, i.e., no longer Prohibited (ExceptionArt2b_5), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted.
+				$this rdf:type TBox:ExceptionArt2b_5.
+			}
+			WHERE {
+					#...the theme of this Publish_5 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_5.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_5.
+				?ev TBox:has-result_5 ?r.
+				?ev rdf:type TBox:Evaluate_5.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND this Publish_5 action is the theme of an Approve_5 action that Rexist.
+				?ea TBox:has-theme $this.
+				?ea rdf:type TBox:Approve_5.
+				?ea rdf:type TBox:Rexist.
+				?ea TBox:has-agent ?y.
+				?y rdf:type TBox:Licensor_5.
+			}
+			""";
+	];
+	
+		#High priority: if the evaluation has been commissioned, then publishing the results is obligatory, i.e., no longer prohibited (ExceptionArt4a_5)
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_5 action is Obligatory, i.e., no longer Prohibited (ExceptionArt4a_5), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Obligatory.
+				$this rdf:type TBox:ExceptionArt4a_5.
+			}
+			WHERE {
+					#...the theme of this Publish_5 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_5.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_5.
+				?ev TBox:has-result_5 ?r.
+				?ev rdf:type TBox:Evaluate_5.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND this Evaluation is the theme of a Commission_5 action that Rexist...
+				?ec TBox:has-theme ?ev.
+				?ec rdf:type TBox:Commission_5.
+				?ec rdf:type TBox:Rexist.
+			}
+			""";
+	];
+	
+		# Medium priority: if publishing results of evaluations has been permitted, then publishing comments of these evaluations 
+		# is no longer prohibited (ExceptionArt3b_5 holds).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 1;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_5 action is no longer Prohibited (ExceptionArt3b_5), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted.
+				$this rdf:type TBox:ExceptionArt3b_5.
+			}
+			WHERE {
+					#...the theme of this Publish_5 action is the comment of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_5.
+				$this TBox:has-theme ?c.
+				?c rdf:type TBox:Comment_5.
+				?c TBox:is-comment-of_5 ?ev.
+				?ev rdf:type TBox:Evaluate_5.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND the Result_5 of this Evaluation is the theme of a Publish_5ing action that is Permitted...
+				?ev TBox:has-result_5 ?r.
+				?epr TBox:has-agent ?x.
+				?epr TBox:has-theme ?r.
+				?epr rdf:type TBox:Publish_5.
+				?epr rdf:type TBox:Permitted.
+			}
+			""";
+	];
+	
+		# Lower priority: if the theme of the publish action is a result of an evaluation that really exists, then the publish action 
+		# is prohibited unless: 
+		# (1) the licensor approved the publishing (ExceptionArt2b_5), or
+		# (2) the evaluation has been commissioned (ExceptionArt4a_5), in which case the publication of the results is obligatory.
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 2;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_5 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited.
+			}
+			WHERE {
+					#...the theme of this Publish_5 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_5.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_5.
+				?ev TBox:has-result_5 ?r.
+				?ev rdf:type TBox:Evaluate_5.
+				?ev rdf:type TBox:Rexist.
+					#... AND none of the exceptions in (1)-(2)-(3) above holds.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt2b_5}.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt4a_5}.
+			}
+			""";
+	];
+	
+		#The next rule is associated with the previous one: if the publishing is prohibited by the previous rule *and* the publishing
+		#really exists, then the removal of the results is obligatory (compensatory obligation).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 3;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#It is obligatory to remove the results (and this will compensate its prohibited publishig) IF...
+			CONSTRUCT {
+				[rdf:type TBox:Obligatory;
+				 rdf:type TBox:Remove_5;
+				 TBox:has-agent ?x;
+				 TBox:has-theme ?r;
+				 TBox:compensate $this].
+			}
+			WHERE {
+					#...this Publish_5 action really exists.
+				$this rdf:type TBox:Rexist.
+					#...and all conditions of the previous rule hold (i.e., the Publish_5 action is also Prohibited).
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_5.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_5.
+				?ev TBox:has-result_5 ?r.
+				?ev rdf:type TBox:Evaluate_5.
+				?ev rdf:type TBox:Rexist.
+					#... AND none of the exceptions in (1)-(2)-(3) above holds.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt2b_5}.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt4a_5}.
+			}
+			""";
+	];
+		
+		
+	
+		# Lower priority: if the theme of the publish action is a comment about an evaluation that really exists, then the publish action is prohibited
+		# unless the licensor approved the publishing of the evaluation's results (ExceptionArt3b_5).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 2;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_5 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited.
+			}
+			WHERE {
+					#...the theme of this Publish_5 action is a comment about an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_5.
+				$this TBox:has-theme ?c.
+				?c rdf:type TBox:Comment_5.
+				?c TBox:is-comment-of_5 ?ev.
+				?ev rdf:type TBox:Evaluate_5.
+				?ev rdf:type TBox:Rexist.
+					#...AND ExceptionArt3b_5 does not hold.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt3b_5}.
+			}
+			""";
+	];
+
+sh:targetClass TBox:Publish_5.
+
+#======================================================================================================================================
+
+#-----------------------------------
+# SHACL rules
+#-----------------------------------
+
+###############################################################################################################################################
+# Prohibition Art1 with exception: Evaluating products is prohibited unless (ExceptionArt1b_6) the Licensee_6 has a Licence_6
+###############################################################################################################################################
+:evaluatingProduct_6sIsProhibitedUnlessLicence_6 rdf:type sh:NodeShape;
+
+		#High priority: if licence has been granted on the product, then it is no longer prohibited for the licensee to evaluate the Product_6.
+	sh:rule[ rdf:type sh:SPARQLRule; sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Evaluate_6 action is not Prohibited (ExceptionArt1b_6), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted .
+				$this rdf:type TBox:ExceptionArt1b_6 .
+			}
+			WHERE {
+					#... the Product_6 has a Licence_6 which is the theme of a Grant_6 action that Rexist.
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_6.
+				$this TBox:has-theme ?p.
+				?p rdf:type TBox:Product_6.
+				?l TBox:is-licence-of_6 ?p.
+				?l rdf:type TBox:Licence_6.
+				?eg TBox:has-agent ?y.
+				?y rdf:type TBox:Licensor_6.
+				?eg TBox:has-theme ?l.
+				?eg rdf:type TBox:Grant_6.
+				?eg rdf:type TBox:Rexist.
+					#... AND the receiver of this Grant_6 action is the same agent of the Evaluate_6 action.
+				?eg TBox:has-receiver_6 ?x.
+			}
+			""";
+	];
+	
+		#Lower priority: if ExceptionArt1b_6 does not hold, then evaluating products is prohibited
+	sh:rule[ rdf:type sh:SPARQLRule; sh:order 1;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Evaluate_6 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited .
+			}
+			WHERE {
+					#The exception from the previous rule (ExceptionArt1b_6) does not hold.
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_6.
+				$this TBox:has-theme ?p.
+				?p rdf:type TBox:Product_6.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt1b_6}.
+			}
+			""";
+	];
+	
+sh:targetClass TBox:Evaluate_6.
+
+
+###############################################################################################################################################
+# Prohibitions Art2a and Art3a with exceptions: Publish_6ing results (Art2a) or comments (Art3a) of evaluations is prohibited 
+# unless some exceptions hold.
+###############################################################################################################################################
+:publishingResult_6sOrComment_6sOfEvaluationsIsProhibitedUnlessSomeExceptionsHold rdf:type sh:NodeShape;
+
+		# High priority: if publishing results of evaluations has been approved by the licensor, then publishing is permitted, 
+		# i.e., no longer prohibited (ExceptionArt2b_6 holds).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_6 action is permitted, i.e., no longer Prohibited (ExceptionArt2b_6), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted.
+				$this rdf:type TBox:ExceptionArt2b_6.
+			}
+			WHERE {
+					#...the theme of this Publish_6 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_6.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_6.
+				?ev TBox:has-result_6 ?r.
+				?ev rdf:type TBox:Evaluate_6.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND this Publish_6 action is the theme of an Approve_6 action that Rexist.
+				?ea TBox:has-theme $this.
+				?ea rdf:type TBox:Approve_6.
+				?ea rdf:type TBox:Rexist.
+				?ea TBox:has-agent ?y.
+				?y rdf:type TBox:Licensor_6.
+			}
+			""";
+	];
+	
+		#High priority: if the evaluation has been commissioned, then publishing the results is obligatory, i.e., no longer prohibited (ExceptionArt4a_6)
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_6 action is Obligatory, i.e., no longer Prohibited (ExceptionArt4a_6), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Obligatory.
+				$this rdf:type TBox:ExceptionArt4a_6.
+			}
+			WHERE {
+					#...the theme of this Publish_6 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_6.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_6.
+				?ev TBox:has-result_6 ?r.
+				?ev rdf:type TBox:Evaluate_6.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND this Evaluation is the theme of a Commission_6 action that Rexist...
+				?ec TBox:has-theme ?ev.
+				?ec rdf:type TBox:Commission_6.
+				?ec rdf:type TBox:Rexist.
+			}
+			""";
+	];
+	
+		# Medium priority: if publishing results of evaluations has been permitted, then publishing comments of these evaluations 
+		# is no longer prohibited (ExceptionArt3b_6 holds).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 1;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_6 action is no longer Prohibited (ExceptionArt3b_6), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted.
+				$this rdf:type TBox:ExceptionArt3b_6.
+			}
+			WHERE {
+					#...the theme of this Publish_6 action is the comment of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_6.
+				$this TBox:has-theme ?c.
+				?c rdf:type TBox:Comment_6.
+				?c TBox:is-comment-of_6 ?ev.
+				?ev rdf:type TBox:Evaluate_6.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND the Result_6 of this Evaluation is the theme of a Publish_6ing action that is Permitted...
+				?ev TBox:has-result_6 ?r.
+				?epr TBox:has-agent ?x.
+				?epr TBox:has-theme ?r.
+				?epr rdf:type TBox:Publish_6.
+				?epr rdf:type TBox:Permitted.
+			}
+			""";
+	];
+	
+		# Lower priority: if the theme of the publish action is a result of an evaluation that really exists, then the publish action 
+		# is prohibited unless: 
+		# (1) the licensor approved the publishing (ExceptionArt2b_6), or
+		# (2) the evaluation has been commissioned (ExceptionArt4a_6), in which case the publication of the results is obligatory.
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 2;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_6 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited.
+			}
+			WHERE {
+					#...the theme of this Publish_6 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_6.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_6.
+				?ev TBox:has-result_6 ?r.
+				?ev rdf:type TBox:Evaluate_6.
+				?ev rdf:type TBox:Rexist.
+					#... AND none of the exceptions in (1)-(2)-(3) above holds.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt2b_6}.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt4a_6}.
+			}
+			""";
+	];
+	
+		#The next rule is associated with the previous one: if the publishing is prohibited by the previous rule *and* the publishing
+		#really exists, then the removal of the results is obligatory (compensatory obligation).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 3;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#It is obligatory to remove the results (and this will compensate its prohibited publishig) IF...
+			CONSTRUCT {
+				[rdf:type TBox:Obligatory;
+				 rdf:type TBox:Remove_6;
+				 TBox:has-agent ?x;
+				 TBox:has-theme ?r;
+				 TBox:compensate $this].
+			}
+			WHERE {
+					#...this Publish_6 action really exists.
+				$this rdf:type TBox:Rexist.
+					#...and all conditions of the previous rule hold (i.e., the Publish_6 action is also Prohibited).
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_6.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_6.
+				?ev TBox:has-result_6 ?r.
+				?ev rdf:type TBox:Evaluate_6.
+				?ev rdf:type TBox:Rexist.
+					#... AND none of the exceptions in (1)-(2)-(3) above holds.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt2b_6}.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt4a_6}.
+			}
+			""";
+	];
+		
+		
+	
+		# Lower priority: if the theme of the publish action is a comment about an evaluation that really exists, then the publish action is prohibited
+		# unless the licensor approved the publishing of the evaluation's results (ExceptionArt3b_6).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 2;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_6 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited.
+			}
+			WHERE {
+					#...the theme of this Publish_6 action is a comment about an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_6.
+				$this TBox:has-theme ?c.
+				?c rdf:type TBox:Comment_6.
+				?c TBox:is-comment-of_6 ?ev.
+				?ev rdf:type TBox:Evaluate_6.
+				?ev rdf:type TBox:Rexist.
+					#...AND ExceptionArt3b_6 does not hold.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt3b_6}.
+			}
+			""";
+	];
+
+sh:targetClass TBox:Publish_6.
+
+#======================================================================================================================================
+
+#-----------------------------------
+# SHACL rules
+#-----------------------------------
+
+###############################################################################################################################################
+# Prohibition Art1 with exception: Evaluating products is prohibited unless (ExceptionArt1b_7) the Licensee_7 has a Licence_7
+###############################################################################################################################################
+:evaluatingProduct_7sIsProhibitedUnlessLicence_7 rdf:type sh:NodeShape;
+
+		#High priority: if licence has been granted on the product, then it is no longer prohibited for the licensee to evaluate the Product_7.
+	sh:rule[ rdf:type sh:SPARQLRule; sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Evaluate_7 action is not Prohibited (ExceptionArt1b_7), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted .
+				$this rdf:type TBox:ExceptionArt1b_7 .
+			}
+			WHERE {
+					#... the Product_7 has a Licence_7 which is the theme of a Grant_7 action that Rexist.
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_7.
+				$this TBox:has-theme ?p.
+				?p rdf:type TBox:Product_7.
+				?l TBox:is-licence-of_7 ?p.
+				?l rdf:type TBox:Licence_7.
+				?eg TBox:has-agent ?y.
+				?y rdf:type TBox:Licensor_7.
+				?eg TBox:has-theme ?l.
+				?eg rdf:type TBox:Grant_7.
+				?eg rdf:type TBox:Rexist.
+					#... AND the receiver of this Grant_7 action is the same agent of the Evaluate_7 action.
+				?eg TBox:has-receiver_7 ?x.
+			}
+			""";
+	];
+	
+		#Lower priority: if ExceptionArt1b_7 does not hold, then evaluating products is prohibited
+	sh:rule[ rdf:type sh:SPARQLRule; sh:order 1;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Evaluate_7 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited .
+			}
+			WHERE {
+					#The exception from the previous rule (ExceptionArt1b_7) does not hold.
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_7.
+				$this TBox:has-theme ?p.
+				?p rdf:type TBox:Product_7.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt1b_7}.
+			}
+			""";
+	];
+	
+sh:targetClass TBox:Evaluate_7.
+
+
+###############################################################################################################################################
+# Prohibitions Art2a and Art3a with exceptions: Publish_7ing results (Art2a) or comments (Art3a) of evaluations is prohibited 
+# unless some exceptions hold.
+###############################################################################################################################################
+:publishingResult_7sOrComment_7sOfEvaluationsIsProhibitedUnlessSomeExceptionsHold rdf:type sh:NodeShape;
+
+		# High priority: if publishing results of evaluations has been approved by the licensor, then publishing is permitted, 
+		# i.e., no longer prohibited (ExceptionArt2b_7 holds).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_7 action is permitted, i.e., no longer Prohibited (ExceptionArt2b_7), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted.
+				$this rdf:type TBox:ExceptionArt2b_7.
+			}
+			WHERE {
+					#...the theme of this Publish_7 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_7.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_7.
+				?ev TBox:has-result_7 ?r.
+				?ev rdf:type TBox:Evaluate_7.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND this Publish_7 action is the theme of an Approve_7 action that Rexist.
+				?ea TBox:has-theme $this.
+				?ea rdf:type TBox:Approve_7.
+				?ea rdf:type TBox:Rexist.
+				?ea TBox:has-agent ?y.
+				?y rdf:type TBox:Licensor_7.
+			}
+			""";
+	];
+	
+		#High priority: if the evaluation has been commissioned, then publishing the results is obligatory, i.e., no longer prohibited (ExceptionArt4a_7)
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_7 action is Obligatory, i.e., no longer Prohibited (ExceptionArt4a_7), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Obligatory.
+				$this rdf:type TBox:ExceptionArt4a_7.
+			}
+			WHERE {
+					#...the theme of this Publish_7 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_7.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_7.
+				?ev TBox:has-result_7 ?r.
+				?ev rdf:type TBox:Evaluate_7.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND this Evaluation is the theme of a Commission_7 action that Rexist...
+				?ec TBox:has-theme ?ev.
+				?ec rdf:type TBox:Commission_7.
+				?ec rdf:type TBox:Rexist.
+			}
+			""";
+	];
+	
+		# Medium priority: if publishing results of evaluations has been permitted, then publishing comments of these evaluations 
+		# is no longer prohibited (ExceptionArt3b_7 holds).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 1;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_7 action is no longer Prohibited (ExceptionArt3b_7), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted.
+				$this rdf:type TBox:ExceptionArt3b_7.
+			}
+			WHERE {
+					#...the theme of this Publish_7 action is the comment of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_7.
+				$this TBox:has-theme ?c.
+				?c rdf:type TBox:Comment_7.
+				?c TBox:is-comment-of_7 ?ev.
+				?ev rdf:type TBox:Evaluate_7.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND the Result_7 of this Evaluation is the theme of a Publish_7ing action that is Permitted...
+				?ev TBox:has-result_7 ?r.
+				?epr TBox:has-agent ?x.
+				?epr TBox:has-theme ?r.
+				?epr rdf:type TBox:Publish_7.
+				?epr rdf:type TBox:Permitted.
+			}
+			""";
+	];
+	
+		# Lower priority: if the theme of the publish action is a result of an evaluation that really exists, then the publish action 
+		# is prohibited unless: 
+		# (1) the licensor approved the publishing (ExceptionArt2b_7), or
+		# (2) the evaluation has been commissioned (ExceptionArt4a_7), in which case the publication of the results is obligatory.
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 2;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_7 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited.
+			}
+			WHERE {
+					#...the theme of this Publish_7 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_7.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_7.
+				?ev TBox:has-result_7 ?r.
+				?ev rdf:type TBox:Evaluate_7.
+				?ev rdf:type TBox:Rexist.
+					#... AND none of the exceptions in (1)-(2)-(3) above holds.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt2b_7}.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt4a_7}.
+			}
+			""";
+	];
+	
+		#The next rule is associated with the previous one: if the publishing is prohibited by the previous rule *and* the publishing
+		#really exists, then the removal of the results is obligatory (compensatory obligation).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 3;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#It is obligatory to remove the results (and this will compensate its prohibited publishig) IF...
+			CONSTRUCT {
+				[rdf:type TBox:Obligatory;
+				 rdf:type TBox:Remove_7;
+				 TBox:has-agent ?x;
+				 TBox:has-theme ?r;
+				 TBox:compensate $this].
+			}
+			WHERE {
+					#...this Publish_7 action really exists.
+				$this rdf:type TBox:Rexist.
+					#...and all conditions of the previous rule hold (i.e., the Publish_7 action is also Prohibited).
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_7.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_7.
+				?ev TBox:has-result_7 ?r.
+				?ev rdf:type TBox:Evaluate_7.
+				?ev rdf:type TBox:Rexist.
+					#... AND none of the exceptions in (1)-(2)-(3) above holds.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt2b_7}.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt4a_7}.
+			}
+			""";
+	];
+		
+		
+	
+		# Lower priority: if the theme of the publish action is a comment about an evaluation that really exists, then the publish action is prohibited
+		# unless the licensor approved the publishing of the evaluation's results (ExceptionArt3b_7).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 2;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_7 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited.
+			}
+			WHERE {
+					#...the theme of this Publish_7 action is a comment about an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_7.
+				$this TBox:has-theme ?c.
+				?c rdf:type TBox:Comment_7.
+				?c TBox:is-comment-of_7 ?ev.
+				?ev rdf:type TBox:Evaluate_7.
+				?ev rdf:type TBox:Rexist.
+					#...AND ExceptionArt3b_7 does not hold.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt3b_7}.
+			}
+			""";
+	];
+
+sh:targetClass TBox:Publish_7.
+
+#======================================================================================================================================
+
+#-----------------------------------
+# SHACL rules
+#-----------------------------------
+
+###############################################################################################################################################
+# Prohibition Art1 with exception: Evaluating products is prohibited unless (ExceptionArt1b_8) the Licensee_8 has a Licence_8
+###############################################################################################################################################
+:evaluatingProduct_8sIsProhibitedUnlessLicence_8 rdf:type sh:NodeShape;
+
+		#High priority: if licence has been granted on the product, then it is no longer prohibited for the licensee to evaluate the Product_8.
+	sh:rule[ rdf:type sh:SPARQLRule; sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Evaluate_8 action is not Prohibited (ExceptionArt1b_8), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted .
+				$this rdf:type TBox:ExceptionArt1b_8 .
+			}
+			WHERE {
+					#... the Product_8 has a Licence_8 which is the theme of a Grant_8 action that Rexist.
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_8.
+				$this TBox:has-theme ?p.
+				?p rdf:type TBox:Product_8.
+				?l TBox:is-licence-of_8 ?p.
+				?l rdf:type TBox:Licence_8.
+				?eg TBox:has-agent ?y.
+				?y rdf:type TBox:Licensor_8.
+				?eg TBox:has-theme ?l.
+				?eg rdf:type TBox:Grant_8.
+				?eg rdf:type TBox:Rexist.
+					#... AND the receiver of this Grant_8 action is the same agent of the Evaluate_8 action.
+				?eg TBox:has-receiver_8 ?x.
+			}
+			""";
+	];
+	
+		#Lower priority: if ExceptionArt1b_8 does not hold, then evaluating products is prohibited
+	sh:rule[ rdf:type sh:SPARQLRule; sh:order 1;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Evaluate_8 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited .
+			}
+			WHERE {
+					#The exception from the previous rule (ExceptionArt1b_8) does not hold.
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_8.
+				$this TBox:has-theme ?p.
+				?p rdf:type TBox:Product_8.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt1b_8}.
+			}
+			""";
+	];
+	
+sh:targetClass TBox:Evaluate_8.
+
+
+###############################################################################################################################################
+# Prohibitions Art2a and Art3a with exceptions: Publish_8ing results (Art2a) or comments (Art3a) of evaluations is prohibited 
+# unless some exceptions hold.
+###############################################################################################################################################
+:publishingResult_8sOrComment_8sOfEvaluationsIsProhibitedUnlessSomeExceptionsHold rdf:type sh:NodeShape;
+
+		# High priority: if publishing results of evaluations has been approved by the licensor, then publishing is permitted, 
+		# i.e., no longer prohibited (ExceptionArt2b_8 holds).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_8 action is permitted, i.e., no longer Prohibited (ExceptionArt2b_8), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted.
+				$this rdf:type TBox:ExceptionArt2b_8.
+			}
+			WHERE {
+					#...the theme of this Publish_8 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_8.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_8.
+				?ev TBox:has-result_8 ?r.
+				?ev rdf:type TBox:Evaluate_8.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND this Publish_8 action is the theme of an Approve_8 action that Rexist.
+				?ea TBox:has-theme $this.
+				?ea rdf:type TBox:Approve_8.
+				?ea rdf:type TBox:Rexist.
+				?ea TBox:has-agent ?y.
+				?y rdf:type TBox:Licensor_8.
+			}
+			""";
+	];
+	
+		#High priority: if the evaluation has been commissioned, then publishing the results is obligatory, i.e., no longer prohibited (ExceptionArt4a_8)
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_8 action is Obligatory, i.e., no longer Prohibited (ExceptionArt4a_8), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Obligatory.
+				$this rdf:type TBox:ExceptionArt4a_8.
+			}
+			WHERE {
+					#...the theme of this Publish_8 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_8.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_8.
+				?ev TBox:has-result_8 ?r.
+				?ev rdf:type TBox:Evaluate_8.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND this Evaluation is the theme of a Commission_8 action that Rexist...
+				?ec TBox:has-theme ?ev.
+				?ec rdf:type TBox:Commission_8.
+				?ec rdf:type TBox:Rexist.
+			}
+			""";
+	];
+	
+		# Medium priority: if publishing results of evaluations has been permitted, then publishing comments of these evaluations 
+		# is no longer prohibited (ExceptionArt3b_8 holds).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 1;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_8 action is no longer Prohibited (ExceptionArt3b_8), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted.
+				$this rdf:type TBox:ExceptionArt3b_8.
+			}
+			WHERE {
+					#...the theme of this Publish_8 action is the comment of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_8.
+				$this TBox:has-theme ?c.
+				?c rdf:type TBox:Comment_8.
+				?c TBox:is-comment-of_8 ?ev.
+				?ev rdf:type TBox:Evaluate_8.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND the Result_8 of this Evaluation is the theme of a Publish_8ing action that is Permitted...
+				?ev TBox:has-result_8 ?r.
+				?epr TBox:has-agent ?x.
+				?epr TBox:has-theme ?r.
+				?epr rdf:type TBox:Publish_8.
+				?epr rdf:type TBox:Permitted.
+			}
+			""";
+	];
+	
+		# Lower priority: if the theme of the publish action is a result of an evaluation that really exists, then the publish action 
+		# is prohibited unless: 
+		# (1) the licensor approved the publishing (ExceptionArt2b_8), or
+		# (2) the evaluation has been commissioned (ExceptionArt4a_8), in which case the publication of the results is obligatory.
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 2;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_8 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited.
+			}
+			WHERE {
+					#...the theme of this Publish_8 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_8.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_8.
+				?ev TBox:has-result_8 ?r.
+				?ev rdf:type TBox:Evaluate_8.
+				?ev rdf:type TBox:Rexist.
+					#... AND none of the exceptions in (1)-(2)-(3) above holds.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt2b_8}.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt4a_8}.
+			}
+			""";
+	];
+	
+		#The next rule is associated with the previous one: if the publishing is prohibited by the previous rule *and* the publishing
+		#really exists, then the removal of the results is obligatory (compensatory obligation).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 3;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#It is obligatory to remove the results (and this will compensate its prohibited publishig) IF...
+			CONSTRUCT {
+				[rdf:type TBox:Obligatory;
+				 rdf:type TBox:Remove_8;
+				 TBox:has-agent ?x;
+				 TBox:has-theme ?r;
+				 TBox:compensate $this].
+			}
+			WHERE {
+					#...this Publish_8 action really exists.
+				$this rdf:type TBox:Rexist.
+					#...and all conditions of the previous rule hold (i.e., the Publish_8 action is also Prohibited).
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_8.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_8.
+				?ev TBox:has-result_8 ?r.
+				?ev rdf:type TBox:Evaluate_8.
+				?ev rdf:type TBox:Rexist.
+					#... AND none of the exceptions in (1)-(2)-(3) above holds.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt2b_8}.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt4a_8}.
+			}
+			""";
+	];
+		
+		
+	
+		# Lower priority: if the theme of the publish action is a comment about an evaluation that really exists, then the publish action is prohibited
+		# unless the licensor approved the publishing of the evaluation's results (ExceptionArt3b_8).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 2;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_8 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited.
+			}
+			WHERE {
+					#...the theme of this Publish_8 action is a comment about an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_8.
+				$this TBox:has-theme ?c.
+				?c rdf:type TBox:Comment_8.
+				?c TBox:is-comment-of_8 ?ev.
+				?ev rdf:type TBox:Evaluate_8.
+				?ev rdf:type TBox:Rexist.
+					#...AND ExceptionArt3b_8 does not hold.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt3b_8}.
+			}
+			""";
+	];
+
+sh:targetClass TBox:Publish_8.
+
+#======================================================================================================================================
+
+#-----------------------------------
+# SHACL rules
+#-----------------------------------
+
+###############################################################################################################################################
+# Prohibition Art1 with exception: Evaluating products is prohibited unless (ExceptionArt1b_9) the Licensee_9 has a Licence_9
+###############################################################################################################################################
+:evaluatingProduct_9sIsProhibitedUnlessLicence_9 rdf:type sh:NodeShape;
+
+		#High priority: if licence has been granted on the product, then it is no longer prohibited for the licensee to evaluate the Product_9.
+	sh:rule[ rdf:type sh:SPARQLRule; sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Evaluate_9 action is not Prohibited (ExceptionArt1b_9), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted .
+				$this rdf:type TBox:ExceptionArt1b_9 .
+			}
+			WHERE {
+					#... the Product_9 has a Licence_9 which is the theme of a Grant_9 action that Rexist.
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_9.
+				$this TBox:has-theme ?p.
+				?p rdf:type TBox:Product_9.
+				?l TBox:is-licence-of_9 ?p.
+				?l rdf:type TBox:Licence_9.
+				?eg TBox:has-agent ?y.
+				?y rdf:type TBox:Licensor_9.
+				?eg TBox:has-theme ?l.
+				?eg rdf:type TBox:Grant_9.
+				?eg rdf:type TBox:Rexist.
+					#... AND the receiver of this Grant_9 action is the same agent of the Evaluate_9 action.
+				?eg TBox:has-receiver_9 ?x.
+			}
+			""";
+	];
+	
+		#Lower priority: if ExceptionArt1b_9 does not hold, then evaluating products is prohibited
+	sh:rule[ rdf:type sh:SPARQLRule; sh:order 1;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Evaluate_9 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited .
+			}
+			WHERE {
+					#The exception from the previous rule (ExceptionArt1b_9) does not hold.
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_9.
+				$this TBox:has-theme ?p.
+				?p rdf:type TBox:Product_9.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt1b_9}.
+			}
+			""";
+	];
+	
+sh:targetClass TBox:Evaluate_9.
+
+
+###############################################################################################################################################
+# Prohibitions Art2a and Art3a with exceptions: Publish_9ing results (Art2a) or comments (Art3a) of evaluations is prohibited 
+# unless some exceptions hold.
+###############################################################################################################################################
+:publishingResult_9sOrComment_9sOfEvaluationsIsProhibitedUnlessSomeExceptionsHold rdf:type sh:NodeShape;
+
+		# High priority: if publishing results of evaluations has been approved by the licensor, then publishing is permitted, 
+		# i.e., no longer prohibited (ExceptionArt2b_9 holds).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_9 action is permitted, i.e., no longer Prohibited (ExceptionArt2b_9), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted.
+				$this rdf:type TBox:ExceptionArt2b_9.
+			}
+			WHERE {
+					#...the theme of this Publish_9 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_9.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_9.
+				?ev TBox:has-result_9 ?r.
+				?ev rdf:type TBox:Evaluate_9.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND this Publish_9 action is the theme of an Approve_9 action that Rexist.
+				?ea TBox:has-theme $this.
+				?ea rdf:type TBox:Approve_9.
+				?ea rdf:type TBox:Rexist.
+				?ea TBox:has-agent ?y.
+				?y rdf:type TBox:Licensor_9.
+			}
+			""";
+	];
+	
+		#High priority: if the evaluation has been commissioned, then publishing the results is obligatory, i.e., no longer prohibited (ExceptionArt4a_9)
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 0;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_9 action is Obligatory, i.e., no longer Prohibited (ExceptionArt4a_9), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Obligatory.
+				$this rdf:type TBox:ExceptionArt4a_9.
+			}
+			WHERE {
+					#...the theme of this Publish_9 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_9.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_9.
+				?ev TBox:has-result_9 ?r.
+				?ev rdf:type TBox:Evaluate_9.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND this Evaluation is the theme of a Commission_9 action that Rexist...
+				?ec TBox:has-theme ?ev.
+				?ec rdf:type TBox:Commission_9.
+				?ec rdf:type TBox:Rexist.
+			}
+			""";
+	];
+	
+		# Medium priority: if publishing results of evaluations has been permitted, then publishing comments of these evaluations 
+		# is no longer prohibited (ExceptionArt3b_9 holds).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 1;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_9 action is no longer Prohibited (ExceptionArt3b_9), IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Permitted.
+				$this rdf:type TBox:ExceptionArt3b_9.
+			}
+			WHERE {
+					#...the theme of this Publish_9 action is the comment of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_9.
+				$this TBox:has-theme ?c.
+				?c rdf:type TBox:Comment_9.
+				?c TBox:is-comment-of_9 ?ev.
+				?ev rdf:type TBox:Evaluate_9.
+				?ev rdf:type TBox:Rexist.
+				
+					#... AND the Result_9 of this Evaluation is the theme of a Publish_9ing action that is Permitted...
+				?ev TBox:has-result_9 ?r.
+				?epr TBox:has-agent ?x.
+				?epr TBox:has-theme ?r.
+				?epr rdf:type TBox:Publish_9.
+				?epr rdf:type TBox:Permitted.
+			}
+			""";
+	];
+	
+		# Lower priority: if the theme of the publish action is a result of an evaluation that really exists, then the publish action 
+		# is prohibited unless: 
+		# (1) the licensor approved the publishing (ExceptionArt2b_9), or
+		# (2) the evaluation has been commissioned (ExceptionArt4a_9), in which case the publication of the results is obligatory.
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 2;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_9 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited.
+			}
+			WHERE {
+					#...the theme of this Publish_9 action is the result of an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_9.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_9.
+				?ev TBox:has-result_9 ?r.
+				?ev rdf:type TBox:Evaluate_9.
+				?ev rdf:type TBox:Rexist.
+					#... AND none of the exceptions in (1)-(2)-(3) above holds.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt2b_9}.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt4a_9}.
+			}
+			""";
+	];
+	
+		#The next rule is associated with the previous one: if the publishing is prohibited by the previous rule *and* the publishing
+		#really exists, then the removal of the results is obligatory (compensatory obligation).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 3;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#It is obligatory to remove the results (and this will compensate its prohibited publishig) IF...
+			CONSTRUCT {
+				[rdf:type TBox:Obligatory;
+				 rdf:type TBox:Remove_9;
+				 TBox:has-agent ?x;
+				 TBox:has-theme ?r;
+				 TBox:compensate $this].
+			}
+			WHERE {
+					#...this Publish_9 action really exists.
+				$this rdf:type TBox:Rexist.
+					#...and all conditions of the previous rule hold (i.e., the Publish_9 action is also Prohibited).
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_9.
+				$this TBox:has-theme ?r.
+				?r rdf:type TBox:Result_9.
+				?ev TBox:has-result_9 ?r.
+				?ev rdf:type TBox:Evaluate_9.
+				?ev rdf:type TBox:Rexist.
+					#... AND none of the exceptions in (1)-(2)-(3) above holds.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt2b_9}.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt4a_9}.
+			}
+			""";
+	];
+		
+		
+	
+		# Lower priority: if the theme of the publish action is a comment about an evaluation that really exists, then the publish action is prohibited
+		# unless the licensor approved the publishing of the evaluation's results (ExceptionArt3b_9).
+	sh:rule[ rdf:type sh:SPARQLRule;sh:order 2;
+		sh:prefixes[sh:declare 
+			[sh:prefix"rdf";sh:namespace"http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI],
+			[sh:prefix"TBox";sh:namespace"http://www.licenceusecaseonto.org/"^^xsd:anyURI]];
+		sh:construct """
+				#The Publish_9 action is Prohibited IF...
+			CONSTRUCT {
+				$this rdf:type TBox:Prohibited.
+			}
+			WHERE {
+					#...the theme of this Publish_9 action is a comment about an Evaluation that Rexist...
+				$this TBox:has-agent ?x.
+				?x rdf:type TBox:Licensee_9.
+				$this TBox:has-theme ?c.
+				?c rdf:type TBox:Comment_9.
+				?c TBox:is-comment-of_9 ?ev.
+				?ev rdf:type TBox:Evaluate_9.
+				?ev rdf:type TBox:Rexist.
+					#...AND ExceptionArt3b_9 does not hold.
+				NOT EXISTS{$this rdf:type TBox:ExceptionArt3b_9}.
+			}
+			""";
+	];
+
+sh:targetClass TBox:Publish_9.
