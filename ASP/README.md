@@ -25,5 +25,5 @@ For this experiment, we used:
 </p>
 
 <p align="justify">
-Once the reasoners are properly installed, you just run the instructions in the file <i>run.bat</i>. These will first execute a local Java file (<b>createClingoRunFile.java</b> or <b>createDLV2RunFile.java</b>) that will generate indexed copies of the file <b>regulative+compliance_rules.asp</b> within the subfolder <b>INDEXED_RULES</b> as well as a file <b>run2.bat</b> that will execute the indexed rules one by one.
+Once the reasoners are properly installed, you just run the instructions in the file <b>run.bat</b>. These will first execute a local Java file (<b>createClingoRunFile.java</b> or <b>createDLV2RunFile.java</b>) that will generate indexed copies of the file <b>regulative+compliance_rules.asp</b> within the subfolder <b>INDEXED_RULES</b> as well as a file <b>run2.bat</b> that will execute the indexed rules one by one.
 </p>
