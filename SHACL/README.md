@@ -24,7 +24,7 @@ After the file is compiled (<b>DetectViolationsOnCorpus.class</b> has been gener
 </p>
 
 <p align="center">
-<i>java -cp .;./lib/* -Dfile.encoding=utf-8 DetectViolationsOnCorpus "licenceusecaseTBox.owl" "riolOntology.owl" "regulativerules.ttl" "compliancerules.ttl" "CORPUS/SHACL"</i>
+<i>java -cp .;./lib/* -Dfile.encoding=utf-8 DetectViolationsOnCorpus "licenceusecaseTBox.owl" "INDEXED_RULES" "compliancerules.ttl" "CORPUS/SHACL" "CORPUS/evaluationSHACL.txt"</i>
 </p>
 
 <p align="justify">
